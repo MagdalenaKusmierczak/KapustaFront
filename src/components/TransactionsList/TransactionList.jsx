@@ -16,7 +16,7 @@ import {
 } from "./TransactionList.styled";
 
 export const TransactionList = () => {
-  
+
   // Selectors
   const allTransactions = useSelector(selectAllTransactions);
   // Dispatch
@@ -43,7 +43,7 @@ export const TransactionList = () => {
         // Check for category, assign color of operation
         let color;
         let minus = false;
-        if (category === "З/П" || category === "Доп. доход") {
+        if (category === "Salary" || category === "Additional income") {
           color = "green";
         } else {
           color = "red";
