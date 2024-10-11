@@ -7,40 +7,6 @@ import { List, Item, ItemIncome,ItemSvg, BgcSvg,   } from "./ReportsList.styled"
 import icons from "../../../assets/icons.svg";
 
 export const ReportsList = ({ onChange }) => {
-  //Translation
-  const translateToEng = (name) => {
-    switch (name.trim()) {
-      case "Продукты":
-        return "Products";
-      case "Алкоголь":
-        return "Alcohol";
-      case "Развлечения":
-        return "Entertainment";
-      case "Здоровье":
-        return "Health";
-      case "Транспорт":
-        return "Transport";
-      case "Всё для дома":
-        return "Housing";
-      case "Техника":
-        return "Technics";
-      case "Коммуналка и связь":
-        return "Communal and communication";
-      case "Спорт и хобби":
-        return "Sport and hobby";
-      case "Образование":
-        return "Education";
-      case "Прочее":
-        return "Other";
-      case "З/П":
-        return "Salary";
-      case "Доп. доход":
-        return "Additional income";
-      default:
-        break;
-    }
-  };
-
   // State
   const [active, setActive] = useState("");
   const [data, setData] = useState({});
@@ -111,7 +77,7 @@ export const ReportsList = ({ onChange }) => {
                   />
                   <use href={`${icons}#${iconName}`}></use>
                 </ItemSvg>
-                <p>{translateToEng(item[0])}</p>
+                <p>{item[0]}</p>
               </Item>
             );
           } else if (onChange === "income") {
@@ -142,7 +108,7 @@ export const ReportsList = ({ onChange }) => {
                   />
                   <use href={`${icons}#${iconName}`}></use>
                 </ItemSvg>
-                <p>{translateToEng(item[0])}</p>
+                <p>{item[0]}</p>
               </ItemIncome>
             );
           }

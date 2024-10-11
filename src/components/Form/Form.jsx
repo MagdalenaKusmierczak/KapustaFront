@@ -16,7 +16,6 @@ import DateSelect from "./DateSelect/DateSelect";
 import CategorySelect from "./Category/Category";
 import InputCalc from "./Input/Input";
 
-
 import { addExpense, addIncome } from "../../redux/transactions/operations";
 
 // Form to add incomes or expenses
@@ -24,39 +23,6 @@ const Form = () => {
   // State
   const [elementCategory, setElementCategory] = useState("Category");
   const [startDate, setStartDate] = useState(new Date());
-  //Translate
-  const translateBack = (name) => {
-    switch (name.trim()) {
-      case "Products":
-        return "Продукты";
-      case "Alcohol":
-        return "Алкоголь";
-      case "Entertainment":
-        return "Развлечения";
-      case "Health":
-        return "Здоровье";
-      case "Transport":
-        return "Транспорт";
-      case "Housing":
-        return "Всё для дома";
-      case "Technics":
-        return "Техника";
-      case "Communal and communication":
-        return "Коммуналка и связь";
-      case "Sport and hobby":
-        return "Спорт и хобби";
-      case "Education":
-        return "Образование";
-      case "Other":
-        return "Прочее";
-      case "Salary":
-        return "З/П";
-      case "Additional income":
-        return "Доп. доход";
-      default:
-        break;
-    }
-  };
   //Media
   const { isMobile } = useMatchMedia();
   // Location
@@ -129,7 +95,7 @@ const Form = () => {
       description: descr.value,
       amount: Number(transValue),
       date: startDate.toISOString().split("T")[0],
-      category: translateBack(elementCategory),
+      category: elementCategory,
     };
     // dispatch
     dispatch(functionToDispatch(dataToDispatch));

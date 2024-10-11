@@ -8,40 +8,7 @@ import { TransactionTable } from "./TransactionListDesktop.styled";
 // import icons from "../../assets/icons.svg";
 
 export const TransactionListDesktop = ({ children }) => {
-  //Translation
-  // const categoryTranslateEng = (name) => {
-  //   switch (name.trim()) {
-  //     case "Продукты":
-  //       return "Products";
-  //     case "Алкоголь":
-  //       return "Alcohol";
-  //     case "Развлечения":
-  //       return "Entertainment";
-  //     case "Здоровье":
-  //       return "Health";
-  //     case "Транспорт":
-  //       return "Transport";
-  //     case "Всё для дома":
-  //       return "Housing";
-  //     case "Техника":
-  //       return "Technics";
-  //     case "Коммуналка и связь":
-  //       return "Communal and communication";
-  //     case "Спорт и хобби":
-  //       return "Sport and hobby";
-  //     case "Образование":
-  //       return "Education";
-  //     case "Прочее":
-  //       return "Other";
-  //     case "З/П":
-  //       return "Salary";
-  //     case "Доп. доход":
-  //       return "Additional income";
-  //     default:
-  //       break;
-  //   }
-  // };
-  // Dispatch
+
   // const dispatch = useDispatch();
   // Selectors
   // const isLoading = useSelector(selectIsLoading);
@@ -86,7 +53,7 @@ export const TransactionListDesktop = ({ children }) => {
             <tr key={_id} style={{ height: 40 }}>
               <td>{date.split("-").reverse().join(".")}</td>
               <td>{description}</td>
-              <td>{categoryTranslateEng(category)}</td>
+              <td>{(category)}</td>
               <td style={{ color }}>
                 {minus} {amount}.00 UAH
               </td>

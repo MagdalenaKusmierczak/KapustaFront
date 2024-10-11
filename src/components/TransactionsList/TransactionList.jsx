@@ -16,40 +16,7 @@ import {
 } from "./TransactionList.styled";
 
 export const TransactionList = () => {
-  //Translation
-  const categoryTranslateEng = (name) => {
-    switch (name.trim()) {
-      case "Продукты":
-        return "Products";
-      case "Алкоголь":
-        return "Alcohol";
-      case "Развлечения":
-        return "Entertainment";
-      case "Здоровье":
-        return "Health";
-      case "Транспорт":
-        return "Transport";
-      case "Всё для дома":
-        return "Housing";
-      case "Техника":
-        return "Technics";
-      case "Коммуналка и связь":
-        return "Communal and communication";
-      case "Спорт и хобби":
-        return "Sport and hobby";
-      case "Образование":
-        return "Education";
-      case "Прочее":
-        return "Other";
-      case "З/П":
-        return "Salary";
-      case "Доп. доход":
-        return "Additional income";
-      default:
-        break;
-    }
-  };
-
+  
   // Selectors
   const allTransactions = useSelector(selectAllTransactions);
   // Dispatch
@@ -93,7 +60,7 @@ export const TransactionList = () => {
                 {/* Date */}
                 <ItemDate>{date.split("-").reverse().join(".")}</ItemDate>
                 {/* Category */}
-                <ItemCategory>{categoryTranslateEng(category)}</ItemCategory>
+                <ItemCategory>{(category)}</ItemCategory>
               </ItemDateCont>
             </ItemNameCont>
             <SumCont>

@@ -9,37 +9,6 @@ import {
   selectIncomeSummary,
 } from "../../redux/transactions/selectors";
 
-const monthTranslate = (name) => {
-  switch (name) {
-    case "Январь":
-      return "January";
-    case "Февраль":
-      return "February";
-    case "Март":
-      return "March";
-    case "Апрель":
-      return "April";
-    case "Май":
-      return "May";
-    case "Июнь":
-      return "June";
-    case "Июль":
-      return "July";
-    case "Август":
-      return "August";
-    case "Сентябрь":
-      return "September";
-    case "Октябрь":
-      return "October";
-    case "Ноябрь":
-      return "November";
-    case "Декабрь":
-      return "December";
-    default:
-      break;
-  }
-};
-
 const Summary = () => {
   const location = useLocation();
 
@@ -65,7 +34,7 @@ const Summary = () => {
           } else {
             return (
               <ListItem key={`${el[0]}${el[1]}`}>
-                <Month>{monthTranslate(el[0])}</Month>
+                <Month>{(el[0])}</Month>
                 <Value>{el[1]}.00</Value>
               </ListItem>
             );
