@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-export const Form = styled.div`
+export const FormWrapper = styled.div`
   width: 280px;
   height: 496px;
   display: flex;
@@ -49,6 +49,7 @@ export const Label = styled.label`
 `;
 
 export const LabelText = styled.span`
+  display: flex;
   margin-bottom: 12px;
   width: 100%;
   font-style: normal;
