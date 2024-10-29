@@ -5,8 +5,7 @@ const initialState = {
   user: { email: null, id: null },
   token: null,
   isLoggedIn: false,
-  isLoadingCurrentUser: false,
-  isFetchingCurrentUser: false,
+  isRefreshing: false,
 };
 
 export const authSlice = createSlice({
@@ -21,7 +20,8 @@ export const authSlice = createSlice({
     builder
       // login
       .addCase(logIn.fulfilled, (state, action) => {
-        const { email, id, balance } = action.payload.userData;
+        console.log(action.payload);
+        const { balance, email, id } = action.payload.userData;
         state.user = { email, id, newBalance: balance };
         state.token = action.payload.accessToken;
         state.isLoggedIn = true;
@@ -34,15 +34,15 @@ export const authSlice = createSlice({
       })
       // refresh user
       .addCase(refreshUser.pending, (state, action) => {
-        state.isFetchingCurrentUser = true;
+        state.isRefreshing = true;
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
-        state.isFetchingCurrentUser = false;
+        state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, (state, action) => {
-        state.isFetchingCurrentUser = false;
+        state.isRefreshing = false;
         state.user = { email: null, id: null, newBalance: null };
         state.token = null;
         state.isLoggedIn = false;
