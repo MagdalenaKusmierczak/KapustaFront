@@ -1,6 +1,5 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://demokraci-kapusta.onrender.com/";
-
+axios.defaults.baseURL = "https://kapusta-backend-fq38.onrender.com/";
 
 export const addIncomeAPI = async (info) => {
   const { data } = await axios.post("/transaction/income", info);
@@ -14,7 +13,6 @@ export const getIncomeAPI = async () => {
 
 export const addExpenseAPI = async (info) => {
   const { data } = await axios.post("/transaction/expense", info);
-
   return data;
 };
 
