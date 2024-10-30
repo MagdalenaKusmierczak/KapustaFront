@@ -11,6 +11,7 @@ import {
 } from "./operations";
 
 const initialState = {
+  balance: 0,
   newBalance: 0,
   isLoading: false,
   error: null,
@@ -18,7 +19,7 @@ const initialState = {
     incomeTransactions: [],
     monthsStats: {},
   },
-  expences: {
+  expenses: {
     expenseTransactions: [],
     monthsStats: {},
   },
@@ -67,7 +68,7 @@ export const transactionsSlice = createSlice({
       .addCase(addExpense.pending, handlePending)
       .addCase(addExpense.fulfilled, (state, action) => {
         state.newBalance = action.payload.newBalance;
-        state.expences.expenseTransactions.push(action.payload.transaction);
+        state.expenses.expenseTransactions.push(action.payload.transaction);
         state.allTransactions.push(action.payload.transaction);
         state.isLoading = false;
       })
@@ -75,8 +76,8 @@ export const transactionsSlice = createSlice({
       // Get Expenses
       .addCase(getExpenses.pending, handlePending)
       .addCase(getExpenses.fulfilled, (state, action) => {
-        state.expences.expenseTransactions = action.payload.expenses;
-        state.expences.monthsStats = action.payload.monthsStats;
+        state.expenses.expenseTransactions = action.payload.expenses;
+        state.expenses.monthsStats = action.payload.monthsStats;
         state.isLoading = false;
       })
       .addCase(getExpenses.rejected, handleRejected)
@@ -99,8 +100,8 @@ export const transactionsSlice = createSlice({
           state.incomes.incomeTransactions.filter(
             (el) => el._id !== action.payload.id
           );
-        state.expences.expenseTransactions =
-          state.expences.expenseTransactions.filter(
+        state.expenses.expenseTransactions =
+          state.expenses.expenseTransactions.filter(
             (el) => el._id !== action.payload.id
           );
       })
