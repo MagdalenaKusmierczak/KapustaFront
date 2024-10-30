@@ -3,7 +3,6 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { PrivateRoute } from "./pages/PrivateRoute";
 import { RestrictedRoute } from "./pages/RestrictedRoute";
 import SharedLayout from "./pages/SharedLayout/SharedLayout";
-import "./App.css";
 const Reports = lazy(() => import("./pages/Reports/Reports"));
 const Expenses = lazy(() => import("./pages/Expenses/Expenses"));
 const Income = lazy(() => import("./pages/Incomes/Incomes"));
