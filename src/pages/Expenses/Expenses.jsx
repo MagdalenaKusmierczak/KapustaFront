@@ -2,22 +2,19 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useLocation } from "react-router";
-
 import { useMatchMedia } from "../../hooks/MediaQuery";
 import { TransactionList } from "../../components/TransactionsList/TransactionList";
 import { TransactionListDesktop } from "../../components/TransactionsList/TransactionListDesktop";
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import {
-  selectBalance,
   selectExpensesTransactions,
+  selectBalance,
 } from "../../redux/transactions/selectors";
 import { getExpenses } from "../../redux/transactions/operations";
-
-import Form from "../../components/Form/Form";
 import Summary from "../../components/Summary/Summary";
 import Balance from "../../components/Balance/MainBalance/Balance";
 import { BackButton } from "../../components/ModalButtons/BackButton";
-
+import Form from "../../components/Form/Form";
 import {
   StyledBg,
   StyledFrame,
@@ -26,28 +23,24 @@ import {
   StyledTabsMobile,
 } from "./Expenses.styled";
 
-// Expenses page
-const Expenses = () => {
-  //Location
+export default function Expenses() {
   const location = useLocation();
+
   const isTransactions =
     location.pathname === "/income/transactions" ||
     location.pathname === "/expenses/transactions";
 
-  //Media
-  const { isMobile, isTablet, isDesktop } = useMatchMedia();
-  // Dispatch
   const dispatch = useDispatch();
-  // Selectors
+
+  const { isMobile, isTablet, isDesktop } = useMatchMedia();
+
   const allExpenses = useSelector(selectExpensesTransactions);
   const user = useSelector(selectIsLoggedIn);
   const balance = useSelector(selectBalance);
   const color = "red";
-  // Get expenses data
+
   useEffect(() => {
-    if (user) {
-      dispatch(getExpenses());
-    }
+    if (user) dispatch(getExpenses());
   }, [dispatch, user, balance]);
 
   return (
@@ -105,6 +98,4 @@ const Expenses = () => {
       {isTablet && <Summary />}
     </>
   );
-};
-
-export default Expenses;
+}
