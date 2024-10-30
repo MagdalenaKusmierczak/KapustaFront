@@ -20,7 +20,7 @@ const initialState = {
     monthsStats: {},
   },
   expenses: {
-    expenseTransactions: [],
+    expensesTransactions: [],
     monthsStats: {},
   },
   allTransactions: [],
@@ -67,7 +67,7 @@ export const transactionsSlice = createSlice({
       .addCase(addExpense.pending, handlePending)
       .addCase(addExpense.fulfilled, (state, action) => {
         state.newBalance = action.payload.newBalance;
-        state.expenses.expenseTransactions.push(action.payload.transaction);
+        state.expenses.expensesTransactions.push(action.payload.transaction);
         state.allTransactions.push(action.payload.transaction);
         state.isLoading = false;
       })
@@ -75,7 +75,7 @@ export const transactionsSlice = createSlice({
       // Get Expenses
       .addCase(getExpenses.pending, handlePending)
       .addCase(getExpenses.fulfilled, (state, action) => {
-        state.expenses.expenseTransactions = action.payload.expenses;
+        state.expenses.expensesTransactions = action.payload.expenses;
         state.expenses.monthsStats = action.payload.monthsStats;
         state.isLoading = false;
       })
@@ -99,8 +99,8 @@ export const transactionsSlice = createSlice({
           state.incomes.incomeTransactions.filter(
             (el) => el._id !== action.payload.id
           );
-        state.expenses.expenseTransactions =
-          state.expenses.expenseTransactions.filter(
+        state.expenses.expensesTransactions =
+          state.expenses.expensesTransactions.filter(
             (el) => el._id !== action.payload.id
           );
       })
