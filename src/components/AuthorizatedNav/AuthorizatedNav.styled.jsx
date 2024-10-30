@@ -31,6 +31,9 @@ export const LoginName = styled.p`
 
 export const LogoutImg = styled.button`
   cursor: pointer;
+  border: none;
+  padding: 0;
+  margin: 0;
   @media screen and (min-width: 768px) {
     display: none;
   }
@@ -49,19 +52,19 @@ export const VerticalLine = styled.span`
 
 export const ExitButton = styled.button`
   display: none;
-
   @media screen and (min-width: 768px) {
     display: block;
     cursor: pointer;
-    border: none;
+    border: 0px;
     background-color: transparent;
     text-decoration: underline;
     font-size: 12px;
     line-height: 1.17;
-    color: #52555f;
   }
 `;
 export const PageIcon = styled.svg`
+  display: flex;
   width: 20px;
   height: 20px;
+  color: #52555f;
 `;
