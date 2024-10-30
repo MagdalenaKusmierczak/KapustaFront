@@ -35,7 +35,8 @@ h5,
 h6,
 p,
 label,
-button {
+button,
+div {
   padding: 0;
   margin: 0;
   user-select: none;
