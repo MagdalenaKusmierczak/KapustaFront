@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { OrangeButton } from "../ModalButtons/OrangeButton";
 import styled from "styled-components";
 
-export const FormRegister = styled.div`
+export const FormRegisterWrapper = styled.div`
   width: 280px;
   height: 496px;
   display: flex;
@@ -14,7 +14,6 @@ export const FormRegister = styled.div`
   background-color: #fff;
   box-shadow: 5px 10px 20px 0px #aab2c566;
   border-radius: 30px;
-
   @media screen and (min-width: 768px) {
     box-shadow: 0px 10px 60px 0px #aab2c533;
     width: 426px;
@@ -33,7 +32,6 @@ export const PromtText = styled.p`
   letter-spacing: 0.04em;
   color: #52555f;
   margin-bottom: 16px;
-
   @media screen and (min-width: 768px) {
     margin-bottom: 20px;
   }
@@ -49,7 +47,6 @@ export const PromtText1 = styled.p`
   letter-spacing: 0.04em;
   color: #52555f;
   margin-bottom: 16px;
-
   @media screen and (min-width: 768px) {
     margin-bottom: 20px;
   }
@@ -59,7 +56,6 @@ export const Label = styled.label`
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-
   @media screen and (min-width: 768px) {
     margin-bottom: 32px;
   }
@@ -111,7 +107,6 @@ export const FormInput = styled.input`
   background-color: #f6f7fb;
   padding: 17px 18px;
   width: 240px;
-
   @media screen and (min-width: 768px) {
     padding: 17px 20px 17px 20px;
     width: 259px;
@@ -146,7 +141,6 @@ export const Navlink = styled(NavLink)`
   align-content: center;
   color: #52555f;
   background-color: #f5f6fb;
-
   &.active {
     color: #ffffff;
     background-color: #ff751d;

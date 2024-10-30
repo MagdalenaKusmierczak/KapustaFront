@@ -6,8 +6,9 @@ import imageTabBg from "../../images/backgroundTablet.png";
 import imageDeskBg from "../../images/backgroundDesktop.png";
 
 export const StyledLoginPage = styled.div`
-  margin: auto auto;
-  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const Background = styled.div`
@@ -20,24 +21,31 @@ export const Background = styled.div`
   background-repeat: no-repeat;
   padding-top: 86px;
   padding-left: 20px;
+  margin-bottom: 100px;
+  height: 100%;
 
   @media screen and (min-width: 768px) {
+    width: 768px;
+    height: 100%;
     padding-top: 80px;
     align-items: center;
     padding-left: 32px;
     padding-right: 32px;
-    width: 768px;
-    height: 582px;
+
     background-image: url(${imageTabBg});
     background-repeat: no-repeat;
   }
 
   @media screen and (min-width: 1280px) {
-    padding-top: 308px;
+    width: 1280px;
+    min-height: 850px;
+    max-height: 100vh;
+    padding-top: 173px;
+    padding-right: 91px;
+    padding-left: 229px;
     flex-direction: row;
     justify-content: center;
-    width: 1280px;
-    height: 582px;
+    background-size: 1280px, 582px;
     background-image: url(${imageDeskBg});
     background-repeat: no-repeat;
   }
@@ -139,7 +147,6 @@ export const Text = styled.p`
     line-height: 1.18;
     letter-spacing: 0.18em;
   }
-
 `;
 
 export const TextWrap = styled.div`
