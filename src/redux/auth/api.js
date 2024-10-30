@@ -30,7 +30,6 @@ export const logoutAPI = async () => {
 //       accept: "*/*",
 //     },
 //   });
-//   console.log("response", response);
 //   return response;
 // };
 

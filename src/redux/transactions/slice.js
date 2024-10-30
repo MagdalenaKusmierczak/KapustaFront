@@ -41,7 +41,6 @@ export const transactionsSlice = createSlice({
   reducers: {
     updateAuthBalance: (state, action) => {
       console("test");
-      console.log(action.payload);
       state.newBalance = action.payload;
     },
   },
