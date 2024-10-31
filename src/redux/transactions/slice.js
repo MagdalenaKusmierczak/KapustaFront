@@ -26,7 +26,7 @@ const initialState = {
   allTransactions: [],
 };
 
-export const handlePending = (state) => {
+const handlePending = (state) => {
   state.isLoading = true;
 };
 
@@ -40,7 +40,6 @@ export const transactionsSlice = createSlice({
   initialState,
   reducers: {
     updateAuthBalance: (state, action) => {
-      console("test");
       state.newBalance = action.payload;
     },
   },

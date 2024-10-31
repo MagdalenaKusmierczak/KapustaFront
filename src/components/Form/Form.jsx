@@ -1,8 +1,20 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useLocation } from "react-router";
-import { useDispatch } from "react-redux";
-import { OrangeButton } from "../ModalButtons/OrangeButton";
+import { useDispatch, useSelector } from "react-redux";
 import { useMatchMedia } from "../../hooks/MediaQuery";
+import { OrangeButton } from "../ModalButtons/OrangeButton";
+import DateSelect from "./DateSelect/DateSelect";
+import CategorySelect from "./Category/Category";
+import InputCalc from "./Input/Input";
+import { addExpense, addIncome } from "../../redux/transactions/operations";
+import {
+  getIncomeCategoriesArr,
+  getExpenseCategoriesArr,
+} from "../../redux/categories/operations";
+import {
+  selectExpensesCategories,
+  selectIncomeCategories,
+} from "../../redux/categories/selectors";
 import {
   FormWrap,
   StyledForm,
@@ -12,42 +24,45 @@ import {
   StyledWhiteButton,
 } from "./Form.styled";
 
-import DateSelect from "./DateSelect/DateSelect";
-import CategorySelect from "./Category/Category";
-import InputCalc from "./Input/Input";
-
-import { addExpense, addIncome } from "../../redux/transactions/operations";
-
-// Form to add incomes or expenses
 const Form = () => {
-  // State
   const [elementCategory, setElementCategory] = useState("Category");
   const [startDate, setStartDate] = useState(new Date());
-  //Media
+
   const { isMobile } = useMatchMedia();
-  // Location
+
   const location = useLocation();
+
   const isHome = location.pathname === "/";
+
   const isIncExp =
     location.pathname === "/income" || location.pathname === "/expenses";
+
   const isTransactions =
     location.pathname === "/income/transactions" ||
     location.pathname === "/expenses/transactions";
-  const isVisible = isHome === true;
-  // Refs
-  const form = useRef(null);
-  // Dispatch
-  const dispatch = useDispatch();
-  // Check for device
 
+  const isVisible = isHome === true;
+
+  const form = useRef(null);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getIncomeCategoriesArr());
+    dispatch(getExpenseCategoriesArr());
+  }, [dispatch]);
+
+  const expensesArr = useSelector(selectExpensesCategories);
+  const incomesArr = useSelector(selectIncomeCategories);
+  console.log(incomesArr);
   let categoryArray;
   let functionToDispatch;
-  // Check location for submit incomes or expenses
+
   if (
     location.pathname === "/income" ||
     location.pathname === "/income/transactions"
   ) {
-    categoryArray = ["Salary", "Additional income"];
+    categoryArray = incomesArr;
     functionToDispatch = addIncome;
   }
   if (
@@ -55,19 +70,7 @@ const Form = () => {
     location.pathname === "/" ||
     location.pathname === "/expenses/transactions"
   ) {
-    categoryArray = [
-      "Products",
-      "ЗСУ",
-      "Entertainment",
-      "Health",
-      "Transport",
-      "Housing",
-      "Technics",
-      "Communal and communication",
-      "Sport and hobby",
-      "Education",
-      "Other",
-    ];
+    categoryArray = expensesArr;
     functionToDispatch = addExpense;
   }
   // Handle Submit
@@ -121,7 +124,11 @@ const Form = () => {
           {/* Div with inputs */}
           <StyledAllInputsDiv>
             {/* Product input */}
-            <InputProduct placeholder="Product description" name="descr" />
+            <InputProduct
+              autoComplete="off"
+              placeholder="Product description"
+              name="descr"
+            />
             {/* Category input */}
             <CategorySelect
               categoryArray={categoryArray}
@@ -145,7 +152,11 @@ const Form = () => {
           {/* Div with inputs */}
           <StyledAllInputsDiv>
             {/* Product input */}
-            <InputProduct placeholder="Product description" name="descr" />
+            <InputProduct
+              autoComplete="off"
+              placeholder="Product description"
+              name="descr"
+            />
             {/* Category input */}
             <CategorySelect
               categoryArray={categoryArray}

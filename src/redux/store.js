@@ -3,6 +3,7 @@ import { authReducer } from "./auth/slice";
 import { transactionsReducer } from "./transactions/slice";
 import { reportsReducer } from "./reports/slice";
 import { reportsQueryReducer } from "./reportsQuery/reportsQuery.slice";
+import { categoriesReducer} from "./categories/slice";
 import modalReducer from "./modal/modalSlice";
 
 import {
@@ -29,6 +30,7 @@ export const store = configureStore({
     transactions: transactionsReducer,
     reports: reportsReducer,
     reportsQuery: reportsQueryReducer,
+    categories: categoriesReducer,
     modal: modalReducer,
   },
   middleware: (getDefaultMiddleware) =>
