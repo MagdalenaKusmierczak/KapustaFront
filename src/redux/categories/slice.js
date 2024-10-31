@@ -24,7 +24,6 @@ export const categoriesSlice = createSlice({
     builder
       .addCase(getIncomeCategoriesArr.pending, handlePending)
       .addCase(getIncomeCategoriesArr.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.income = action.payload.incomeCategories;
         state.isLoading = false;
       })

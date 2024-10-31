@@ -54,7 +54,6 @@ const Form = () => {
 
   const expensesArr = useSelector(selectExpensesCategories);
   const incomesArr = useSelector(selectIncomeCategories);
-  console.log(incomesArr);
   let categoryArray;
   let functionToDispatch;
 
@@ -73,12 +72,12 @@ const Form = () => {
     categoryArray = expensesArr;
     functionToDispatch = addExpense;
   }
-  // Handle Submit
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const { descr, sum } = event.target.elements;
     let transValue = sum.value;
-    // Checks for empty values
+
     if (descr.value.trim() === "") {
       alert("Please enter a description");
       return;
@@ -93,19 +92,18 @@ const Form = () => {
     }
     if (transValue < 0) transValue = transValue * -1;
 
-    // Prepare data for dispatch
     const dataToDispatch = {
       description: descr.value,
       amount: Number(transValue),
       date: startDate.toISOString().split("T")[0],
       category: elementCategory,
     };
-    // dispatch
+
     dispatch(functionToDispatch(dataToDispatch));
     event.target.reset();
     setElementCategory("Product category");
   };
-  // Reset Form
+
   const handleReset = () => {
     form.current.reset();
   };
