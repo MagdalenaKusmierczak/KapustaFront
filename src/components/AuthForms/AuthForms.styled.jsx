@@ -1,8 +1,7 @@
-import { NavLink } from "react-router-dom";
-import { OrangeButton } from "../ModalButtons/OrangeButton";
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
-export const FormRegisterWrapper = styled.div`
+export const FormWrapper = styled.div`
   width: 280px;
   height: 496px;
   display: flex;
@@ -20,49 +19,6 @@ export const FormRegisterWrapper = styled.div`
     height: 552px;
     padding: 56px 84px;
   }
-`;
-
-export const PromtText = styled.p`
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16;
-  text-align: center;
-  letter-spacing: 0.04em;
-  color: #52555f;
-  margin-bottom: 16px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 20px;
-  }
-`;
-
-export const PromtText1 = styled.p`
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16;
-  text-align: left;
-  letter-spacing: 0.04em;
-  color: #52555f;
-  margin-bottom: 16px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 20px;
-  }
-`;
-
-export const Label = styled.label`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  @media screen and (min-width: 768px) {
-    margin-bottom: 32px;
-  }
-`;
-
-export const LogInBtn = styled(OrangeButton)`
-  width: 116px;
 `;
 
 export const BtnGoogle = styled.a`
@@ -86,18 +42,43 @@ export const BtnGoogle = styled.a`
   color: #000000;
 `;
 
-export const LabelText = styled.span`
-  margin-bottom: 12px;
-  width: 100%;
+
+export const Text = styled.p`
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 10px;
-  line-height: 1.2;
+  font-size: 12px;
+  line-height: 1.16;
+  text-align: center;
+  letter-spacing: 0.04em;
+  color: #52555f;
+  margin-bottom: 16px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+`;
+
+export const Label = styled.label`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
+`;
+
+export const LabelText = styled.span`
+  display: flex;
+  margin-bottom: 12px;
+  width: 100%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 12px;
   color: #000000;
 `;
 
-export const FormInput = styled.input`
+export const Input = styled.input`
   box-shadow: inset 0 0 0 1px #f6f7fb, inset 0 0 0 100px #f6f7fb;
   display: flex;
   justify-content: center;
@@ -116,21 +97,23 @@ export const FormInput = styled.input`
 
 export const ButtonBox = styled.div`
   display: flex;
-  justify-content: space-between;
+  gap: 8px;
+  @media screen and (min-width: 768px) {
+    gap: 15px;
+  }
 `;
 
 export const Navlink = styled(NavLink)`
-  width: 116px;
+  width: 122px;
   height: 44px;
   background-color: #f5f6fb;
   border-radius: 16px;
   border: none;
   padding: 0;
+  font-style: normal;
   font-weight: 700;
   font-size: 12px;
   line-height: 1.16;
-  display: flex;
-  justify-content: center;
   align-items: center;
   text-align: center;
   letter-spacing: 0.02em;
@@ -138,9 +121,12 @@ export const Navlink = styled(NavLink)`
   box-shadow: #52555f;
   filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
   cursor: pointer;
-  align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #52555f;
   background-color: #f5f6fb;
+  text-decoration: none;
   &.active {
     color: #ffffff;
     background-color: #ff751d;

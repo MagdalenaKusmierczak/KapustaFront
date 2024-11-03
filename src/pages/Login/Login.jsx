@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginForm } from "../../components/LoginForm/LoginForm";
+import { LoginForm } from "../../components/AuthForms/LoginForm/LoginForm";
 import { useMatchMedia } from "../../hooks/MediaQuery";
 
 import {

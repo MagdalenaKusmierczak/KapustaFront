@@ -1,5 +1,5 @@
 import React from "react";
-import { RegistrationForm } from "../../components/Registration/Registration";
+import { RegistrationForm } from "../../components/AuthForms/RegistrationForm/RegistrationForm";
 import { useMatchMedia } from "../../hooks/MediaQuery";
 
 import {
@@ -55,7 +55,6 @@ export default function RegisterPage() {
         {isDesktop && (
           <>
             <GroupDesktop src={groupDesktop} alt="bg" />
-
             <KapustaTabBotLeft src={kapusta} width="83" height="89" />
             <ShadowTabBotLeft src={tabShadow} width="83" height="89" />
             <KapustaTabBotRight src={kapusta} width="83" height="89" />

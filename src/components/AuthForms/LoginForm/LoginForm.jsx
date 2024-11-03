@@ -1,20 +1,18 @@
 import { useDispatch } from "react-redux";
-import { ReactComponent as GoogleSvg } from "../../images/google.svg";
-import { logIn } from "../../redux/auth/operations";
-
+// import { ReactComponent as GoogleSvg } from "../../images/google.svg";
+import { logIn } from "../../../redux/auth/operations";
+import { OrangeButton } from "../../ModalButtons/OrangeButton";
 import {
-  FormRegisterWrapper,
-  PromtText,
-  BtnGoogle,
-  LabelText,
-  PromtText1,
-  FormInput,
-  ButtonBox,
+  FormWrapper,
+  Text,
   Label,
-  LogInBtn,
+  Input,
+  ButtonBox,
+  LabelText,
   Navlink,
-} from "./LoginForm.styled";
-
+} from "../AuthForms.styled";
+// PromtText,
+// BtnGoogle,
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
@@ -27,20 +25,19 @@ export const LoginForm = () => {
   };
 
   return (
-    <FormRegisterWrapper>
-      <PromtText>You can log in with your Google Account:</PromtText>
+    <FormWrapper>
+      {/* <Text>You can log in with your Google Account:</Text>
       <BtnGoogle href="https://demokraci-kapusta.onrender.com/auth/google">
         <GoogleSvg />
-      </BtnGoogle>
-      <PromtText1>
-        Or log in using an email and password, after registering:
-      </PromtText1>
+      </BtnGoogle> */}
+      <Text>Log in using an email and password</Text>
       <form autoComplete="on" onSubmit={handleSubmit}>
         <Label>
           <LabelText>Email:</LabelText>
-          <FormInput
+          <Input
             type="email"
             name="email"
+            autoComplete="email"
             placeholder="your@email.com"
             required
           />
@@ -48,19 +45,20 @@ export const LoginForm = () => {
         <div>
           <Label>
             <LabelText>Password:</LabelText>
-            <FormInput
+            <Input
               type="password"
               name="password"
+              autoComplete="current-password"
               placeholder="Enter your password..."
               required
             />
           </Label>
         </div>
         <ButtonBox>
-          <LogInBtn type="submit">LOG IN</LogInBtn>
+          <OrangeButton type="submit">LOG IN</OrangeButton>
           <Navlink to="/register">Registration</Navlink>
         </ButtonBox>
       </form>
-    </FormRegisterWrapper>
+    </FormWrapper>
   );
 };
