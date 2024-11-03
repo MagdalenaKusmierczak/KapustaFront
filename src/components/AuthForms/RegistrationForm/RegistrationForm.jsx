@@ -65,7 +65,7 @@ export const RegistrationForm = () => {
         </div>
         <ButtonBox>
           <Navlink to="/login">Log in</Navlink>
-          <OrangeButton type="submit">Registration</OrangeButton>
+          <OrangeButton type="submit">REGISTRATION</OrangeButton>
         </ButtonBox>
       </form>
     </FormWrapper>

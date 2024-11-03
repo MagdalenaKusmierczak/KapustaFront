@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const SharedLayoutContainer = styled.div`
   width: 320px;
   margin: 0 auto;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   box-shadow: 5px 10px 20px 0px #aab2c566;
