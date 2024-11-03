@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
+import icons from "../../../assets/icons.svg";
 import {
   PaginatorWrapper,
   PaginatorArrow,
   PaginatorButton,
 } from "./Arrows.styled";
-import icons from "../../../assets/icons.svg";
 
 const Arrows = ({ onButtonClick, children }) => {
   const handlerClick = (event) => {

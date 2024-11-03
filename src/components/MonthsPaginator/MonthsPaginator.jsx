@@ -8,7 +8,6 @@ import {
 import { monthNames, getMonth, getYear } from "./MonthsSelection";
 import { Calendar } from "./Calendar/Calendar";
 import Arrows from "./Arrows/Arrows";
-
 import {
   ComponentWrapper,
   PaginatorTitile,
@@ -20,15 +19,15 @@ const MonthsPaginator = () => {
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [modalCalendar, setModalCalendar] = useState(false);
-  // Dispatch
+ 
   const dispatch = useDispatch();
-  // Set date
+
   useEffect(() => {
     setMonthNumber(getMonth());
     setMonth(monthNames[getMonth()]);
     setYear(getYear());
   }, []);
-  // Dispatch data by date
+  
   useEffect(() => {
     setMonth(monthNames[monthNumber]);
     let monthString = "";
@@ -38,11 +37,13 @@ const MonthsPaginator = () => {
     } else {
       monthString = monthNumber + 1;
     }
+
     const query = `${year}-${monthString}`;
+
     if (query !== "-01") dispatch(getReports(query));
     dispatch(reportsQueryAction(`${year}-${monthString}`));
   }, [monthNumber, year, dispatch]);
-  // Fetch data by date change
+
   const handlerClick = (name) => {
     switch (name) {
       case "decrement":
@@ -65,16 +66,15 @@ const MonthsPaginator = () => {
         return;
     }
   };
-  // Show / hide calendar
+ 
   const handleModalCalendar = () => {
     setModalCalendar((modalCalendar) => !modalCalendar);
   };
-  // Handle increment / decrement year
+ 
   const handleCalendar = (name) => {
     switch (name) {
       case "decrement":
         setYear(year - 1);
-
         break;
       case "increment":
         setYear(year + 1);
@@ -94,7 +94,6 @@ const MonthsPaginator = () => {
           {month} {year}
         </MonthsDisplayer>{" "}
       </Arrows>
-
       {modalCalendar && (
         <Calendar
           currentYear={year}
@@ -106,4 +105,5 @@ const MonthsPaginator = () => {
     </ComponentWrapper>
   );
 };
+
 export default MonthsPaginator;
