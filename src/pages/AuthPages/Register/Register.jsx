@@ -1,7 +1,12 @@
 import React from "react";
 import { RegistrationForm } from "../../../components/AuthForms/RegistrationForm/RegistrationForm";
 import { useMatchMedia } from "../../../hooks/MediaQuery";
-
+import Name from "../../../images/union.svg";
+import kapusta from "../../../images/kapusta.svg";
+import tabShadow from "../../../images/tabEllipse.svg";
+import groupTablet from "../../../images/groupTablet.png";
+import groupDesktop from "../../../images/groupDesktop.png";
+import halfKapusta from "../../../images/half.png";
 import {
   StyledAuthPage,
   Image,
@@ -18,29 +23,20 @@ import {
   GroupDesktop,
 } from "../AuthPages.styled";
 
-import Name from "../../../images/union.svg";
-import kapusta from "../../../images/kapusta.svg";
-import tabShadow from "../../../images/tabEllipse.svg";
-import groupTablet from "../../../images/groupTablet.png";
-import groupDesktop from "../../../images/groupDesktop.png";
-import halfKapusta from "../../../images/half.png";
 
-// Register page
+
 export default function RegisterPage() {
-  // Media
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
 
   return (
     <StyledAuthPage>
       <Background>
-        {/* For mobile */}
         {isMobile && (
           <>
             <KapustaMobTop src={halfKapusta} alt="bg" />
             <KapustaMobBottom src={kapusta} width="83" height="89" />
           </>
         )}
-        {/* For tablet */}
         {isTablet && (
           <>
             <GroupTablet src={groupTablet} alt="bg" />
@@ -50,7 +46,6 @@ export default function RegisterPage() {
             <ShadowTabBotRight src={tabShadow} width="83" height="89" />
           </>
         )}
-        {/* For desktop */}
         {isDesktop && (
           <>
             <GroupDesktop src={groupDesktop} alt="bg" />
