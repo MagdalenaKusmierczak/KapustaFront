@@ -19,6 +19,9 @@ export const FormWrapper = styled.div`
     height: 552px;
     padding: 56px 84px;
   }
+  @media screen and (min-width: 1280px) {
+    margin-top: 117px;
+  }
 `;
 
 export const BtnGoogle = styled.a`
@@ -41,7 +44,6 @@ export const BtnGoogle = styled.a`
   letter-spacing: 0.02em;
   color: #000000;
 `;
-
 
 export const Text = styled.p`
   font-family: "Roboto";

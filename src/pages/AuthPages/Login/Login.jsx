@@ -1,9 +1,9 @@
 import React from "react";
-import { LoginForm } from "../../components/AuthForms/LoginForm/LoginForm";
-import { useMatchMedia } from "../../hooks/MediaQuery";
+import { LoginForm } from "../../../components/AuthForms/LoginForm/LoginForm";
+import { useMatchMedia } from "../../../hooks/MediaQuery";
 
 import {
-  StyledLoginPage,
+  StyledAuthPage,
   Image,
   Background,
   KapustaMobBottom,
@@ -16,14 +16,14 @@ import {
   KapustaMobTop,
   GroupTablet,
   GroupDesktop,
-} from "./Login.styled";
+} from "../AuthPages.styled";
 
-import Name from "../../images/union.svg";
-import kapusta from "../../images/kapusta.svg";
-import tabShadow from "../../images/tabEllipse.svg";
-import groupTablet from "../../images/groupTablet.png";
-import groupDesktop from "../../images/groupDesktop.png";
-import halfKapusta from "../../images/half.png";
+import Name from "../../../images/union.svg";
+import kapusta from "../../../images/kapusta.svg";
+import tabShadow from "../../../images/tabEllipse.svg";
+import groupTablet from "../../../images/groupTablet.png";
+import groupDesktop from "../../../images/groupDesktop.png";
+import halfKapusta from "../../../images/half.png";
 
 // Login page
 export default function LoginPage() {
@@ -31,7 +31,7 @@ export default function LoginPage() {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
   return (
     <>
-      <StyledLoginPage>
+      <StyledAuthPage>
         <Background>
           {/* For mobile */}
           {isMobile && (
@@ -66,7 +66,7 @@ export default function LoginPage() {
           </TextWrap>
           <LoginForm />
         </Background>
-      </StyledLoginPage>
+      </StyledAuthPage>
     </>
   );
 }

@@ -1,14 +1,20 @@
 import styled from "styled-components";
 import { HandySvg } from "handy-svg";
-
 import imageMobBg from "../../images/backgroundMobile.png";
 import imageTabBg from "../../images/backgroundTablet.png";
 import imageDeskBg from "../../images/backgroundDesktop.png";
 
-export const StyledLoginPage = styled.div`
+export const StyledAuthPage = styled.div`
   width: 100%;
+  height: 1000px;
   display: flex;
   flex-direction: column;
+  @media screen and (min-width: 768px) {
+    height: 1200px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 100vh;
+  }
 `;
 
 export const Background = styled.div`
@@ -22,30 +28,23 @@ export const Background = styled.div`
   padding-top: 86px;
   padding-left: 20px;
   margin-bottom: 100px;
-  height: 100%;
-
   @media screen and (min-width: 768px) {
     width: 768px;
-    height: 100%;
+    height: 582px;
     padding-top: 80px;
     align-items: center;
     padding-left: 32px;
     padding-right: 32px;
-
     background-image: url(${imageTabBg});
     background-repeat: no-repeat;
   }
-
   @media screen and (min-width: 1280px) {
     width: 1280px;
-    min-height: 850px;
-    max-height: 100vh;
-    padding-top: 173px;
+    height: 582px;
     padding-right: 91px;
     padding-left: 229px;
     flex-direction: row;
     justify-content: center;
-    background-size: 1280px, 582px;
     background-image: url(${imageDeskBg});
     background-repeat: no-repeat;
   }
@@ -59,7 +58,7 @@ export const KapustaMobTop = styled.img`
 
 export const KapustaMobBottom = styled(HandySvg)`
   position: absolute;
-  top: 690px;
+  top: 600px;
   left: 35px;
 `;
 
@@ -68,7 +67,6 @@ export const KapustaTabBotLeft = styled(HandySvg)`
   top: 800px;
   left: 103px;
   z-index: 1;
-
   @media screen and (min-width: 1280px) {
     top: 700px;
     left: 230px;
@@ -81,7 +79,6 @@ export const KapustaTabBotRight = styled(HandySvg)`
   left: 197px;
   z-index: 1;
   transform: rotate(-90deg);
-
   @media screen and (min-width: 1280px) {
     top: 680px;
     left: 324px;
@@ -92,7 +89,6 @@ export const ShadowTabBotLeft = styled(HandySvg)`
   position: absolute;
   top: 880px;
   left: 108px;
-
   @media screen and (min-width: 1280px) {
     top: 770px;
     left: 230px;
@@ -103,7 +99,6 @@ export const ShadowTabBotRight = styled(HandySvg)`
   position: absolute;
   top: 860px;
   left: 219px;
-
   @media screen and (min-width: 1280px) {
     top: 750px;
     left: 340px;
@@ -115,12 +110,10 @@ export const Image = styled.img`
   height: 47px;
   margin-bottom: 5px;
   z-index: 2;
-
   @media screen and (min-width: 768px) {
     width: 307px;
     height: 78px;
   }
-
   @media screen and (min-width: 1280px) {
     width: 377px;
     height: 120px;
@@ -139,7 +132,6 @@ export const Text = styled.p`
   letter-spacing: 0.15em;
   z-index: 2;
   color: #52555f;
-
   @media screen and (min-width: 768px) {
     width: 162px;
     margin-bottom: 80px;
@@ -157,7 +149,6 @@ export const TextWrap = styled.div`
     align-items: center;
     margin-left: -110px;
   }
-
   @media screen and (min-width: 1280px) {
     margin-left: 0;
     margin-right: 157px;

@@ -1,9 +1,9 @@
 import React from "react";
-import { RegistrationForm } from "../../components/AuthForms/RegistrationForm/RegistrationForm";
-import { useMatchMedia } from "../../hooks/MediaQuery";
+import { RegistrationForm } from "../../../components/AuthForms/RegistrationForm/RegistrationForm";
+import { useMatchMedia } from "../../../hooks/MediaQuery";
 
 import {
-  StyledRegisterPage,
+  StyledAuthPage,
   Image,
   Background,
   KapustaMobBottom,
@@ -16,14 +16,14 @@ import {
   KapustaMobTop,
   GroupTablet,
   GroupDesktop,
-} from "./Register-styled";
+} from "../AuthPages.styled";
 
-import Name from "../../images/union.svg";
-import kapusta from "../../images/kapusta.svg";
-import tabShadow from "../../images/tabEllipse.svg";
-import groupTablet from "../../images/groupTablet.png";
-import groupDesktop from "../../images/groupDesktop.png";
-import halfKapusta from "../../images/half.png";
+import Name from "../../../images/union.svg";
+import kapusta from "../../../images/kapusta.svg";
+import tabShadow from "../../../images/tabEllipse.svg";
+import groupTablet from "../../../images/groupTablet.png";
+import groupDesktop from "../../../images/groupDesktop.png";
+import halfKapusta from "../../../images/half.png";
 
 // Register page
 export default function RegisterPage() {
@@ -31,7 +31,7 @@ export default function RegisterPage() {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
 
   return (
-    <StyledRegisterPage>
+    <StyledAuthPage>
       <Background>
         {/* For mobile */}
         {isMobile && (
@@ -66,6 +66,6 @@ export default function RegisterPage() {
         </TextWrap>
         <RegistrationForm />
       </Background>
-    </StyledRegisterPage>
+    </StyledAuthPage>
   );
 }
