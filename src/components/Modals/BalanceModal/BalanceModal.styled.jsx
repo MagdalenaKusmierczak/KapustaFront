@@ -7,13 +7,12 @@ export const ModalWindow = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fff;
-
   border-radius: 30px;
   box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
 `;
 
 export const ContentDiv = styled.div`
-  z-index: ;
+  z-index: 3;
   padding: 50px 58px 60px;
 `;
 
@@ -52,7 +51,6 @@ export const ModalBackdrop = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-
   background-color: rgba(0, 0, 0, 0.2);
 `;
 

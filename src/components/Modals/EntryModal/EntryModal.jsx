@@ -13,22 +13,23 @@ const modalRoot = document.querySelector("#modal-root");
 const body = document.querySelector("body");
 
 export default function EntryModal() {
-  // Location
   const location = useLocation();
+
   const isReports = location.pathname === "/reports";
-  //State
+
   const [isModalOpen, setIsModalOpen] = useState(true);
-  //Modal handlers
+
   const handleModalClose = () => {
     setIsModalOpen(false);
     body.classList.remove("no-scroll");
   };
+
   const handleBackdropClick = (event) => {
     if (event.currentTarget === event.target) {
       handleModalClose();
     }
   };
-  //Added no-scroll
+
   useEffect(() => {
     body.classList.add("no-scroll");
     return () => body.classList.remove("no-scroll");

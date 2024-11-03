@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import PropTypes from "prop-types";
+import { OrangeButton } from "../../ModalButtons/OrangeButton";
+import { WhiteButton } from "../../ModalButtons/WhiteButton";
+import icons from "../../../assets/icons.svg";
 import {
   ModalWrapper,
   ContentWrapper,
@@ -9,15 +12,11 @@ import {
   CloseButton,
   Backdrop,
 } from "./HeaderModalWindow.styled";
-import { OrangeButton } from "../../ModalButtons/OrangeButton";
-import { WhiteButton } from "../../ModalButtons/WhiteButton";
-import icons from "../../../assets/icons.svg";
 
-// Query selectors
 const modalRoot = document.getElementById("modal-root");
 const body = document.querySelector("body");
 
-// Modal window
+
 export const HeaderModalWindow = ({
   children,
   closeModal,
@@ -25,19 +24,18 @@ export const HeaderModalWindow = ({
   changeBalance,
   text,
 }) => {
-  // Close on Esc button
   const handleEscapeClose = (event) => {
     if (event.code === "Escape") {
       closeModal();
     }
   };
-  // Close on backdrop click
+
   const handleBackdropClose = (event) => {
     if (event.target === event.currentTarget) {
       closeModal();
     }
   };
-  // No scroll of body when modal window is open
+
   useEffect(() => {
     window.addEventListener("keydown", handleEscapeClose);
 
@@ -48,11 +46,8 @@ export const HeaderModalWindow = ({
   });
 
   return createPortal(
-    // Backdrop
     <Backdrop className="modal-backdrop" onClick={handleBackdropClose}>
-      {/* Modal window */}
       <ModalWrapper>
-        {/* Close button img X */}
         <CloseButton onClick={closeModal}>
           <svg>
             <use href={`${icons}#close`}></use>
