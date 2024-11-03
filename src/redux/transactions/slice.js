@@ -57,7 +57,6 @@ export const transactionsSlice = createSlice({
       // Get Income
       .addCase(getIncome.pending, handlePending)
       .addCase(getIncome.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.incomes.incomeTransactions = action.payload.incomes;
         state.incomes.monthsStats = action.payload.monthsStatistics;
         state.isLoading = false;
