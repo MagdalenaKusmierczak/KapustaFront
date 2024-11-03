@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { HeaderWrapper, HeaderIcon } from "./Header-styled";
-import icons from "../../assets/icons.svg";
 import AuthorizatedNav from "../AuthorizatedNav/AuthorizatedNav";
+import icons from "../../assets/icons.svg";
+import { HeaderWrapper, HeaderIcon } from "./Header-styled";
 
 const Header = () => {
   return (

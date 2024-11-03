@@ -11,6 +11,7 @@ export const HeaderWrapper = styled.header`
     padding: 13px 32px;
   }
 `;
+
 export const HeaderIcon = styled.svg`
   width: 90px;
   height: 31px;

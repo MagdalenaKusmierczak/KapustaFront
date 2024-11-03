@@ -33,6 +33,7 @@ export const StyledWhiteButton = styled.button`
   line-height: 1.17;
   width: 120px;
 `;
+
 export const ButtonBack = styled(Link)`
   z-index: 2;
   background-color: transparent;
@@ -41,6 +42,7 @@ export const ButtonBack = styled(Link)`
   align-items: center;
   margin: 16px 0px 16px 20px;
 `;
+
 export const ButtonBackWithText = styled(Link)`
   z-index: 2;
   background-color: transparent;
@@ -49,6 +51,7 @@ export const ButtonBackWithText = styled(Link)`
   align-items: center;
   margin: 16px 0px 14px 20px;
 `;
+
 export const ButtonBackText = styled.p`
   padding-left: 4px;
   padding-inline: 3px;

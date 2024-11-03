@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import { StyledOrangeButton } from "./Buttons.styled";
 
-// Shared button for modal windows
 export const OrangeButton = ({
   children,
   dispatch,
@@ -13,6 +12,7 @@ export const OrangeButton = ({
       dispatch();
       closeModal();
     }
+    
     if (changeBalance) {
       dispatch();
       closeModal();
