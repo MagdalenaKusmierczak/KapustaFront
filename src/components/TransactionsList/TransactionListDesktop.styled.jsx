@@ -11,7 +11,6 @@ export const TransactionTable = styled.table`
   @media screen and (min-width: 1280px) {
     width: 746px;
   }
-
   th {
     width: 100%;
     height: 38px;
@@ -52,7 +51,6 @@ export const TransactionTable = styled.table`
     border-left: 2px solid #f5f6fb;
     border-top: none;
     border-bottom: 2px solid #f5f6fb;
-
     @media screen and (min-width: 768px) {
       min-height: 344px;
       max-height: 480px;
@@ -76,7 +74,6 @@ export const TransactionTable = styled.table`
       &:not(:last-child) {
         border-bottom: 2px solid #f5f6fb;
       }
-
       td {
         position: relative;
         align-items: center;

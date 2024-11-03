@@ -2,31 +2,29 @@ import { useState, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectReports } from "../../../redux/reports/selectors";
 import { filteredDataAction } from "../../../redux/reportsQuery/reportsQuery.slice";
-import { List, Item, ItemIncome,ItemSvg, BgcSvg,   } from "./ReportsList.styled";
-
 import icons from "../../../assets/icons.svg";
+import { List, Item, ItemIncome, ItemSvg, BgcSvg } from "./ReportsList.styled";
 
 export const ReportsList = ({ onChange }) => {
-  // State
   const [active, setActive] = useState("");
   const [data, setData] = useState({});
-  // Selectors
+
   const { reports } = useSelector(selectReports);
-  // Dispatch
+
   const dispatch = useDispatch();
-  // Vars
+
   const valueArr = [];
-  // Expenses Data
+
   const expensesData = useMemo(
     () => reports?.expenses?.expensesData ?? {},
     [reports]
   );
-  // Incomes Data
+  
   const incomesData = useMemo(
     () => reports?.incomes?.incomesData ?? {},
     [reports]
   );
-  // Check if expenses or incomes data
+  
   useEffect(() => {
     if (onChange === "expenses") {
       setData(expensesData ?? {});
@@ -36,15 +34,17 @@ export const ReportsList = ({ onChange }) => {
       setActive("");
     }
   }, [onChange, expensesData, incomesData]);
-  // Click handler
+
   const clickEventHandler = (event) => {
     setActive(event.currentTarget.id);
+
     const filteredValueArr = valueArr.filter(
       (item) => item[0].replace(/\s+/g, "") === event.currentTarget.id
     );
+
     dispatch(filteredDataAction(filteredValueArr));
   };
-  // Transform object to array
+
   const entries = Object.entries(data) ?? [];
 
   return (

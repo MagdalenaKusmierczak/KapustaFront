@@ -16,6 +16,7 @@ export const SectionWrapper = styled.div`
     width: 1034px;
   }
 `;
+
 export const ChartWrapper = styled.div`
   width: 280px;
   height: 493px;

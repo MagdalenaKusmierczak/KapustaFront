@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 export const List = styled.ul`
   width: 320px;
   height: auto;
@@ -11,7 +12,6 @@ export const List = styled.ul`
 export const Item = styled.li`
   display: flex;
   justify-content: space-between;
-
   padding: 8px 20px;
   border-bottom: 1px solid #f5f6fb;
 `;
@@ -54,9 +54,4 @@ export const Sum = styled.p`
   line-height: 1.16;
   letter-spacing: 0.04em;
   vertical-align: auto;
-
-  /* @media screen and (min-width: 768px) {
-    width: 104px;
-    justify-content: flex-end;
-  } */
 `;

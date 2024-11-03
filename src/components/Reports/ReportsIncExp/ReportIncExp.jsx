@@ -4,7 +4,6 @@ import { selectReports } from "../../../redux/reports/selectors";
 import { filteredDataAction } from "../../../redux/reportsQuery/reportsQuery.slice";
 import Arrows from "../../MonthsPaginator/Arrows/Arrows";
 import { ReportsList } from "../ReportsList/ReportsList";
-
 import {
   StatisticsWrapper,
   StatisticsList,
@@ -15,15 +14,14 @@ import {
   IconsBox,
 } from "./ReportIncExp.styled";
 
-// // Report List
+
 export const ReportIncExp = () => {
-  // State
   const [budget, setBudget] = useState("expenses");
-  // Selectors
+
   const { reports } = useSelector(selectReports);
-  // Dispatch
+
   const dispatch = useDispatch();
-  // Handle click
+
   const handleClick = () => {
     if (budget === "expenses") {
       setBudget("income");

@@ -11,14 +11,12 @@ export const StatisticsWrapper = styled.div`
   box-shadow: 5px 10px 20px 0px #aab2c566;
   border-radius: 20px;
   margin-bottom: 32px;
-
   @media screen and (min-width: 768px) {
     height: 50px;
     width: 704px;
     border-radius: 30px;
     box-shadow: 0px 10px 60px 0px #aab2c533;
   }
-
   @media screen and (min-width: 1280px) {
     width: 1035px;
   }
@@ -72,6 +70,7 @@ export const StatisticsElement = styled.li`
     }
   }
 `;
+
 export const StatsIncome = styled.span`
   color: green;
   display: inline-block;
@@ -79,6 +78,7 @@ export const StatsIncome = styled.span`
     margin-left: 15px;
   }
 `;
+
 export const StatsExpenses = styled.span`
   color: red;
   display: inline-block;
@@ -86,6 +86,7 @@ export const StatsExpenses = styled.span`
     margin-left: 15px;
   }
 `;
+
 export const BudgetName = styled.p`
   width: 120px;
   text-align: center;

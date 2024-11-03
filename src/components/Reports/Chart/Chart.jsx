@@ -9,7 +9,6 @@ const data = [
 ];
 
 const ChartComponent = () => {
-  //Media
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
 
   const options = {
