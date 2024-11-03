@@ -10,7 +10,6 @@ export const FormWrap = styled.div`
     align-items: flex-start;
     justify-content: space-between;
   }
-
   .tabletDatepicker {
     margin-block: 40px;
     @media screen and (min-width: 768px) {
@@ -26,7 +25,6 @@ export const FormWrap = styled.div`
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
-
   @media screen and (min-width: 768px) {
     display: block;
   }
@@ -39,7 +37,6 @@ export const StyledForm = styled.form`
 export const StyledAllInputsDiv = styled.div`
   display: flex;
   flex-direction: column;
-
   @media screen and (min-width: 768px) {
     flex-direction: row;
   }
@@ -58,12 +55,10 @@ export const InputProduct = styled.input`
   line-height: 14px;
   outline: none;
   background-color: #f5f6fb;
-  color: #c7ccdc;
-
+  color: #000000;
   &::placeholder {
     color: #c7ccdc;
   }
-
   @media screen and (min-width: 768px) {
     width: 186px;
     border-color: #f5f6fb;
@@ -72,7 +67,6 @@ export const InputProduct = styled.input`
     border-top-right-radius: 0px;
     background-color: #ffffff;
   }
-
   @media screen and (min-width: 1280px) {
     width: 290px;
   }
@@ -83,14 +77,12 @@ export const ButtonWrap = styled.div`
   gap: 20px;
   justify-content: center;
   margin-top: 80px;
-
   @media screen and (min-width: 768px) {
     gap: 15px;
     justify-content: flex-start;
     margin-top: 32px;
     margin-left: 35px;
   }
-
   @media screen and (min-width: 1280px) {
     gap: 16px;
     margin-top: 0;

@@ -56,20 +56,29 @@ export const BalanceText = styled.label`
   color: #52555fb2;
 `;
 export const BalanceInput = styled.input`
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
   box-sizing: border-box;
   text-align: center;
   background: #f2f5fc;
   height: 44px;
   border: 2px solid #ffffff;
   outline: none;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14.06px;
+  letter-spacing: 0.02em;
+  color: #000000;
   ::placeholder {
     font-family: Roboto;
     font-size: 12px;
     font-weight: 700;
     line-height: 14.06px;
     letter-spacing: 0.02em;
-    text-align: right;
-    color: #000000;
+    color: #000000
+    ;
   }
   @media (max-width: 767px) {
     width: 183px;
@@ -104,18 +113,15 @@ export const BalanceButton = styled.button`
     background: #ff751d;
     border: #ff751d;
     color: #ffffff;
-
     cursor: pointer;
     transition: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
       0px 2px 2px rgba(0, 0, 0, 0.12);
   }
-
   @media (max-width: 767px) {
     display: none;
     border-radius: 0px 16px 16px 0px;
     border-left: 0px;
   }
-
   @media (min-width: 768px) {
     display: none;
     border-radius: 16px;
@@ -132,10 +138,5 @@ export const SectionBar = styled.svg`
     height: ;
     padding: ;
     margin-bottom: 8px;
-  }
-
-  @media (min-width: 768px) {
-  }
-  @media (min-width: 1280px) {
   }
 `;

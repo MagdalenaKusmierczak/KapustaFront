@@ -64,6 +64,7 @@ const Form = () => {
     categoryArray = incomesArr;
     functionToDispatch = addIncome;
   }
+
   if (
     location.pathname === "/expenses" ||
     location.pathname === "/" ||
@@ -82,14 +83,17 @@ const Form = () => {
       alert("Please enter a description");
       return;
     }
+
     if (elementCategory === "Category") {
       alert("Please enter a category");
       return;
     }
+
     if (transValue.trim() === "") {
       alert("Please enter an amount");
       return;
     }
+
     if (transValue < 0) transValue = transValue * -1;
 
     const dataToDispatch = {
@@ -115,28 +119,21 @@ const Form = () => {
           <DateSelect startDate={startDate} setStartDate={setStartDate} />
         </div>
       )}
-
-      {/* Form */}
       {!isVisible && !isIncExp && (
         <StyledForm onSubmit={handleSubmit} ref={form}>
-          {/* Div with inputs */}
           <StyledAllInputsDiv>
-            {/* Product input */}
             <InputProduct
               autoComplete="off"
               placeholder="Product description"
               name="descr"
             />
-            {/* Category input */}
             <CategorySelect
               categoryArray={categoryArray}
               elementCategory={elementCategory}
               setElementCategory={setElementCategory}
             />
-            {/* Value input */}
             <InputCalc name="sum" />
           </StyledAllInputsDiv>
-          {/* Div with buttons */}
           <ButtonWrap>
             <OrangeButton type="submit">INPUT</OrangeButton>
             <StyledWhiteButton type="button" onClick={handleReset}>
@@ -147,24 +144,19 @@ const Form = () => {
       )}
       {!isMobile && (
         <StyledForm onSubmit={handleSubmit} ref={form}>
-          {/* Div with inputs */}
           <StyledAllInputsDiv>
-            {/* Product input */}
             <InputProduct
               autoComplete="off"
               placeholder="Product description"
               name="descr"
             />
-            {/* Category input */}
             <CategorySelect
               categoryArray={categoryArray}
               elementCategory={elementCategory}
               setElementCategory={setElementCategory}
             />
-            {/* Value input */}
             <InputCalc name="sum" />
           </StyledAllInputsDiv>
-          {/* Div with buttons */}
           <ButtonWrap>
             <OrangeButton type="submit">INPUT</OrangeButton>
             <StyledWhiteButton type="button" onClick={handleReset}>
@@ -176,4 +168,5 @@ const Form = () => {
     </FormWrap>
   );
 };
+
 export default Form;

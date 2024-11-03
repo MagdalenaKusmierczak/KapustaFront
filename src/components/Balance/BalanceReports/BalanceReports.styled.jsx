@@ -27,6 +27,7 @@ export const BalanceSection = styled.section`
     padding-inline: 91px;
   }
 `;
+
 export const MainPageLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
@@ -41,6 +42,7 @@ export const MainPageLink = styled(NavLink)`
     gap: 16px;
   }
 `;
+
 export const MainPageText = styled.p`
   display: block;
   font-family: Roboto;
@@ -55,6 +57,7 @@ export const MainPageText = styled.p`
     display: none;
   }
 `;
+
 export const MainPageIcon = styled.svg`
   margin-inline: 3px;
   margin-block: 6px;

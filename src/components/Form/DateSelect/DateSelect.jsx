@@ -22,6 +22,7 @@ const DateSelect = ({ startDate, setStartDate }) => {
       {value}
     </button>
   ));
+  
   return (
     <Picker onClick={handleClick}>
       <DatePicker

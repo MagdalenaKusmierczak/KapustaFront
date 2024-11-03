@@ -1,3 +1,7 @@
+
+import { useLocation } from "react-router-dom";
+import BalanceBar from './BalanceBar/BalanceBar';
+import icons from "../../../assets/icons.svg";
 import {
   BalanceSection,
   ReportBox,
@@ -5,13 +9,10 @@ import {
   ReportText,
   Link,
 } from "./Balance.styled";
-import { useLocation } from "react-router-dom";
-import BalanceBar from "../BalanceBar/BalanceBar";
-import icons from "../../../assets/icons.svg";
 
 const Balance = () => {
-  // Location
   const location = useLocation();
+
   return (
     <BalanceSection>
       <BalanceBar />
@@ -26,4 +27,5 @@ const Balance = () => {
     </BalanceSection>
   );
 };
+
 export default Balance;

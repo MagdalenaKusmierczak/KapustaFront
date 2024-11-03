@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { updateBalance } from "../../../redux/transactions/operations";
-
+import { updateBalance } from "../../../../redux/transactions/operations";
+import EntryModal from "../../../Modals/EntryModal/EntryModal";
+import BalanceModal from "../../../Modals/BalanceModal/BalanceModal";
 import {
   BalanceForm,
   BalanceBox,
@@ -10,32 +11,36 @@ import {
   BalanceButton,
 } from "./BalanceBar.styled";
 
-import EntryModal from "../../Modals/EntryModal/EntryModal";
-import BalanceModal from "../../Modals/BalanceModal/BalanceModal";
 
 const BalanceBar = () => {
   const [modalOpen, setModalOpen] = useState(false);
+
   const form = useRef();
+
   const stateBalance = useSelector((state) => state.transactions.newBalance);
+
   const dispatch = useDispatch();
+
   let balance;
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
     balance = evt.target.balance.value;
   };
+
   const onClick = () => {
     dispatch(updateBalance({ newBalance: balance }));
     form.current.reset();
   };
 
-  //Modal window
   const handleModalOpen = () => {
     setModalOpen(true);
   };
+
   const handleModalClose = () => {
     setModalOpen(false);
   };
+
   return (
     <>
       <BalanceForm onSubmit={handleSubmit} ref={form}>
@@ -69,4 +74,5 @@ const BalanceBar = () => {
     </>
   );
 };
+
 export default BalanceBar;

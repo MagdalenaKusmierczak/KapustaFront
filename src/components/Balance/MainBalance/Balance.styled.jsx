@@ -6,7 +6,6 @@ export const BalanceSection = styled.section`
   box-sizing: border-box;
   display: flex;
   align-items: center;
-
   @media screen and (max-width: 767px) {
     flex-direction: column-reverse;
     align-items: center;
@@ -36,11 +35,11 @@ export const ReportBox = styled.div`
     width: 84px;
     height: 24px;
   }
-
   @media (min-width: 768px) {
     flex-direction: row;
   }
 `;
+
 export const ReportText = styled.p`
   z-index: 1;
   z-index: 1;
@@ -54,6 +53,7 @@ export const ReportText = styled.p`
   margin: 0px;
   padding-top: 7px;
 `;
+
 export const ReportIcon = styled.svg`
   z-index: 1;
   marign: 5px;
@@ -66,6 +66,7 @@ export const SectionBar = styled.svg`
     margin-bottom: 8px;
   }
 `;
+
 export const Link = styled(NavLink)`
   z-index: 1;
 `;

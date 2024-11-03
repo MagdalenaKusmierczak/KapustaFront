@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { CategoryDiv, Wrap, SelectBody, Element } from "./Category.styled";
 import icons from "../../../assets/icons.svg";
+import { CategoryDiv, Wrap, SelectBody, Element } from "./Category.styled";
 
-// Custom selector
 export default function CategorySelect({
   elementCategory,
   setElementCategory,
@@ -23,7 +22,13 @@ export default function CategorySelect({
   return (
     <CategoryDiv>
       <Wrap onClick={onSelect}>
-        <span>{elementCategory}</span>
+        <span
+          style={{
+            color: elementCategory === "Category" ? "#c7ccdc" : "#000000",
+          }}
+        >
+          {elementCategory}
+        </span>
         <svg width="11px" height="4px">
           <use href={`${icons}#arrow-down`}></use>
         </svg>

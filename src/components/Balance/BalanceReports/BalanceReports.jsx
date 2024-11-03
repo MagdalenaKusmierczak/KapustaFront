@@ -1,3 +1,6 @@
+import MonthsPaginator from "../../MonthsPaginator/MonthsPaginator";
+import BalanceBarReport from "./BalanceBarReport/BalanceBarReport";
+import icons from "../../../assets/icons.svg";
 import {
   BalanceSection,
   MainPageLink,
@@ -5,10 +8,6 @@ import {
   MainPageIcon,
   MobileWrapper,
 } from "./BalanceReports.styled";
-import MonthsPaginator from "../../MonthsPaginator/MonthsPaginator";
-
-import BalanceBarReport from "../BalanceBarReport/BalanceBarReport";
-import icons from "../../../assets/icons.svg";
 
 const BalanceReports = () => {
   return (
