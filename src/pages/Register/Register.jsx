@@ -44,7 +44,6 @@ export default function RegisterPage() {
         {isTablet && (
           <>
             <GroupTablet src={groupTablet} alt="bg" />
-
             <KapustaTabBotLeft src={kapusta} width="83" height="89" />
             <ShadowTabBotLeft src={tabShadow} width="83" height="89" />
             <KapustaTabBotRight src={kapusta} width="83" height="89" />
