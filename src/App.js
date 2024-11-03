@@ -4,8 +4,8 @@ import { PrivateRoute } from "./pages/PrivateRoute";
 import { RestrictedRoute } from "./pages/RestrictedRoute";
 import SharedLayout from "./pages/SharedLayout/SharedLayout";
 const Reports = lazy(() => import("./pages/Reports/Reports"));
-const Expenses = lazy(() => import("./pages/Expenses/Expenses"));
-const Income = lazy(() => import("./pages/Incomes/Incomes"));
+const Expenses = lazy(() => import("./pages/Transactions/Expenses/Expenses"));
+const Income = lazy(() => import("./pages/Transactions/Incomes/Incomes"));
 const Login = lazy(() => import("./pages/Login/Login"));
 const RegisterPage = lazy(() => import("./pages/Register/Register"));
 
