@@ -13,8 +13,7 @@ const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<PrivateRoute component={<Expenses />} />} />
-
+        <Route index element={<Navigate to="/expenses" />} />
         <Route
           path="/login"
           element={<RestrictedRoute component={<Login />} />}
@@ -23,7 +22,6 @@ const App = () => {
           path="/register"
           element={<RestrictedRoute component={<RegisterPage />} />}
         />
-
         <Route
           path="/expenses"
           element={<PrivateRoute component={<Expenses />} />}

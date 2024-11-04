@@ -11,8 +11,16 @@ export const BackButton = () => {
 
   const isHome = location.pathname === "/";
 
-  const backLink = location.state?.from ?? "/";
-  
+  let backLink;
+
+  if (location.pathname === "/income/transactions") {
+    backLink = "/income"; // Redirect to /income
+  } else if (location.pathname === "/expenses/transactions") {
+    backLink = "/expenses"; // Redirect to /expenses
+  } else {
+    backLink = "/";
+  }
+
   const isVisible = isHome === true;
 
   const isExpenses = location.pathname === "/expenses";
@@ -22,7 +30,7 @@ export const BackButton = () => {
   const isTransactions =
     location.pathname === "/income/transactions" ||
     location.pathname === "/expenses/transactions";
-  
+
   return (
     <>
       {isVisible && (
