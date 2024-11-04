@@ -16,7 +16,7 @@ const DateSelect = ({ startDate, setStartDate }) => {
       onClick={onClick}
       ref={ref}
     >
-      <svg className="calendarIcon" width="20px" height="18px">
+      <svg className="calendarIcon" width="20px" height="20px">
         <use href={`${icons}#calendar`}></use>
       </svg>
       {value}

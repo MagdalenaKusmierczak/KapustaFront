@@ -62,6 +62,9 @@ export const BalanceText = styled.label`
     width: 83px;
     text-align: right;
     height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
   }
   @media (min-width: 1280px) {
     width: auto;
