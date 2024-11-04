@@ -1,7 +1,7 @@
-
 import styled from "styled-components";
 
 export const LoaderWrapper = styled.div`
+  z-index: 5;
   position: fixed;
   top: 0;
   left: 0;

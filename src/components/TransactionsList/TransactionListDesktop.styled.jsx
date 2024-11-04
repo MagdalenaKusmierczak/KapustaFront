@@ -1,13 +1,24 @@
 import styled from "styled-components";
 
 export const TransactionTable = styled.table`
-  /* margin-top: 48px; */
   position: relative;
   border-collapse: collapse;
   display: flex;
   flex-direction: column;
   width: 624px;
   height: 384px;
+  ::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f5f6fb;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ff751d;
+    border-radius: 2px;
+  }
   @media screen and (min-width: 1280px) {
     width: 746px;
   }
@@ -55,18 +66,6 @@ export const TransactionTable = styled.table`
       min-height: 344px;
       max-height: 480px;
       height: auto;
-    }
-
-    ::-webkit-scrollbar {
-      width: 6px;
-      height: 130px;
-    }
-    ::-webkit-scrollbar-track {
-      background-color: #f5f6fb;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #ff751d;
-      border-radius: 2px;
     }
     tr {
       justify-content: center;
