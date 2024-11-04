@@ -56,7 +56,7 @@ export const ReportText = styled.p`
 
 export const ReportIcon = styled.svg`
   z-index: 1;
-  marign: 5px;
+  margin: 5px;
   text-align: center;
 `;
 
