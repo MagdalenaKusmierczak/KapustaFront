@@ -44,7 +44,12 @@ export const StyledTableAndSummaryDiv = styled.div`
   z-index: 2;
   display: flex;
   justify-content: space-between;
-  margin-top: 60px;
+  @media screen and (min-width: 768px) {
+    margin-top: 48px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: 60px;
+  }
 `;
 export const StyledTabsDesktop = styled.div`
   display: flex;
