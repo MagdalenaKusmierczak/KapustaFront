@@ -8,14 +8,14 @@ export const StatisticsWrapper = styled.div`
   text-align: center;
   margin: 0 auto 30px auto;
   background-color: #ffffff;
-  box-shadow: 5px 10px 20px 0px #aab2c566;
+  box-shadow: 5px 10px 20px 0 #aab2c566;
   border-radius: 20px;
   margin-bottom: 32px;
   @media screen and (min-width: 768px) {
     height: 50px;
     width: 704px;
     border-radius: 30px;
-    box-shadow: 0px 10px 60px 0px #aab2c533;
+    box-shadow: 0 10px 60px 0 #aab2c533;
   }
   @media screen and (min-width: 1280px) {
     width: 1035px;
@@ -59,7 +59,7 @@ export const StatisticsElement = styled.li`
     flex-direction: row;
     width: 50%;
     height: 36px;
-    gap: 0px;
+    gap: 0;
     &.income {
       padding-left: 20px;
       justify-content: flex-start;

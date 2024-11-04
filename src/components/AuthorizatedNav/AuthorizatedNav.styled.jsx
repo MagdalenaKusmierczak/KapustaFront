@@ -55,7 +55,7 @@ export const ExitButton = styled.button`
   @media screen and (min-width: 768px) {
     display: block;
     cursor: pointer;
-    border: 0px;
+    border: 0;
     background-color: transparent;
     text-decoration: underline;
     font-size: 12px;

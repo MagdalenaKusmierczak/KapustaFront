@@ -41,7 +41,7 @@ export const BalanceBox = styled.div`
   display: flex;
   @media (max-width: 767px) {
     width: 280px;
-    gap: 0px;
+    gap: 0;
   }
   @media (min-width: 768px) {
     gap: 15px;
@@ -95,7 +95,7 @@ export const BalanceInput = styled.input`
   }
   @media (max-width: 767px) {
     width: 140px;
-    border-radius: 16px 0px 0px 16px;
+    border-radius: 16px 0 0 16px;
   }
   @media (min-width: 768px) {
     border-radius: 16px;
@@ -125,13 +125,13 @@ export const BalanceButton = styled.button`
     border: #ff751d;
     color: #ffffff;
     cursor: pointer;
-    transition: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
-      0px 2px 2px rgba(0, 0, 0, 0.12);
+    transition: 0 3px 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08),
+      0 2px 2px rgba(0, 0, 0, 0.12);
   }
   @media (max-width: 767px) {
     width: 140px;
-    border-radius: 0px 16px 16px 0px;
-    border-left: 0px;
+    border-radius: 0 16px 16px 0;
+    border-left: 0;
   }
   @media (min-width: 768px) {
     border-radius: 16px;
@@ -163,8 +163,8 @@ export const ReportText = styled.p`
   line-height: 14.06px;
   letter-spacing: 0.04em;
   color: #52555fb2;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   padding-top: 7px;
 `;
 

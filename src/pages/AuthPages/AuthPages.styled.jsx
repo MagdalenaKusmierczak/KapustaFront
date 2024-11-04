@@ -53,7 +53,7 @@ export const Background = styled.div`
 export const KapustaMobTop = styled.img`
   position: absolute;
   top: 110px;
-  right: 0px;
+  right: 0;
 `;
 
 export const KapustaMobBottom = styled(HandySvg)`

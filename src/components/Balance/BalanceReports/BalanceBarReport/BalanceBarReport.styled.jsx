@@ -39,7 +39,7 @@ export const BalanceForm = styled.form`
 export const BalanceBox = styled.div`
   display: flex;
   @media (max-width: 767px) {
-    gap: 0px;
+    gap: 0;
   }
 
   @media (min-width: 1280px) {
@@ -114,13 +114,13 @@ export const BalanceButton = styled.button`
     border: #ff751d;
     color: #ffffff;
     cursor: pointer;
-    transition: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
-      0px 2px 2px rgba(0, 0, 0, 0.12);
+    transition: 0 3px 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08),
+      0 2px 2px rgba(0, 0, 0, 0.12);
   }
   @media (max-width: 767px) {
     display: none;
-    border-radius: 0px 16px 16px 0px;
-    border-left: 0px;
+    border-radius: 0 16px 16px 0;
+    border-left: 0;
   }
   @media (min-width: 768px) {
     display: none;

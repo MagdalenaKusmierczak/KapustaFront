@@ -49,8 +49,8 @@ export const ReportText = styled.p`
   line-height: 14.06px;
   letter-spacing: 0.04em;
   color: #52555fb2;
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
   padding-top: 7px;
 `;
 

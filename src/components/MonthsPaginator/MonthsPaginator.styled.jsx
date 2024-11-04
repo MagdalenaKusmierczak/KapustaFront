@@ -13,7 +13,7 @@ export const PaginatorTitile = styled.p`
   letter-spacing: 0.04em;
   text-align: center;
   color: #52555fb2;
-  margin: 0px;
+  margin: 0;
   padding-bottom: 5px;
 `;
 

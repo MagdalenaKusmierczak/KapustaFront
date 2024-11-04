@@ -14,7 +14,7 @@ export const FormWrap = styled.div`
     margin-block: 40px;
     @media screen and (min-width: 768px) {
       margin-top: 12px;
-      margin-bottom: 0px;
+      margin-bottom: 0;
     }
     .datepickerMobile {
       display: inline;
@@ -64,7 +64,7 @@ export const InputProduct = styled.input`
     border-color: #f5f6fb;
     border-bottom: 2px solid #f5f6fb;
     border-right: none;
-    border-top-right-radius: 0px;
+    border-top-right-radius: 0;
     background-color: #ffffff;
   }
   @media screen and (min-width: 1280px) {
@@ -102,7 +102,7 @@ export const StyledWhiteButton = styled.button`
   letter-spacing: 0.02em;
   line-height: 1.17;
   padding: 12px 34px;
-  box-shadow: 1px 2px 5px 0px #aab2c566;
+  box-shadow: 1px 2px 5px 0 #aab2c566;
   border-radius: 16px;
   @media screen and (min-width: 768px) {
     border: 2px solid #f5f6fb;

@@ -26,11 +26,11 @@ export const StyledFrame = styled.div`
   @media screen and (min-width: 768px) {
     width: 704px;
     height: 616px;
-    margin: 0px auto;
+    margin: 0 auto;
     padding: 24px 40px 42px;
     background-color: #fff;
-    border-radius: 0px 30px 30px 30px;
-    box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+    border-radius: 0 30px 30px 30px;
+    box-shadow: 0 10px 60px rgba(170, 178, 197, 0.2);
   }
 
   @media screen and (min-width: 1280px) {
@@ -89,7 +89,7 @@ export const StyledTabsMobile = styled.div`
   position: fixed;
   bottom: 0;
   display: flex;
-  gap: 0px;
+  gap: 0;
   background-color: #ffffff;
   .TabMobile {
 font-family: Roboto;

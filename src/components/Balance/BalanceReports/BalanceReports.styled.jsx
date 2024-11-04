@@ -17,7 +17,7 @@ export const BalanceSection = styled.section`
   @media screen and (min-width: 768px) {
     justify-content: space-between;
     flex-direction: row;
-    margin: 0px;
+    margin: 0;
     padding-inline: 32px;
     padding-top: 40px;
     padding-bottom: 32px;
@@ -52,7 +52,7 @@ export const MainPageText = styled.p`
   letter-spacing: 0.04em;
   color: #52555fb2;
   text-decoration: none;
-  margin: 0px;
+  margin: 0;
   @media screen and (max-width: 767px) {
     display: none;
   }

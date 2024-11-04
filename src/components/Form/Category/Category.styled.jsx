@@ -4,7 +4,7 @@ export const CategoryDiv = styled.div`
   position: relative;
   margin-left: 20px;
   @media screen and (min-width: 768px) {
-    margin-left: 0px;
+    margin-left: 0;
     height: 44px;
   }
 `;
@@ -48,11 +48,12 @@ export const SelectBody = styled.div`
   top: 100%;
   left: 0;
   z-index: 3;
+  text-align: left;
   width: 280px;
   border: 2px solid #f5f6fb;
   border-bottom-right-radius: 20px;
   background-color: #fff;
-  box-shadow: 0px 3px 4px rgba(170, 178, 197, 0.4);
+  box-shadow: 0 3px 4px rgba(170, 178, 197, 0.4);
   @media screen and (min-width: 768px) {
     width: 186px;
     border-radius: 0;

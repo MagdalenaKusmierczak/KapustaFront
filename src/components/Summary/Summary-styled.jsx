@@ -16,13 +16,13 @@ export const Table = styled.ul`
     letter-spacing: 0.02em;
     text-align: center;
     border-radius: 16px;
-    border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0;
     margin-top: 40px;
     margin-left: 32px;
     overflow: hidden;
   }
   @media screen and (min-width: 1280px) {
-    margin-top: 0px;
+    margin-top: 0;
     margin-left: 74px;
   }
 `;
@@ -30,7 +30,7 @@ export const Table = styled.ul`
 export const Header = styled.li`
   font-weight: 700;
   letter-spacing: 0.02em;
-  padding: 12px 0px;
+  padding: 12px 0;
   color: #000;
 `;
 

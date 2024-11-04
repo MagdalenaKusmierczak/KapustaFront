@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const StyledOrangeButton = styled.button`
   box-sizing: border-box;
-  padding: 12px 0px;
+  padding: 12px 0;
   width: 120px;
   border: none;
   background-color: #ff751d;
@@ -15,7 +15,7 @@ export const StyledOrangeButton = styled.button`
   letter-spacing: 0.02em;
   font-size: 12px;
   line-height: 1.17;
-  box-shadow: 1px 3px 5px 0px #ff6b0859;
+  box-shadow: 1px 3px 5px 0 #ff6b0859;
 `;
 
 export const StyledWhiteButton = styled.button`
@@ -40,7 +40,7 @@ export const ButtonBack = styled(Link)`
   border: none;
   display: flex;
   align-items: center;
-  margin: 16px 0px 16px 20px;
+  margin: 16px 0 16px 20px;
 `;
 
 export const ButtonBackWithText = styled(Link)`
@@ -49,7 +49,7 @@ export const ButtonBackWithText = styled(Link)`
   border: none;
   display: flex;
   align-items: center;
-  margin: 16px 0px 14px 20px;
+  margin: 16px 0 14px 20px;
 `;
 
 export const ButtonBackText = styled.p`

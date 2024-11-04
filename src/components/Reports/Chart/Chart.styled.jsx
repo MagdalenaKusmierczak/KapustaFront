@@ -7,7 +7,7 @@ export const SectionWrapper = styled.div`
   display: flex;
   justify-content: center;
   @media screen and (min-width: 768px) {
-    box-shadow: 0px 10px 60px 0px #aab2c533;
+    box-shadow: 0 10px 60px 0 #aab2c533;
     width: 704px;
     height: 422px;
     border-radius: 30px;
@@ -28,6 +28,6 @@ export const ChartWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     width: 756px;
     height: 422px;
-    padding-block: 0px;
+    padding-block:0;
   }
 `;

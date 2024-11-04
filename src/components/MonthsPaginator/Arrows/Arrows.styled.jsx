@@ -12,8 +12,8 @@ export const PaginatorArrow = styled.svg`
 `;
 
 export const PaginatorButton = styled.button`
-  border: 0px;
-  padding: 0px;
+  border: 0;
+  padding: 0;
   outline: none;
   background: inherit;
 `;
