@@ -10,9 +10,11 @@ import { Value, Table, Header, ListItem, Month } from "./Summary-styled";
 
 const Summary = () => {
   const location = useLocation();
+
   const incomeData = useSelector(selectIncomeSummary);
   const expensesData = useSelector(selectExpensesSummary);
   const isLoading = useSelector(selectIsLoading);
+
   let data;
 
   if (
@@ -28,6 +30,13 @@ const Summary = () => {
     data = expensesData ? Object.entries(expensesData) : [];
   }
 
+  
+  function sortDescending(arr) {
+    return arr.slice().sort((a, b) => arr.indexOf(b) - arr.indexOf(a));
+  }
+
+  const sortedData = sortDescending(data);
+
   return (
     <>
       {isLoading ? (
@@ -35,7 +44,7 @@ const Summary = () => {
       ) : (
         <Table>
           <Header>SUMMARY</Header>
-          {data.map((el) => {
+          {sortedData.map((el) => {
             if (el[1] === "N/A") {
               return null;
             } else {

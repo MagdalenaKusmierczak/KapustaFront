@@ -19,6 +19,7 @@ export const Table = styled.ul`
     border-bottom-left-radius: 0px;
     margin-top: 40px;
     margin-left: 32px;
+    overflow: hidden;
   }
   @media screen and (min-width: 1280px) {
     margin-top: 0px;
