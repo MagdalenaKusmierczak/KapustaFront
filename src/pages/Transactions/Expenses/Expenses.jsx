@@ -91,7 +91,7 @@ export default function Expenses() {
               {color}
             </TransactionListDesktop>
           )}
-          {isMobile && (
+          {isMobile && !isTransactions && (
             <TransactionList>
               {allExpenses}
               {color}
