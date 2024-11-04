@@ -1,15 +1,22 @@
-import { ChartWrapper, SectionWrapper } from "./Chart.styled";
 import Chart from "react-apexcharts";
 import { useMatchMedia } from "../../../hooks/MediaQuery";
+import { ChartWrapper, SectionWrapper } from "./Chart.styled";
 
-const data = [
-  { x: "Chicken", y: 1000, fillColor: "#FF751D" },
-  { x: "Fuel", y: 500, fillColor: "#FFDAC0" },
-  { x: "Beef", y: 800, fillColor: "#FFDAC0" },
+const colors = [
+  { fillColor: "#FF751D" },
+  { fillColor: "#FFDAC0" },
+  { fillColor: "#FFDAC0" },
 ];
 
-const ChartComponent = () => {
+const ChartComponent = ({ data }) => {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
+
+  if (!data || Object.keys(data).length === 0) {
+    return <SectionWrapper></SectionWrapper>;
+  }
+
+  const categories = Object.keys(data);
+  const seriesData = Object.values(data);
 
   const options = {
     chart: {
@@ -53,7 +60,7 @@ const ChartComponent = () => {
       distributed: true,
     },
     xaxis: {
-      categories: data.map((item) => item.x),
+      categories: categories,
       axisTicks: {
         show: false,
       },
@@ -61,7 +68,7 @@ const ChartComponent = () => {
         show: false,
       },
       labels: {
-        show: false,
+        show: true,
       },
     },
     yaxis: {
@@ -69,7 +76,7 @@ const ChartComponent = () => {
     },
     fill: {
       type: "solid",
-      colors: data.map((item) => item.fillColor),
+      colors: colors.map((item) => item.fillColor),
     },
     grid: {
       show: true,
@@ -78,13 +85,18 @@ const ChartComponent = () => {
       {
         breakpoint: 768,
         options: {
+          chart: {
+            width: 270,
+            height: 240,
+            stackOnlyBar: true,
+          },
           yaxis: {
             labels: {
-              show: true, 
-              offsetX: 60,
-              offsetY: -20,
+              show: false,
+              offsetX: 100,
+              offsetY: -3,
               style: {
-                fontSize: 12,
+                fontSize: 10,
                 fontFamily: "Roboto",
                 fontWeight: 400,
                 colors: ["#52555F"],
@@ -93,6 +105,12 @@ const ChartComponent = () => {
           },
           xaxis: {
             show: false,
+            labels: {
+              show: false,
+              style: {
+                fontSize: 10,
+              },
+            },
           },
           grid: {
             show: false,
@@ -105,8 +123,19 @@ const ChartComponent = () => {
           },
           dataLabels: {
             enabled: true,
+            formatter: function (val, { seriesIndex, dataPointIndex }) {
+              const category = categories[dataPointIndex];
+              const shortCategory =
+                category.length > 10
+                  ? category.substring(0, 8) + "..."
+                  : category;
+              return `${shortCategory} ${val}`;
+            },
             offsetY: -15,
-            position: "center",
+            offsetX: -10,
+            style: {
+              fontSize: 10,
+            },
           },
         },
       },
@@ -115,7 +144,8 @@ const ChartComponent = () => {
 
   const series = [
     {
-      data: data.map((item) => item.y),
+      name: "Amount",
+      data: seriesData,
     },
   ];
 
