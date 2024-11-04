@@ -20,6 +20,7 @@ export const Table = styled.ul`
     margin-top: 40px;
     margin-left: 32px;
     overflow: hidden;
+    margin-bottom: 100px;
   }
   @media screen and (min-width: 1280px) {
     margin-top: 0;
