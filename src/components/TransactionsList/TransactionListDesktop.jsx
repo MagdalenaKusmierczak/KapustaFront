@@ -16,10 +16,6 @@ export const TransactionListDesktop = ({ children }) => {
   if (color === "green") {
     minus = false;
   }
-  
-  const handleDelete = (event) => {
-    dispatch(deleteTransaction(event.currentTarget.id));
-  };
 
   let transactions = [];
 
@@ -38,6 +34,10 @@ export const TransactionListDesktop = ({ children }) => {
     }
     return second - first;
   });
+  
+  const handleDelete = (event) => {
+    dispatch(deleteTransaction(event.currentTarget.id));
+  };
 
   return (
     !isLoading && (

@@ -85,7 +85,7 @@ export const StyledTabsDesktop = styled.div`
   }
 `;
 export const StyledTabsMobile = styled.div`
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   bottom: 0;
   display: flex;

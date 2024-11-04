@@ -92,7 +92,12 @@ export default function Incomes() {
             </TransactionListDesktop>
           )}
           {isDesktop && <Summary />}
-          {isMobile && !isTransactions && <TransactionList />}
+          {isMobile && !isTransactions && (
+            <TransactionList>
+              {allIncomes}
+              {color}
+            </TransactionList>
+          )}
         </StyledTableAndSummaryDiv>
       </StyledFrame>
       {isTablet && <Summary />}

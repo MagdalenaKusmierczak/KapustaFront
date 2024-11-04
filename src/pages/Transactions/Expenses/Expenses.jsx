@@ -91,7 +91,12 @@ export default function Expenses() {
               {color}
             </TransactionListDesktop>
           )}
-          {isMobile && <TransactionList />}
+          {isMobile && (
+            <TransactionList>
+              {allExpenses}
+              {color}
+            </TransactionList>
+          )}
           {isDesktop && <Summary />}
         </StyledTableAndSummaryDiv>
       </StyledFrame>
