@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getReports } from "./operations";
 
 const initialState = {
-  reports: [],
+  incomes: [],
+  expenses: [],
   isLoading: false,
   error: null,
 };
@@ -23,7 +24,8 @@ export const reportsSlice = createSlice({
     builder
       .addCase(getReports.pending, handlePending)
       .addCase(getReports.fulfilled, (state, action) => {
-        state.reports = action.payload;
+        state.incomes = action.payload.incomes;
+        state.expenses = action.payload.expenses;
         state.isLoading = false;
       })
       .addCase(getReports.rejected, handleRejected);

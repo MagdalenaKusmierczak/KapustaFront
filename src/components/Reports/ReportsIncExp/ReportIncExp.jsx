@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { selectReports } from "../../../redux/reports/selectors";
-import { filteredDataAction } from "../../../redux/reportsQuery/reportsQuery.slice";
+import { useSelector } from "react-redux";
+import {
+  selectIncomeTotal,
+  selectExpensesTotal,
+} from "../../../redux/reports/selectors";
 import Arrows from "../../MonthsPaginator/Arrows/Arrows";
-import { ReportsList } from "../ReportsList/ReportsList";
+// import { ReportsList } from "../ReportsList/ReportsList";
 import {
   StatisticsWrapper,
   StatisticsList,
@@ -14,22 +16,18 @@ import {
   IconsBox,
 } from "./ReportIncExp.styled";
 
-
 export const ReportIncExp = () => {
   const [budget, setBudget] = useState("expenses");
 
-  const { reports } = useSelector(selectReports);
-
-  const dispatch = useDispatch();
+  const incomesTotal = useSelector(selectIncomeTotal);
+  const expensesTotal = useSelector(selectExpensesTotal);
 
   const handleClick = () => {
     if (budget === "expenses") {
       setBudget("income");
-      dispatch(filteredDataAction([]));
       return;
     }
     setBudget("expenses");
-    dispatch(filteredDataAction([]));
   };
 
   return (
@@ -38,13 +36,11 @@ export const ReportIncExp = () => {
         <StatisticsList>
           <StatisticsElement className="expenses">
             Expenses:
-            <StatsExpenses>
-              {reports?.expenses?.expenseTotal ?? 0}.00
-            </StatsExpenses>
+            <StatsExpenses>{expensesTotal ?? 0}.00</StatsExpenses>
           </StatisticsElement>
           <StatisticsElement className="income">
             Income:
-            <StatsIncome>{reports?.incomes?.incomeTotal ?? 0}.00</StatsIncome>
+            <StatsIncome>{incomesTotal ?? 0}.00</StatsIncome>
           </StatisticsElement>
         </StatisticsList>
       </StatisticsWrapper>
@@ -52,7 +48,7 @@ export const ReportIncExp = () => {
         <Arrows onButtonClick={handleClick}>
           <BudgetName>{budget}</BudgetName>
         </Arrows>
-        <ReportsList onChange={budget} />
+        {/* <ReportsList onChange={budget} /> */}
       </IconsBox>
     </>
   );
