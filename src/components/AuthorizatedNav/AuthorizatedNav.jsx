@@ -38,7 +38,7 @@ const AuthorizatedNav = () => {
         <AuthNav>
           <LoginLabel>{userEmail[0].toUpperCase()}</LoginLabel>
           <LoginName>{userEmail}</LoginName>
-          <LogoutImg>
+          <LogoutImg type="button" onClick={handleModalOpen}>
             <PageIcon>
               <use href={`${icons}#logout`}></use>
             </PageIcon>
