@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Table = styled.ul`
   display: none;
-
   @media screen and (min-width: 768px) {
     width: 213px;
     height: 280px;
