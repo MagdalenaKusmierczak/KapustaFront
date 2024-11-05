@@ -60,4 +60,8 @@ export const ButtonBackText = styled.p`
   line-height: 11.72px;
   letter-spacing: 0.02em;
   text-align: center;
+  color: #000000;
+  a {
+    color: inherit;
+  }
 `;
