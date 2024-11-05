@@ -9,8 +9,6 @@ import {
 export const BackButton = () => {
   const location = useLocation();
 
-  const isHome = location.pathname === "/";
-
   let backLink;
 
   if (location.pathname === "/income/transactions") {
@@ -20,8 +18,6 @@ export const BackButton = () => {
   } else {
     backLink = "/";
   }
-
-  const isVisible = isHome === true;
 
   const isExpenses = location.pathname === "/expenses";
 
@@ -33,14 +29,6 @@ export const BackButton = () => {
 
   return (
     <>
-      {isVisible && (
-        <ButtonBackWithText to="/expenses/transactions">
-          <svg width="18" height="12">
-            <use href={`${icons}#back-arrow`}></use>
-          </svg>
-          <ButtonBackText>TO TRANSACTIONS</ButtonBackText>
-        </ButtonBackWithText>
-      )}
       {isExpenses && (
         <ButtonBackWithText to="/expenses/transactions">
           <svg width="18" height="12">
@@ -57,7 +45,7 @@ export const BackButton = () => {
           <ButtonBackText>TO TRANSACTIONS</ButtonBackText>
         </ButtonBackWithText>
       )}
-      {isTransactions && !isVisible && (
+      {isTransactions && (
         <ButtonBack to={backLink}>
           <svg width="18" height="12">
             <use href={`${icons}#back-arrow`}></use>
