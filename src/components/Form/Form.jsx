@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { useMatchMedia } from "../../hooks/MediaQuery";
@@ -7,6 +7,10 @@ import DateSelect from "./DateSelect/DateSelect";
 import CategorySelect from "./Category/Category";
 import InputCalc from "./Input/Input";
 import { addExpense, addIncome } from "../../redux/transactions/operations";
+import {
+  getIncomeCategoriesArr,
+  getExpenseCategoriesArr,
+} from "../../redux/categories/operations";
 import {
   selectExpensesCategories,
   selectIncomeCategories,
@@ -28,6 +32,8 @@ const Form = () => {
 
   const location = useLocation();
 
+  const isHome = location.pathname === "/";
+
   const isIncExp =
     location.pathname === "/income" || location.pathname === "/expenses";
 
@@ -35,10 +41,16 @@ const Form = () => {
     location.pathname === "/income/transactions" ||
     location.pathname === "/expenses/transactions";
 
+  const isVisible = isHome === true;
 
   const form = useRef(null);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getIncomeCategoriesArr());
+    dispatch(getExpenseCategoriesArr());
+  }, [dispatch]);
 
   const expensesArr = useSelector(selectExpensesCategories);
   const incomesArr = useSelector(selectIncomeCategories);
@@ -55,6 +67,7 @@ const Form = () => {
 
   if (
     location.pathname === "/expenses" ||
+    location.pathname === "/" ||
     location.pathname === "/expenses/transactions"
   ) {
     categoryArray = expensesArr;
@@ -106,7 +119,7 @@ const Form = () => {
           <DateSelect startDate={startDate} setStartDate={setStartDate} />
         </div>
       )}
-      { !isIncExp && (
+      {!isVisible && !isIncExp && (
         <StyledForm onSubmit={handleSubmit} ref={form}>
           <StyledAllInputsDiv>
             <InputProduct
