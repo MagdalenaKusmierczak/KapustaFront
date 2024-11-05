@@ -8,7 +8,7 @@ import {
 } from "../../../redux/reports/selectors";
 import ChartComponent from "../Chart/Chart";
 import Arrows from "../../MonthsPaginator/Arrows/Arrows";
-// import { ReportsList } from "../ReportsList/ReportsList";
+import { ReportsList } from "../ReportsList/ReportsList";
 import {
   StatisticsWrapper,
   StatisticsList,
@@ -41,7 +41,7 @@ export const ReportIncExp = () => {
       prevBudget === "expenses" ? "income" : "expenses"
     );
   };
-
+  
   return (
     <>
       <StatisticsWrapper>
@@ -60,7 +60,7 @@ export const ReportIncExp = () => {
         <Arrows onButtonClick={handleClick}>
           <BudgetName>{budget}</BudgetName>
         </Arrows>
-        {/* <ReportsList onChange={budget} /> */}
+        <ReportsList onChange={budget} data={data} />
       </IconsBox>
       <ChartComponent data={data} />
     </>
