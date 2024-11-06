@@ -32,16 +32,12 @@ const Form = () => {
 
   const location = useLocation();
 
-  const isHome = location.pathname === "/";
-
   const isIncExp =
     location.pathname === "/income" || location.pathname === "/expenses";
 
   const isTransactions =
     location.pathname === "/income/transactions" ||
     location.pathname === "/expenses/transactions";
-
-  const isVisible = isHome === true;
 
   const form = useRef(null);
 
@@ -67,7 +63,6 @@ const Form = () => {
 
   if (
     location.pathname === "/expenses" ||
-    location.pathname === "/" ||
     location.pathname === "/expenses/transactions"
   ) {
     categoryArray = expensesArr;
@@ -119,7 +114,7 @@ const Form = () => {
           <DateSelect startDate={startDate} setStartDate={setStartDate} />
         </div>
       )}
-      {!isVisible && !isIncExp && (
+      { !isIncExp && (
         <StyledForm onSubmit={handleSubmit} ref={form}>
           <StyledAllInputsDiv>
             <InputProduct
