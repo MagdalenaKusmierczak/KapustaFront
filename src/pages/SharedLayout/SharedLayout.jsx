@@ -10,7 +10,6 @@ const SharedLayout = () => {
     <Suspense fallback={<Loader />}>
       <SharedLayoutContainer>
         <Header />
-        
           <Outlet />
         <Footer/>
       </SharedLayoutContainer></Suspense>
