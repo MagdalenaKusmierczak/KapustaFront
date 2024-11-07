@@ -1,4 +1,7 @@
-import React from "react";
+import { Suspense } from "react";
+import { useSelector } from "react-redux";
+import { selectIsLoading } from "../../../redux/auth/selectors";
+import Loader from "../../../service/Loader/Loader";
 import { LoginForm } from "../../../components/AuthForms/LoginForm/LoginForm";
 import { useMatchMedia } from "../../../hooks/MediaQuery";
 import Name from "../../../images/union.svg";
@@ -25,9 +28,13 @@ import {
 
 export default function LoginPage() {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
-
+  const isLoading = useSelector(selectIsLoading)
+  
+  if (isLoading) {
+    return <Loader />; 
+  }
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <StyledAuthPage>
         <Background>
           {isMobile && (
@@ -61,6 +68,6 @@ export default function LoginPage() {
           <LoginForm />
         </Background>
       </StyledAuthPage>
-    </>
+    </Suspense>
   );
 }
