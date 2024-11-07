@@ -6,6 +6,18 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  isLoading: false,
+  error: null,
+};
+
+const handlePending = (state) => {
+  state.isLoading = true;
+};
+
+const handleRejected = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+  state.isRefreshing = false;
 };
 
 export const authSlice = createSlice({
@@ -19,18 +31,24 @@ export const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       // login
+      .addCase(logIn.pending, handlePending)
       .addCase(logIn.fulfilled, (state, action) => {
         const { balance, email, id } = action.payload.userData;
         state.user = { email, id, newBalance: balance };
         state.token = action.payload.accessToken;
         state.isLoggedIn = true;
+        state.isLoading = false;
       })
+      .addCase(logIn.rejected, handleRejected)
       // logout
+      .addCase(logOut.pending, handlePending)
       .addCase(logOut.fulfilled, (state) => {
         state.user = { email: null, id: null, newBalance: null };
         state.token = null;
         state.isLoggedIn = false;
+        state.isLoading = false;
       })
+      .addCase(logOut.rejected, handleRejected)
       // refresh user
       .addCase(refreshUser.pending, (state, action) => {
         state.isRefreshing = true;
