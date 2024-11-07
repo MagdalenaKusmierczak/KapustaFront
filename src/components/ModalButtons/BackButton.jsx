@@ -12,12 +12,10 @@ export const BackButton = () => {
   let backLink;
 
   if (location.pathname === "/income/transactions") {
-    backLink = "/income"; // Redirect to /income
+    backLink = "/income"; 
   } else if (location.pathname === "/expenses/transactions") {
-    backLink = "/expenses"; // Redirect to /expenses
-  } else {
-    backLink = "/";
-  }
+    backLink = "/expenses"; 
+  } 
 
   const isExpenses = location.pathname === "/expenses";
 
