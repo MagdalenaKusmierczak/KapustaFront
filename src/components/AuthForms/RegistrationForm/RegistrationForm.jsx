@@ -1,6 +1,8 @@
-import { useDispatch } from "react-redux";
-import { registerAPI } from "../../../redux/auth/api";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../../../redux/auth/operations";
+import { selectIsLoading } from "../../../redux/auth/selectors";
 import { logIn } from "../../../redux/auth/operations";
+import Loader from "../../../service/Loader/Loader";
 import { OrangeButton } from "../../ModalButtons/OrangeButton";
 import {
   FormWrapper,
@@ -15,25 +17,39 @@ import {
 export const RegistrationForm = () => {
   const dispatch = useDispatch();
 
+  const isLoading = useSelector(selectIsLoading);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const { email, password } = event.currentTarget.elements;
 
-    const data = registerAPI({
-      email: email.value,
-      password: password.value,
-    });
-
-    if (data) {
-      dispatch(
-        logIn({
-          email: email.value,
-          password: password.value,
-        })
-      );
-    }
+    dispatch(
+      register({
+        email: email.value,
+        password: password.value,
+      })
+    )
+      .then((registrationResult) => {
+        if (registrationResult.payload.code === 201) {
+          return dispatch(
+            logIn({
+              email: email.value,
+              password: password.value,
+            })
+          );
+        } else {
+          console.error("Registration failed", registrationResult.error.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Error during registration or login:", error.message);
+      });
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <FormWrapper>
@@ -65,7 +81,9 @@ export const RegistrationForm = () => {
         </div>
         <ButtonBox>
           <Navlink to="/login">Log in</Navlink>
-          <OrangeButton type="submit">REGISTRATION</OrangeButton>
+          <OrangeButton type="submit" disabled={isLoading}>
+            REGISTRATION
+          </OrangeButton>
         </ButtonBox>
       </form>
     </FormWrapper>

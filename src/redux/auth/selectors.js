@@ -7,3 +7,5 @@ export const selectToken = (store) => store.auth.token;
 export const selectIsRefreshing = (state) => state.auth.isRefreshing;
 
 export const selectIsLoading = (state) => state.auth.isLoading;
+
+export const selectIsRegistered = (state) => state.auth.isRegistered;

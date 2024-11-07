@@ -7,6 +7,7 @@ import {
   setAuthHeader,
   clearAuthHeader,
   fullUserInfoAPI,
+  registerAPI,
 } from "./api";
 
 // Login Thunk
@@ -55,3 +56,12 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+//Register
+export const register = createAsyncThunk("auth/register", async (user, thunkAPI) => {
+  try {
+    const data = await registerAPI(user);
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});

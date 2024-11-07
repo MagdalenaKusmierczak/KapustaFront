@@ -1,7 +1,5 @@
 import axios from "axios";
-import { Report } from "notiflix/build/notiflix-report-aio";
-axios.defaults.baseURL =
-  "https://kapusta-backend-fq38.onrender.com";
+axios.defaults.baseURL = "https://kapusta-backend-fq38.onrender.com";
 
 export const registerAPI = async (user) => {
   try {
@@ -9,7 +7,7 @@ export const registerAPI = async (user) => {
     return data;
   } catch (error) {
     if (error.response.status === 409) {
-      Report.failure(`User ${user.email} is existing`);
+      alert(`User ${user.email} is existing`);
     }
   }
 };
