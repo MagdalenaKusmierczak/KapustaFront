@@ -62,10 +62,12 @@ export const InputNumber = styled.input`
     border-bottom-right-radius: 16px;
     border-top-right-radius: 16px;
     border-left: none;
+    padding-right: 37px;
   }
   @media screen and (min-width: 1280px) {
     width: 119px;
-    padding-left: 40px;
+    padding-left: 10px;
+    padding-right: 46px;
   }
   ::placeholder {
     color: #c7ccdc;
