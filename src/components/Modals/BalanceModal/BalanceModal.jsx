@@ -30,11 +30,20 @@ const BalanceModal = ({ closeModal, dispatch, changeBalance }) => {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      dispatch();
+      closeModal();
+    }
+  };
+
   useEffect(() => {
     window.addEventListener("keydown", handleEscapeClose);
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
       window.removeEventListener("keydown", handleEscapeClose);
+       window.removeEventListener("keydown", handleKeyDown); 
       body.classList.toggle("no-scroll");
     };
   });
