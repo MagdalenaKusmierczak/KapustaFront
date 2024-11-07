@@ -4,7 +4,7 @@ import { filteredDataAction } from "../../../redux/reportsQuery/reportsQuery.sli
 import icons from "../../../assets/icons.svg";
 import { List, Item, ItemSvg, BgcSvg } from "./ReportsList.styled";
 
-export const ReportsList = ({ onChange, data }) => {
+export const ReportsList = ({ data }) => {
   const [active, setActive] = useState("");
 
   const dispatch = useDispatch();
@@ -16,9 +16,10 @@ export const ReportsList = ({ onChange, data }) => {
   const clickEventHandler = (event) => {
     setActive(event.currentTarget.id);
 
-    const filteredValueArr = valueArr.filter(
-      (item) => item[0] === event.currentTarget.id
-    );
+    const filteredValueArr = valueArr
+      .filter((item) => item[0] === event.currentTarget.id)
+      .map((item) => item[1]);
+    console.log(filteredValueArr);
     dispatch(filteredDataAction(filteredValueArr));
   };
 
@@ -39,7 +40,7 @@ export const ReportsList = ({ onChange, data }) => {
               onClick={clickEventHandler}
               className={isActive ? "active" : ""}
             >
-              <p>{entryData}.00</p>
+              <p>{entryData.total}.00</p>
               <ItemSvg
                 width="60"
                 height="60"

@@ -1,6 +1,8 @@
 import Chart from "react-apexcharts";
+import { useSelector } from "react-redux";
 import { useMatchMedia } from "../../../hooks/MediaQuery";
-import { ChartWrapper, SectionWrapper } from "./Chart.styled";
+import { filteredData } from "../../../redux/reportsQuery/selectors";
+import { ChartWrapper, SectionWrapper, Info, InfoWrapper } from "./Chart.styled";
 
 const colors = [
   { fillColor: "#FF751D" },
@@ -8,16 +10,33 @@ const colors = [
   { fillColor: "#FFDAC0" },
 ];
 
-const ChartComponent = ({ data }) => {
+const ChartComponent = () => {
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
 
-  if (!data || Object.keys(data).length === 0) {
-    return <SectionWrapper></SectionWrapper>;
+  const filteredDataFromStore = useSelector(filteredData);
+
+  if (
+    !filteredDataFromStore ||
+    Object.keys(filteredDataFromStore).length === 0
+  ) {
+    return (
+      <SectionWrapper>
+        <InfoWrapper><Info>Select category to display</Info></InfoWrapper>
+      </SectionWrapper>
+    );
   }
 
-  const categories = Object.keys(data);
-  const seriesData = Object.values(data);
+  const filteredCategoryData = filteredDataFromStore[0];
 
+  const categories = Object.keys(filteredCategoryData).filter(
+    (key) => key !== "total"
+  );
+
+  const seriesData = categories.map(
+    (category) => filteredCategoryData[category]
+  );
+
+  // console.log(categories);
   const options = {
     chart: {
       width: "100%",

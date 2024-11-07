@@ -41,7 +41,6 @@ export const ReportIncExp = () => {
       prevBudget === "expenses" ? "income" : "expenses"
     );
   };
-  
   return (
     <>
       <StatisticsWrapper>
@@ -60,9 +59,9 @@ export const ReportIncExp = () => {
         <Arrows onButtonClick={handleClick}>
           <BudgetName>{budget}</BudgetName>
         </Arrows>
-        <ReportsList onChange={budget} data={data} />
+        <ReportsList data={data} />
       </IconsBox>
-      <ChartComponent data={data} />
+      <ChartComponent />
     </>
   );
 };

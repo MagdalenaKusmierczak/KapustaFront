@@ -28,6 +28,22 @@ export const ChartWrapper = styled.div`
   @media screen and (min-width: 1280px) {
     width: 756px;
     height: 422px;
-    padding-block:0;
+    padding-block: 0;
   }
+`;
+
+export const Info = styled.p`
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #000000;
+`;
+
+export const InfoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
