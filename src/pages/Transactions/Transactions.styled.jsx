@@ -37,6 +37,7 @@ export const StyledFrame = styled.div`
     padding: 32px 32px 61px;
     width: 1098px;
     height: 579px;
+    margin-bottom: 90px;
   }
 `;
 

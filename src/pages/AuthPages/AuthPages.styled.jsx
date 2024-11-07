@@ -6,10 +6,15 @@ import imageDeskBg from "../../images/backgroundDesktop.png";
 
 export const StyledAuthPage = styled.div`
   width: 100%;
-  height: 100vh;
+  min-height: 856px;
   display: flex;
   flex-direction: column;
-
+  @media screen and (min-width: 768px) {
+    min-height: 1024px;
+  }
+  @media screen and (min-width: 1280px) {
+    min-height: 850px;
+  }
 `;
 
 export const Background = styled.div`

@@ -5,7 +5,7 @@ import backgroundDesktop from "../../images/backgroundDesktop.png";
 import backGroundDiagram from "../../images/bgDeskKapusta.png";
 import backgroundTableTabl from "../../images/kapustaTab.svg";
 export const Background = styled.div`
-  height: 100vh;
+  height: 150vh;
   background-image: url(${backgroundMobile});
   background-position-y: -56px;
   background-repeat: no-repeat;
@@ -20,5 +20,6 @@ export const Background = styled.div`
     padding: 0 123px;
     background-image: url(${backgroundDesktop}), url(${backGroundDiagram});
     background-size: 100%;
+    margin-bottom: 90px;
   }
 `;
