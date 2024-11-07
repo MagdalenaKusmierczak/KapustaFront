@@ -36,7 +36,6 @@ const ChartComponent = () => {
     (category) => filteredCategoryData[category]
   );
 
-  // console.log(categories);
   const options = {
     chart: {
       width: "100%",
