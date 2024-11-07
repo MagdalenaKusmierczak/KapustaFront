@@ -19,7 +19,7 @@ export const ReportsList = ({ data }) => {
     const filteredValueArr = valueArr
       .filter((item) => item[0] === event.currentTarget.id)
       .map((item) => item[1]);
-    console.log(filteredValueArr);
+  
     dispatch(filteredDataAction(filteredValueArr));
   };
 

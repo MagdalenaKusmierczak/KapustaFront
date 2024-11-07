@@ -6,6 +6,8 @@ import {
   selectExpensesData,
   selectIncomeData,
 } from "../../../redux/reports/selectors";
+import { useDispatch } from "react-redux";
+import { filteredDataAction } from "../../../redux/reportsQuery/reportsQuery.slice";
 import ChartComponent from "../Chart/Chart";
 import Arrows from "../../MonthsPaginator/Arrows/Arrows";
 import { ReportsList } from "../ReportsList/ReportsList";
@@ -28,6 +30,8 @@ export const ReportIncExp = () => {
   const incomesData = useSelector(selectIncomeData);
   const expensesData = useSelector(selectExpensesData);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     if (budget === "expenses") {
       setData(expensesData);
@@ -40,6 +44,7 @@ export const ReportIncExp = () => {
     setBudget((prevBudget) =>
       prevBudget === "expenses" ? "income" : "expenses"
     );
+    dispatch(filteredDataAction({}));
   };
   return (
     <>
