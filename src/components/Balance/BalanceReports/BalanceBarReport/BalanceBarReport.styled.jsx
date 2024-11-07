@@ -77,8 +77,7 @@ export const BalanceInput = styled.input`
     font-weight: 700;
     line-height: 14.06px;
     letter-spacing: 0.02em;
-    color: #000000
-    ;
+    color: #000000;
   }
   @media (max-width: 767px) {
     width: 183px;
@@ -110,10 +109,10 @@ export const BalanceButton = styled.button`
   color: #52555fb2;
   &:hover,
   &:focus {
-    background: #ff751d;
-    border: #ff751d;
-    color: #ffffff;
-    cursor: pointer;
+    background: ${({ disabled }) => (disabled ? "#f2f5fc" : "#ff751d")};
+    border: ${({ disabled }) => (disabled ? "#ccc" : "#ff751d")};
+    color: ${({ disabled }) => (disabled ? "#52555fb2" : "#ffffff")};
+    cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
     transition: 0 3px 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08),
       0 2px 2px rgba(0, 0, 0, 0.12);
   }

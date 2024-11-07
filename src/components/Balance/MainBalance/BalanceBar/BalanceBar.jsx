@@ -11,9 +11,9 @@ import {
   BalanceButton,
 } from "./BalanceBar.styled";
 
-
 const BalanceBar = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [balance, setBalance] = useState("");
 
   const form = useRef();
 
@@ -21,16 +21,14 @@ const BalanceBar = () => {
 
   const dispatch = useDispatch();
 
-  let balance;
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    balance = evt.target.balance.value;
   };
 
   const onClick = () => {
     dispatch(updateBalance({ newBalance: balance }));
     form.current.reset();
+    setBalance("");
   };
 
   const handleModalOpen = () => {
@@ -51,10 +49,16 @@ const BalanceBar = () => {
             name="balance"
             type="number"
             pattern="[0-9, .UAH]*"
-            placeholder={`${stateBalance}.00 UAH`}
+            placeholder={`${stateBalance ?? 0}.00 UAH`}
+            value={balance}
             required
+            onChange={(e) => setBalance(e.target.value)}
           />
-          <BalanceButton type="submit" onClick={handleModalOpen}>
+          <BalanceButton
+            type="submit"
+            onClick={handleModalOpen}
+            disabled={!balance}
+          >
             CONFIRM
           </BalanceButton>
         </BalanceBox>

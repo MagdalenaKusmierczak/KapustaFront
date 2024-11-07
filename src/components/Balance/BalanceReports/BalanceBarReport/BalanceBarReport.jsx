@@ -13,6 +13,7 @@ import {
 
 const BalanceBarReport = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [balance, setBalance] = useState("");
 
   const form = useRef();
 
@@ -20,16 +21,14 @@ const BalanceBarReport = () => {
 
   const dispatch = useDispatch();
 
-  let balance;
-
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    balance = evt.target.balance.value;
   };
 
   const onClick = () => {
     dispatch(updateBalance({ newBalance: balance }));
     form.current.reset();
+    setBalance("");
   };
 
   const handleModalOpen = () => {
@@ -43,7 +42,7 @@ const BalanceBarReport = () => {
   return (
     <>
       <BalanceForm onSubmit={handleSubmit} ref={form}>
-        <BalanceText id="bilans">Balance:</BalanceText>
+        <BalanceText id="balance">Balance:</BalanceText>
         <BalanceBox>
           <BalanceInput
             id="balance"
@@ -51,9 +50,15 @@ const BalanceBarReport = () => {
             type="number"
             pattern="[0-9, .UAH]*"
             placeholder={`${stateBalance ?? 0}.00 UAH`}
+            value={balance}
             required
+            onChange={(e) => setBalance(e.target.value)}
           />
-          <BalanceButton type="submit" onClick={handleModalOpen}>
+          <BalanceButton
+            type="submit"
+            onClick={handleModalOpen}
+            disabled={!balance}
+          >
             CONFIRM
           </BalanceButton>
         </BalanceBox>
@@ -65,9 +70,11 @@ const BalanceBarReport = () => {
           closeModal={handleModalClose}
           dispatch={onClick}
           text="SURE"
-          balance={balance}
-        >  Are you sure?
-      </BalanceModal>
+          balance={stateBalance}
+        >
+          {" "}
+          Are you sure?
+        </BalanceModal>
       )}
     </>
   );
