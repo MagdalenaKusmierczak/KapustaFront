@@ -23,7 +23,7 @@ const Footer = () => {
   const validator = (isExpenses && isMobile) || (isIncome && isMobile);
 
      if (validator) {
-       return null; // Don't render the FooterContainer
+       return null; 
     }
     
   return (

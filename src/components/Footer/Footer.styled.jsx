@@ -45,4 +45,5 @@ export const Paragraph = styled.p`
   line-height: 1.16;
   text-align: center;
   letter-spacing: 0.04em;
+  padding-top: 7px;
 `;
