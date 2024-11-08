@@ -1,70 +1,16 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+💰💲This app provides a simple and effective way to manage your finances. Track your income and expenses with ease and stay on top of your budget. Start by adding your initial balance, then add transactions from various categories like Salary, Additional Income, Products, Entertainment, Health, and more. Personalize each transaction with a description for better understanding of your spending habits.
+View reports by category or month and gain valuable insights with charts and graphs. With this app, budgeting and financial planning becomes a breeze.
 
-## Available Scripts
+🏗️🚧 Development of the app began as a group project. 
+            The base of the project was created there: 
+            <https://github.com/mswitas/project-front-group-05>
+                        and 
+            <https://github.com/mswitas/project-backend-group-05>.
 
-In the project directory, you can run:
+💻📡 See also the running backend of the app on this repository:
+<https://github.com/MagdalenaKusmierczak/KapustaBackend>.
 
-### `npm start`
+✅The app is built with the following technologies and libraries: create-react-app, React, ReactDOM, ReactRouterDOM, Redux, Axios, Styled Components, Redux Persist, Apex Charts, Handy SVG, Modern Normallize, Notiflix, Prop Types, React Datepicker, React Loader Spinner, and Redux Responsive. It also includes the Web Vitals package.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🚨🚨🚨When running the app for the first time, please be patient as the initial call to the server may take some time due to the way the app is deployed.🚨🚨🚨
