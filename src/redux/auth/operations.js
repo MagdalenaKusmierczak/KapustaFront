@@ -6,8 +6,9 @@ import {
   logoutAPI,
   setAuthHeader,
   clearAuthHeader,
-  fullUserInfoAPI,
+  refreshTokenApi,
   registerAPI,
+  fullUserInfoAPI,
 } from "./api";
 
 // Login Thunk
@@ -42,14 +43,11 @@ export const refreshUser = createAsyncThunk(
   "auth/refreshUser",
   async (_, thunkAPI) => {
     const state = thunkAPI.getState();
-    const persistedToken = state.auth.token;
+    const refreshToken = state.auth.refreshToken;
+    const sid = state.auth.sid;
 
-    setAuthHeader(persistedToken);
-    if (!persistedToken) {
-      return thunkAPI.rejectWithValue("немає токену");
-    }
     try {
-      const data = await fullUserInfoAPI();
+      const data = await refreshTokenApi(sid, refreshToken);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -57,9 +55,24 @@ export const refreshUser = createAsyncThunk(
   }
 );
 //Register
-export const register = createAsyncThunk("auth/register", async (user, thunkAPI) => {
+export const register = createAsyncThunk(
+  "auth/register",
+  async (user, thunkAPI) => {
+    try {
+      const data = await registerAPI(user);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+//User fetch
+export const fetchUser = createAsyncThunk("auth/user", async (_, thunkAPI) => {
   try {
-    const data = await registerAPI(user);
+    const state = thunkAPI.getState();
+    const accessToken = state.auth.accessToken;
+    setAuthHeader(accessToken);
+    const data = await fullUserInfoAPI();
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
