@@ -33,6 +33,7 @@ export default function LoginPage() {
   if (isLoading) {
     return <Loader />; 
   }
+  
   return (
     <Suspense fallback={<Loader />}>
       <StyledAuthPage>
