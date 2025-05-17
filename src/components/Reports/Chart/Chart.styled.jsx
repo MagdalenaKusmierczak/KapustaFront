@@ -33,7 +33,7 @@ export const ChartWrapper = styled.div`
 `;
 
 export const Info = styled.p`
-  font-family: Roboto;
+  font-family: Roboto; // Remember about providing reasonable default font
   font-style: normal;
   font-weight: 700;
   font-size: 14px;

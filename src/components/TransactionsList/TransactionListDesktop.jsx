@@ -5,6 +5,10 @@ import { deleteTransaction } from "../../redux/transactions/operations";
 import icons from "../../assets/icons.svg";
 import { TransactionTable } from "./TransactionListDesktop.styled";
 
+// A lot of duplicated code between this and TransactionList.jsx
+// Think about the component function and its visual representation
+// You can either separate the logic into some kind of hoook and keep visuals separate or
+// Merge the UI into one component
 export const TransactionListDesktop = ({ children }) => {
   const dispatch = useDispatch();
 

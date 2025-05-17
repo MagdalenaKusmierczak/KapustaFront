@@ -30,6 +30,8 @@ export default function EntryModal() {
     }
   };
 
+  // This seems like a hack?
+  // Usually, modal introduces its own backdrop to take care of obscuring the rest of the page
   useEffect(() => {
     body.classList.add("no-scroll");
     return () => body.classList.remove("no-scroll");

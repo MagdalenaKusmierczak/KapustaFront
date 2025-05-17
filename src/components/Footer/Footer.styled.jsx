@@ -20,7 +20,7 @@ export const AddressList = styled.ul`
   gap: 20px;
   padding: 0;
   margin: 0;
-  margin-bottom: 10px;
+  margin-bottom: 10px; // Try to group margins in such cases, e.g. margin: 0 0 10px 0;
 `;
 
 export const Icon = styled.img`
@@ -38,7 +38,7 @@ export const Paragraph = styled.p`
   align-items: center;
   margin: 0;
   margin-bottom: 7px;
-  font-family: "Roboto";
+  font-family: "Roboto"; // Always provide meaningful fallback fonts
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

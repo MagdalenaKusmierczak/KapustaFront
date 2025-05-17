@@ -32,6 +32,7 @@ const MonthsPaginator = () => {
     setMonth(monthNames[monthNumber]);
     let monthString = "";
 
+    // You can use the padStart method to add leading zeros
     if (monthNumber + 1 < 10) {
       monthString = "0" + (monthNumber + 1);
     } else {
@@ -44,6 +45,8 @@ const MonthsPaginator = () => {
     dispatch(reportsQueryAction(`${year}-${monthString}`));
   }, [monthNumber, year, dispatch]);
 
+  // Consider using just a date object for that and extracting the month and year from it
+  // This way, adding months and years will be easier - you can just use built-in methods
   const handlerClick = (name) => {
     switch (name) {
       case "decrement":

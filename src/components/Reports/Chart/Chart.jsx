@@ -36,6 +36,9 @@ const ChartComponent = () => {
     (category) => filteredCategoryData[category]
   );
 
+  // That looks like something that can be extracted outside the component
+  // Try to keep constants outside the component - this makes the code cleaner
+  // You can always create an "initializer" function that builds such options, but customizes it, if needed
   const options = {
     chart: {
       width: "100%",
@@ -170,6 +173,7 @@ const ChartComponent = () => {
   return (
     <SectionWrapper>
       <ChartWrapper>
+        {/* What will happen with height if for some reason all the options return false? Will it be still a number? */}
         <Chart
           options={options}
           series={series}

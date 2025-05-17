@@ -1,5 +1,6 @@
 const dateNow = new Date();
 
+// This seems like an utility file - it doesn't have to be CamelCased, can be just camelCased and use ".js" extension
 export const monthNames = [
   "January",
   "February",

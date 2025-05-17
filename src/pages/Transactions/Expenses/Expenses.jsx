@@ -26,6 +26,8 @@ import {
 export default function Expenses() {
   const location = useLocation();
 
+  // What if it's the parent component that decides which component to show?
+  // You can pass a prop to the child component to determine which version to render instead of using the location directly here
   const isTransactions =
     location.pathname === "/income/transactions" ||
     location.pathname === "/expenses/transactions";
@@ -37,7 +39,7 @@ export default function Expenses() {
   const allExpenses = useSelector(selectExpensesTransactions);
   const user = useSelector(selectIsLoggedIn);
   const balance = useSelector(selectBalance);
-  const color = "red";
+  const color = "red"; // Why is this needed in such form here?
 
   useEffect(() => {
     if (user) dispatch(getExpenses());

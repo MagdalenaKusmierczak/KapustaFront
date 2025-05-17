@@ -20,6 +20,8 @@ const Footer = () => {
 
   const isIncome = location.pathname === "/income";
 
+  // Should the component decide on its display on its own?
+  // Wouldn't it be better to conditionally render it in the parent?
   const validator = (isExpenses && isMobile) || (isIncome && isMobile);
 
      if (validator) {
