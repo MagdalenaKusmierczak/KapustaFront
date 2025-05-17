@@ -1,4 +1,6 @@
 import axios from "axios";
+
+// What about e.g. supplying it during the runtime/build time? This way, it'd be easier to run the UI in different scenarios.
 axios.defaults.baseURL = "https://kapusta-backend-fq38.onrender.com";
 
 export const setAuthHeader = (token) => {

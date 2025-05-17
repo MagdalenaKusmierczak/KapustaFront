@@ -10,6 +10,8 @@ const initialState = {
   isRegistered: false,
   isLoggedIn: false,
   isRefreshing: false,
+  // If you want to play a bit with rewriting the store, check out RTKQ - it gives an abstraction over the store
+  // and allows you to use a cache for the data, also adding standardized "loading/error" state handling
   isLoading: false,
   error: null,
 };

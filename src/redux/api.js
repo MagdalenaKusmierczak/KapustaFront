@@ -1,6 +1,7 @@
 import axios from "axios";
 axios.defaults.baseURL = "https://kapusta-backend-fq38.onrender.com/";
 
+// This file is not specific to Redux - maybe it should be moved to a different folder, e.g. `service`?
 export const addIncomeAPI = async (info) => {
   const { data } = await axios.post("/transaction/income", info);
   return data;
