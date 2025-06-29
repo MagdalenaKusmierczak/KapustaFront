@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import backgroundMobile from "../../images/backgroundMobile.png";
 import backgroundTablet from "../../images/backgroundTablet.png";
 import backgroundDesktop from "../../images/backgroundDesktop.png";

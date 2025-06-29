@@ -14,6 +14,7 @@ import {
   PageIcon,
 } from "./AuthorizatedNav.styled";
 
+
 // I'd suggest "AuthorizedNav" as the name here
 const AuthorizatedNav = () => {
   const [modalOpen, setModalOpen] = useState(false);

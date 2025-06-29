@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export const ModalWrapper = styled.div`
   z-index: 3;
@@ -36,8 +36,8 @@ export const CloseButton = styled.button`
   top: 20px;
   right: 20px;
   cursor: pointer;
-  width:30px;
-  height:30px;
+  width: 30px;
+  height: 30px;
 `;
 
 export const Backdrop = styled.div`

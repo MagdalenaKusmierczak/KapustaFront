@@ -34,7 +34,6 @@ const Summary = () => {
     data = expensesData ? Object.entries(expensesData) : [];
   }
 
-  
   function sortDescending(arr) {
     return arr.slice().sort((a, b) => arr.indexOf(b) - arr.indexOf(a));
   }

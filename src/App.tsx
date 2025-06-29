@@ -24,7 +24,7 @@ const App = () => {
       return;
     }
     dispatch(fetchUser());
-  },);
+  });
 
   return (
     <Routes>

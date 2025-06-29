@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export const CategoryDiv = styled.div`
   position: relative;
@@ -19,7 +19,7 @@ export const Wrap = styled.div`
   padding: 2px 20px;
   border: 2px solid #ffffff;
   border-bottom-right-radius: 20px;
-  background-color: #f5f6fb; // Try to abstract the colors that you repeat a lot into either CSS vars or a theme/constants file.
+  background-color: #f5f6fb;
   cursor: pointer;
   @media screen and (min-width: 768px) {
     width: 186px;

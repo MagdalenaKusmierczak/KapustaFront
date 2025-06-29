@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export const SectionWrapper = styled.div`
   height: 493px;
