@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export const FooterContainer = styled.footer`
   display: flex;
@@ -39,6 +39,7 @@ export const Paragraph = styled.p`
   margin: 0;
   margin-bottom: 7px;
   font-family: "Roboto"; // Always provide meaningful fallback fonts
+  font-style: normal;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

@@ -31,12 +31,12 @@ export default function LoginPage() {
   // (e.g. define layout scaffoldings for different screen sizes with props in given areas that automatically render only needed areas?)
   // Keeping it as it is make the app harder to scale in the future
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
-  const isLoading = useSelector(selectIsLoading)
-  
+  const isLoading = useSelector(selectIsLoading);
+
   if (isLoading) {
-    return <Loader />; 
+    return <Loader />;
   }
-  
+
   return (
     <Suspense fallback={<Loader />}>
       <StyledAuthPage>

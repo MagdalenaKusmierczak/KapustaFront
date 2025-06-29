@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 export const SharedLayoutContainer = styled.div`
   width: 320px;

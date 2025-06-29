@@ -24,10 +24,10 @@ const Footer = () => {
   // Wouldn't it be better to conditionally render it in the parent?
   const validator = (isExpenses && isMobile) || (isIncome && isMobile);
 
-     if (validator) {
-       return null; 
-    }
-    
+  if (validator) {
+    return null;
+  }
+
   return (
     <FooterContainer>
       <Paragraph>

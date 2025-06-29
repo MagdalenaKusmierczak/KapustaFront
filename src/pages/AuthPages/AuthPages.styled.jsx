@@ -1,5 +1,4 @@
-import styled from "styled-components";
-import { HandySvg } from "handy-svg";
+import styled from "@emotion/styled";
 import imageMobBg from "../../images/backgroundMobile.png";
 import imageTabBg from "../../images/backgroundTablet.png";
 import imageDeskBg from "../../images/backgroundDesktop.png";
@@ -56,13 +55,13 @@ export const KapustaMobTop = styled.img`
   right: 0;
 `;
 
-export const KapustaMobBottom = styled(HandySvg)`
+export const KapustaMobBottom = styled.img`
   position: absolute;
   top: 600px;
   left: 35px;
 `;
 
-export const KapustaTabBotLeft = styled(HandySvg)`
+export const KapustaTabBotLeft = styled.img`
   position: absolute;
   top: 800px;
   left: 103px;
@@ -73,7 +72,7 @@ export const KapustaTabBotLeft = styled(HandySvg)`
   }
 `;
 
-export const KapustaTabBotRight = styled(HandySvg)`
+export const KapustaTabBotRight = styled.img`
   position: absolute;
   top: 765px;
   left: 197px;
@@ -85,7 +84,7 @@ export const KapustaTabBotRight = styled(HandySvg)`
   }
 `;
 
-export const ShadowTabBotLeft = styled(HandySvg)`
+export const ShadowTabBotLeft = styled.img`
   position: absolute;
   top: 880px;
   left: 108px;
@@ -95,7 +94,7 @@ export const ShadowTabBotLeft = styled(HandySvg)`
   }
 `;
 
-export const ShadowTabBotRight = styled(HandySvg)`
+export const ShadowTabBotRight = styled.img`
   position: absolute;
   top: 860px;
   left: 219px;

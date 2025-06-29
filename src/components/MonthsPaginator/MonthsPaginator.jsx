@@ -19,7 +19,7 @@ const MonthsPaginator = () => {
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [modalCalendar, setModalCalendar] = useState(false);
- 
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const MonthsPaginator = () => {
     setMonth(monthNames[getMonth()]);
     setYear(getYear());
   }, []);
-  
+
   useEffect(() => {
     setMonth(monthNames[monthNumber]);
     let monthString = "";
@@ -69,11 +69,11 @@ const MonthsPaginator = () => {
         return;
     }
   };
- 
+
   const handleModalCalendar = () => {
     setModalCalendar((modalCalendar) => !modalCalendar);
   };
- 
+
   const handleCalendar = (name) => {
     switch (name) {
       case "decrement":

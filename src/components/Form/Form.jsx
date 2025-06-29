@@ -115,7 +115,7 @@ const Form = () => {
           <DateSelect startDate={startDate} setStartDate={setStartDate} />
         </div>
       )}
-      { !isIncExp && (
+      {!isIncExp && (
         <StyledForm onSubmit={handleSubmit} ref={form}>
           <StyledAllInputsDiv>
             <InputProduct

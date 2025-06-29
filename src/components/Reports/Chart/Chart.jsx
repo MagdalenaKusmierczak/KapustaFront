@@ -21,7 +21,9 @@ const ChartComponent = () => {
   ) {
     return (
       <SectionWrapper>
-        <InfoWrapper><Info>Select category to display</Info></InfoWrapper>
+        <InfoWrapper>
+          <Info>Select category to display</Info>
+        </InfoWrapper>
       </SectionWrapper>
     );
   }
