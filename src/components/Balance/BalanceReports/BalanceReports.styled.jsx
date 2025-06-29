@@ -45,7 +45,7 @@ export const MainPageLink = styled(NavLink)`
 
 export const MainPageText = styled.p`
   display: block;
-  font-family: Roboto;
+  font-family: Roboto; // Always provide meaningful fallbacks for fonts
   font-size: 12px;
   font-weight: 400;
   line-height: 14.06px;

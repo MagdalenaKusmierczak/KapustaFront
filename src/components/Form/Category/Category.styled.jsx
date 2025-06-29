@@ -14,11 +14,12 @@ export const Wrap = styled.div`
   display: flex;
   align-items: center;
   width: 280px;
-  height: 44px;
+  height: 44px; // I'm not sure if providing a fixed height is a good idea.
+  // I might be better to play with paddings and margins, assuming a given text height.
   padding: 2px 20px;
   border: 2px solid #ffffff;
   border-bottom-right-radius: 20px;
-  background-color: #f5f6fb;
+  background-color: #f5f6fb; // Try to abstract the colors that you repeat a lot into either CSS vars or a theme/constants file.
   cursor: pointer;
   @media screen and (min-width: 768px) {
     width: 186px;

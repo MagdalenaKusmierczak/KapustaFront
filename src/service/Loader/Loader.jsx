@@ -1,5 +1,7 @@
 import { ThreeCircles } from "react-loader-spinner";
 import { LoaderWrapper } from "./Loader.styled.jsx";
+
+// Should this reside in a "service" folder? It's definitely a component :)
 const Loader = () => {
   return (
     <LoaderWrapper>

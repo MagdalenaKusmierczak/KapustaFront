@@ -27,6 +27,9 @@ import {
 } from "../AuthPages.styled";
 
 export default function LoginPage() {
+  // These checks are scattered throughout the code to determine the screen size - maybe there's a better way?
+  // (e.g. define layout scaffoldings for different screen sizes with props in given areas that automatically render only needed areas?)
+  // Keeping it as it is make the app harder to scale in the future
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
   const isLoading = useSelector(selectIsLoading)
   

@@ -35,6 +35,7 @@ const Form = () => {
   const isIncExp =
     location.pathname === "/income" || location.pathname === "/expenses";
 
+  // This is repeated a lot in the code, consider lifting it out to a parent component (or a custom hook)
   const isTransactions =
     location.pathname === "/income/transactions" ||
     location.pathname === "/expenses/transactions";

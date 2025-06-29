@@ -18,6 +18,7 @@ const App = () => {
 
   const accessToken = useSelector(selectToken);
 
+  // Shouldn't access token be in the dependencies for this useEffect?
   useEffect(() => {
     if (!accessToken) {
       return;

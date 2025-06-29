@@ -17,6 +17,10 @@ const Summary = () => {
 
   let data;
 
+  // Try to use "KISS" principle as much as possible
+  // Components should only know about their own data and their own function
+  // Knowing how navigation works is not a simple component's job
+  // You can either wrap this in a hook or move it to a parrent component
   if (
     location.pathname === "/income" ||
     location.pathname === "/income/transactions"

@@ -23,9 +23,12 @@ import {
   StyledTabsMobile,
 } from "../Transactions.styled";
 
+// This component is relatively similar to "Expenses.jsx". Maybe you can create a parent component
+// that handles the common logic and then pass the specific parts as props to the child components?
 export default function Incomes() {
   const location = useLocation();
 
+  // The same here - this looks like something that should be handled in the parent component
   const isTransactions =
     location.pathname === "/income/transactions" ||
     location.pathname === "/expenses/transactions";
