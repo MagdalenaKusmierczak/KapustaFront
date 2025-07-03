@@ -19,7 +19,7 @@ export const ReportsList = ({ data }) => {
     const filteredValueArr = valueArr
       .filter((item) => item[0] === event.currentTarget.id)
       .map((item) => item[1]);
-  
+
     dispatch(filteredDataAction(filteredValueArr));
   };
 
@@ -44,7 +44,9 @@ export const ReportsList = ({ data }) => {
               <ItemSvg
                 width="60"
                 height="60"
-                style={{ color: isActive ? "#ff751d" : "currentColor" }}
+                style={{
+                  color: isActive ? "var(--brand-color)" : "currentColor",
+                }}
               >
                 <BgcSvg width="60" height="60" viewBox="0 0 60 60">
                   <use

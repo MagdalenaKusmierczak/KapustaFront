@@ -12,11 +12,11 @@ export const TransactionTable = styled.table`
     border-radius: 2px;
   }
   ::-webkit-scrollbar-track {
-    background: #f5f6fb;
+    background: var(--primary-background);
     border-radius: 2px;
   }
   ::-webkit-scrollbar-thumb {
-    background: #ff751d;
+    background: var(--brand-color)
     border-radius: 2px;
   }
   @media screen and (min-width: 1280px) {
@@ -25,7 +25,7 @@ export const TransactionTable = styled.table`
   th {
     width: 100%;
     height: 38px;
-    background: #f5f6fb;
+    background: var(--primary-background);
     border: none;
     font-weight: 700;
     font-size: 12px;
@@ -59,9 +59,9 @@ export const TransactionTable = styled.table`
     overflow-y: scroll;
     overflow-x: hidden;
     height: 344px;
-    border-left: 2px solid #f5f6fb;
+    border-left: 2px solid var(--primary-background);
     border-top: none;
-    border-bottom: 2px solid #f5f6fb;
+    border-bottom: 2px solid var(--primary-background);
     @media screen and (min-width: 768px) {
       min-height: 344px;
       max-height: 480px;
@@ -71,7 +71,7 @@ export const TransactionTable = styled.table`
       justify-content: center;
       display: flex;
       &:not(:last-child) {
-        border-bottom: 2px solid #f5f6fb;
+        border-bottom: 2px solid var(--primary-background);
       }
       td {
         position: relative;

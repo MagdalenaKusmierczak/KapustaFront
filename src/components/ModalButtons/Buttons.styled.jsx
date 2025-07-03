@@ -6,7 +6,7 @@ export const StyledOrangeButton = styled.button`
   padding: 12px 0;
   width: 120px;
   border: none;
-  background-color: #ff751d;
+  background-color: var(--brand-color);
   border-radius: 16px;
   color: #fff;
   font-weight: 700;
@@ -21,10 +21,10 @@ export const StyledOrangeButton = styled.button`
 export const StyledWhiteButton = styled.button`
   box-sizing: border-box;
   padding: 12px 34px;
-  border: 2px solid #f5f6fb;
+  border: 2px solid var(--primary-background);
   background-color: #fff;
   border-radius: 16px;
-  color: #52555f;
+  color: var(--quinary-color);
   font-size: 12px;
   font-weight: 700;
   font-family: inherit;
@@ -60,7 +60,7 @@ export const ButtonBackText = styled.p`
   line-height: 11.72px;
   letter-spacing: 0.02em;
   text-align: center;
-  color: #000000;
+  color: var(--primary-color);
   a {
     color: inherit;
   }

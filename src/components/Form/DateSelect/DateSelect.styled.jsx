@@ -4,7 +4,7 @@ export const Picker = styled.div`
   .calendarIcon {
     width: 20px;
     height: 20px;
-    fill: #52555f;
+    fill: var(--quinary-color);
   }
   .datePicker {
     font-family: Roboto;
@@ -16,17 +16,17 @@ export const Picker = styled.div`
     font-weight: 900;
     line-height: calc(14 / 12);
     letter-spacing: 0.04em;
-    color: #52555f;
+    color: var(--quinary-color);
     outline: none;
     border: none;
     cursor: pointer;
     :hover,
     :focus {
-      color: #ff751d;
+      color: var(--brand-color);
     }
     :hover .calendarIcon,
     :focus .calendarIcon {
-      fill: #ff751d;
+      fill: var(--brand-color);
     }
   }
 `;

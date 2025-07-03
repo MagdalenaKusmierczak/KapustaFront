@@ -26,9 +26,9 @@ export const Month = styled.li`
   font-weight: 700;
   font-size: 14px;
   line-height: 1.22;
-  color: #52555f;
+  color: var(--quinary-color);
   &.active {
-    color: #ff751d;
+    color: var(--brand-color);
   }
 `;
 
@@ -37,6 +37,6 @@ export const Year = styled.p`
   font-size: 14px;
   line-height: 16px;
   letter-spacing: 0.02em;
-  color: #000000;
+  color: var(--primary-color);
   padding: 0 10px;
 `;

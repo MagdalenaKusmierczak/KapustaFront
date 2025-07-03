@@ -2,7 +2,12 @@ import Chart from "react-apexcharts";
 import { useSelector } from "react-redux";
 import { useMatchMedia } from "../../../hooks/MediaQuery";
 import { filteredData } from "../../../redux/reportsQuery/selectors";
-import { ChartWrapper, SectionWrapper, Info, InfoWrapper } from "./Chart.styled";
+import {
+  ChartWrapper,
+  SectionWrapper,
+  Info,
+  InfoWrapper,
+} from "./Chart.styled";
 
 const colors = [
   { fillColor: "#FF751D" },
@@ -77,7 +82,7 @@ const ChartComponent = () => {
         fontSize: 12,
         fontFamily: "Roboto",
         fontWeight: 400,
-        colors: ["#52555F"],
+        colors: ["var(--quinary-color)"],
       },
       offsetY: -25,
       distributed: true,
@@ -122,7 +127,7 @@ const ChartComponent = () => {
                 fontSize: 10,
                 fontFamily: "Roboto",
                 fontWeight: 400,
-                colors: ["#52555F"],
+                colors: ["var(--quinary-color)"],
               },
             },
           },

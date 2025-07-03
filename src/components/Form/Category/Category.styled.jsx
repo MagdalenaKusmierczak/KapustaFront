@@ -17,15 +17,15 @@ export const Wrap = styled.div`
   height: 44px; // I'm not sure if providing a fixed height is a good idea.
   // I might be better to play with paddings and margins, assuming a given text height.
   padding: 2px 20px;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--secondary-color);
   border-bottom-right-radius: 20px;
-  background-color: #f5f6fb;
+  background-color: var(--primary-background);
   cursor: pointer;
   @media screen and (min-width: 768px) {
     width: 186px;
     border-radius: 0;
-    border-color: #f5f6fb;
-    background-color: #ffffff;
+    border-color: var(--primary-background);
+    background-color: var(--secondary-color);
   }
   @media screen and (min-width: 1280px) {
     width: 169px;
@@ -35,7 +35,7 @@ export const Wrap = styled.div`
     font-size: 12px;
     line-height: 1.16;
     letter-spacing: 0.02em;
-    color: #c7ccdc;
+    color: var(--ternary-color);
   }
   img {
     position: absolute;
@@ -51,7 +51,7 @@ export const SelectBody = styled.div`
   z-index: 3;
   text-align: left;
   width: 280px;
-  border: 2px solid #f5f6fb;
+  border: 2px solid var(--primary-background);
   border-bottom-right-radius: 20px;
   background-color: #fff;
   box-shadow: 0 3px 4px rgba(170, 178, 197, 0.4);
@@ -74,9 +74,9 @@ export const Element = styled.div`
   line-height: 1.16;
   letter-spacing: 0.02em;
   cursor: pointer;
-  color: #c7ccdc;
+  color: var(--ternary-color);
   &:hover {
-    color: #52555f;
-    background-color: #f5f6fb;
+    color: var(--quinary-color);
+    background-color: var(--primary-background);
   }
 `;

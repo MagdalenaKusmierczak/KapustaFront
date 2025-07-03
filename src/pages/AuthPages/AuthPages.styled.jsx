@@ -130,7 +130,7 @@ export const Text = styled.p`
   line-height: 1.15;
   letter-spacing: 0.15em;
   z-index: 2;
-  color: #52555f;
+  color: var(--quinary-color);
   @media screen and (min-width: 768px) {
     width: 162px;
     margin-bottom: 80px;

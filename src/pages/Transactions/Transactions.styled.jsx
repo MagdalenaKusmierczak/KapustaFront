@@ -7,7 +7,7 @@ export const StyledBg = styled.div`
   margin: 0 auto;
   width: 320px;
   height: 258px;
-  background-color: #f5f6fb;
+  background-color: var(--primary-background);
   border-radius: 0 0 0 112px;
   @media screen and (min-width: 768px) {
     width: 768px;
@@ -75,17 +75,17 @@ export const StyledTabsDesktop = styled.div`
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
-    color: #000000;
+    color: var(--primary-color);
     font-weight: 700;
     background-color: #fafbfd;
     border-radius: 18px 18px 0 0;
     :hover,
     :focus {
-      color: #ff751d;
+      color: var(--brand-color);
       background-color: #fefefe;
     }
     &.active {
-      color: #ff751d;
+      color: var(--brand-color);
       background-color: #fefefe;
     }
   }
@@ -96,7 +96,7 @@ export const StyledTabsMobile = styled.div`
   bottom: 0;
   display: flex;
   gap: 0;
-  background-color: #ffffff;
+  background-color: var(--secondary-color);
   .TabMobile {
 font-family: Roboto;
 font-size: 12px;
@@ -109,17 +109,17 @@ padding: 20px 0;
 text-decoration: none;
 text-transform: uppercase;
 text-align: center;
-color: #000000;
+color: var(--primary-color);
 font-weight: 700;
-background-color: #f5f6fb;
+background-color: var(--primary-background);
     :hover,
     :focus {
-      color: #ffffff;
-      background-color: #FF751D;
+      color: var(--secondary-color);
+      background-color: var(--brand-color);
     }
      &.active {
-      color:  #FFFFFF;
-      background-color: #FF751D;
+      color:  var(--secondary-color);
+      background-color: var(--brand-color);
 
   }
 `;

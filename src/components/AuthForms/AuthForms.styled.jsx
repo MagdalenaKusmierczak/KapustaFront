@@ -42,7 +42,7 @@ export const BtnGoogle = styled.a`
   font-size: 14px;
   text-align: center;
   letter-spacing: 0.02em;
-  color: #000000;
+  color: var(--primary-color);
 `;
 
 export const Text = styled.p`
@@ -53,7 +53,7 @@ export const Text = styled.p`
   line-height: 1.16;
   text-align: center;
   letter-spacing: 0.04em;
-  color: #52555f;
+  color: var(--quinary-color);
   margin-bottom: 16px;
   @media screen and (min-width: 768px) {
     margin-bottom: 20px;
@@ -77,7 +77,7 @@ export const LabelText = styled.span`
   font-weight: 600;
   font-size: 12px;
   line-height: 12px;
-  color: #000000;
+  color: var(--primary-color);
 `;
 
 export const Input = styled.input`
@@ -108,7 +108,7 @@ export const ButtonBox = styled.div`
 export const Navlink = styled(NavLink)`
   width: 122px;
   height: 44px;
-  background-color: #f5f6fb;
+  background-color: var(--primary-background);
   border-radius: 16px;
   border: none;
   padding: 0;
@@ -120,22 +120,22 @@ export const Navlink = styled(NavLink)`
   text-align: center;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  box-shadow: #52555f;
+  box-shadow: var(--quinary-color);
   filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #52555f;
-  background-color: #f5f6fb;
+  color: var(--quinary-color);
+  background-color: var(--primary-background);
   text-decoration: none;
   &.active {
-    color: #ffffff;
-    background-color: #ff751d;
+    color: var(--secondary-color);
+    background-color: var(--brand-color);
   }
   :hover:not(.active),
   :focus-visible:not(.active) {
-    color: #52555f;
-    background-color: #f5f6fb;
+    color: var(--quinary-color);
+    background-color: var(--primary-background);
   }
 `;

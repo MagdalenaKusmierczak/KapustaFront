@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 export const BalanceSection = styled.section`
   box-sizing: border-box;
-  background: #f2f5fc;
+  background: var(--secondary-background);
   display: flex;
   align-items: center;
   height: 128px;
@@ -57,7 +57,7 @@ export const BalanceText = styled.label`
   line-height: 14.06px;
   letter-spacing: 0.02em;
   text-align: center;
-  color: #52555fb2;
+  color: var(--quaternary-color);
   @media (min-width: 768px) {
     width: 83px;
     text-align: right;
@@ -78,23 +78,23 @@ export const BalanceInput = styled.input`
   }
   box-sizing: border-box;
   text-align: center;
-  background: #f2f5fc;
+  background: var(--secondary-background);
   height: 44px;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--secondary-color);
   outline: none;
   font-family: Roboto;
   font-size: 12px;
   font-weight: 700;
   line-height: 14.06px;
   letter-spacing: 0.02em;
-  color: #000000;
+  color: var(--primary-color);
   ::placeholder {
     font-family: Roboto;
     font-size: 12px;
     font-weight: 700;
     line-height: 14.06px;
     letter-spacing: 0.02em;
-    color: #000000;
+    color: var(--primary-color);
   }
   @media (max-width: 767px) {
     width: 140px;
@@ -112,21 +112,23 @@ export const BalanceInput = styled.input`
 export const BalanceButton = styled.button`
   box-sizing: border-box;
   text-align: center;
-  background: #f2f5fc;
+  background: var(--secondary-background);
   height: 44px;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--secondary-color);
   font-family: Roboto;
   font-size: 12px;
   font-weight: 400;
   line-height: 14.06px;
   letter-spacing: 0.02em;
   text-align: center;
-  color: #52555fb2;
+  color: var(--quaternary-color);
   &:hover,
   &:focus {
-    background: ${({ disabled }) => (disabled ? "#f2f5fc" : "#ff751d")};
-    border: ${({ disabled }) => (disabled ? "#ccc" : "#ff751d")};
-    color: ${({ disabled }) => (disabled ? "#52555fb2" : "#ffffff")};
+    background: ${({ disabled }) =>
+      disabled ? "var(--quaternary-color)" : "var(--brand-color)"};
+    border: ${({ disabled }) => (disabled ? "#ccc" : "var(--brand-color)")};
+    color: ${({ disabled }) =>
+      disabled ? "var(--quaternary-color)" : "var(--secondary-color)"};
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
     transition: 0 3px 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08),
       0 2px 2px rgba(0, 0, 0, 0.12);
@@ -165,7 +167,7 @@ export const ReportText = styled.p`
   font-weight: 400;
   line-height: 14.06px;
   letter-spacing: 0.04em;
-  color: #52555fb2;
+  color: var(--quaternary-color);
   padding: 0;
   margin: 0;
   padding-top: 7px;

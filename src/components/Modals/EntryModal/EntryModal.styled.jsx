@@ -88,7 +88,7 @@ export const ModalTitle = styled.h2`
   font-size: 14px;
   line-height: 1.43;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: var(--secondary-color);
   @media screen and (min-width: 768px) {
     padding-left: 29px;
     padding-right: 29px;
@@ -103,7 +103,7 @@ export const ModalText = styled.p`
   font-weight: 400;
   font-size: 12px;
   line-height: 1.33;
-  color: #ffffff;
+  color: var(--secondary-color);
   @media screen and (min-width: 768px) {
     padding-left: 29px;
     padding-right: 29px;

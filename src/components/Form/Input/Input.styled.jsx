@@ -8,7 +8,7 @@ export const NumberMobil = styled.div`
 export const InputMobile = styled.input`
   width: 125px;
   height: 44px;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--secondary-color);
   border-bottom-left-radius: 22px;
   border-top-left-radius: 22px;
   text-align: center;
@@ -16,7 +16,7 @@ export const InputMobile = styled.input`
   font-size: 12px;
   line-height: 1.16;
   outline: none;
-  background-color: #f5f6fb;
+  background-color: var(--primary-background);
 `;
 
 export const Span = styled.span`
@@ -26,10 +26,10 @@ export const Span = styled.span`
   justify-content: center;
   width: 60px;
   height: 44px;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--secondary-color);
   border-bottom-right-radius: 22px;
   border-top-right-radius: 22px;
-  background-color: #f5f6fb;
+  background-color: var(--primary-background);
 `;
 
 export const Number = styled.div`
@@ -47,12 +47,12 @@ export const InputNumber = styled.input`
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  border: 2px solid #f5f6fb;
+  border: 2px solid var(--primary-background);
   border-bottom-right-radius: 22px;
   border-top-right-radius: 22px;
   outline: none;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   ::-webkit-outer-spin-button,
   ::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -70,7 +70,7 @@ export const InputNumber = styled.input`
     padding-right: 46px;
   }
   ::placeholder {
-    color: #c7ccdc;
+    color: var(--ternary-color);
   }
 `;
 

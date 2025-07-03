@@ -10,7 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 12px;
   font-weight: 400;
-  line-height: 14.06px;
+  line-height: 14px;
   letter-spacing: 0.02em;
   text-align: center;
   display: flex;
@@ -22,11 +22,23 @@ body {
   align-items: center;
   margin: 0;
   flex-grow: 1;
-}
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  /* Light mode */
+--brand-color: #FF751D;
+--faded-brand-color:#FFDAC0;
+--primary-color: #000000;
+--secondary-color: #FFFFFF;
+--ternary-color: #C7CCDC;
+--quaternary-color: #52555FB3;
+--quinary-color: #52555F;
+--placeholder-font-color: #A6ABB9;
+--icons-color: #071F41;
+--alert-color: #EB5757;
+--income-color: #407946;
+--expense-color: #E53935;
+--primary-background: #F5F6FB;
+--secondary-background: #F2F5FC;
+--ternary-background: #F6F7FB;
 }
 
 * {
@@ -80,3 +92,4 @@ input {
 button {
   cursor: pointer;
 }
+

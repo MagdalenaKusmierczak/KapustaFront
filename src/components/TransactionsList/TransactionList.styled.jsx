@@ -14,7 +14,7 @@ export const Item = styled.li`
   display: flex;
   justify-content: space-between;
   padding: 8px 20px;
-  border-bottom: 1px solid #f5f6fb;
+  border-bottom: 1px solid var(--primary-background);
 `;
 
 export const ItemName = styled.p`

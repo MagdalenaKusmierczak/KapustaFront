@@ -12,7 +12,7 @@ export const PaginatorTitile = styled.p`
   line-height: 14.06px;
   letter-spacing: 0.04em;
   text-align: center;
-  color: #52555fb2;
+  color: var(--quaternary-color);
   margin: 0;
   padding-bottom: 5px;
 `;
@@ -24,7 +24,7 @@ export const MonthsDisplayer = styled.p`
   line-height: 16.41px;
   letter-spacing: 0.02em;
   text-align: center;
-  color: #000000;
+  color: var(--primary-color);
   margin: 2px;
   text-transform: uppercase;
 `;

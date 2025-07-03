@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 export const BalanceSection = styled.section`
   box-sizing: border-box;
-  background: #f2f5fc;
+  background: var(--secondary-background);
   display: flex;
   align-items: center;
   @media screen and (max-width: 767px) {
@@ -50,7 +50,7 @@ export const MainPageText = styled.p`
   font-weight: 400;
   line-height: 14.06px;
   letter-spacing: 0.04em;
-  color: #52555fb2;
+  color: var(--quaternary-color);
   text-decoration: none;
   margin: 0;
   @media screen and (max-width: 767px) {
@@ -71,7 +71,7 @@ export const MobileWrapper = styled.div`
   @media screen and (min-width: 768px) {
     flex-direction: row;
     gap: 102px;
-    background: #f2f5fc;
+    background: var(--secondary-background);
   }
   @media screen and (min-width: 1280px) {
     gap: 214px;

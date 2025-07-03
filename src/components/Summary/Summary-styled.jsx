@@ -5,7 +5,7 @@ export const Table = styled.ul`
   @media screen and (min-width: 768px) {
     width: 213px;
     height: 280px;
-    background-color: #f5f6fb;
+    background-color: var(--primary-background);
     display: inline-flex;
     flex-direction: column;
     font-family: Roboto;

@@ -25,12 +25,12 @@ export const Item = styled.li`
   gap: 5px;
   border-bottom: 1px solid #e0e5eb;
   &.active {
-    fill: #ff751d;
+    fill: var(--brand-color);
   }
   &:hover,
   &:focus {
     cursor: pointer;
-    fill: #ff751d;
+    fill: var(--brand-color);
   }
   @media screen and (min-width: 768px) {
     border: none;

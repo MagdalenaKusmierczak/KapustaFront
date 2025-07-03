@@ -47,25 +47,25 @@ export const InputProduct = styled.input`
   width: 280px;
   height: 44px;
   padding: 2px 20px;
-  border: 2px solid #ffffff;
+  border: 2px solid var(--secondary-color);
   border-bottom: none;
   border-radius: 16px 16px 0 0;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
   outline: none;
-  background-color: #f5f6fb;
-  color: #000000;
+  background-color: var(--primary-background);
+  color: var(--primary-color);
   &::placeholder {
-    color: #c7ccdc;
+    color: var(--ternary-color);
   }
   @media screen and (min-width: 768px) {
     width: 186px;
-    border-color: #f5f6fb;
-    border-bottom: 2px solid #f5f6fb;
+    border-color: var(--primary-background);
+    border-bottom: 2px solid var(--primary-background);
     border-right: none;
     border-top-right-radius: 0;
-    background-color: #ffffff;
+    background-color: var(--secondary-color);
   }
   @media screen and (min-width: 1280px) {
     width: 290px;
@@ -92,9 +92,9 @@ export const ButtonWrap = styled.div`
 
 export const StyledWhiteButton = styled.button`
   border: none;
-  background-color: #f5f6fb;
+  background-color: var(--primary-background);
   border-radius: 16px;
-  color: #52555f;
+  color: var(--quinary-color);
   font-size: 12px;
   font-weight: 700;
   font-family: inherit;
@@ -105,9 +105,9 @@ export const StyledWhiteButton = styled.button`
   box-shadow: 1px 2px 5px 0 #aab2c566;
   border-radius: 16px;
   @media screen and (min-width: 768px) {
-    border: 2px solid #f5f6fb;
+    border: 2px solid var(--primary-background);
     background-color: #fff;
-    color: #52555f;
+    color: var(--quinary-color);
     box-shadow: none;
   }
 `;

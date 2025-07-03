@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const SectionWrapper = styled.div`
   height: 493px;
   width: 280px;
-  background: #ffffff;
+  background: var(--secondary-color);
   display: flex;
   justify-content: center;
   @media screen and (min-width: 768px) {
@@ -39,7 +39,7 @@ export const Info = styled.p`
   font-size: 14px;
   text-align: center;
   letter-spacing: 0.02em;
-  color: #000000;
+  color: var(--primary-color);
 `;
 
 export const InfoWrapper = styled.div`

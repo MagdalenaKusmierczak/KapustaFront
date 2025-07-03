@@ -7,7 +7,7 @@ export const StatisticsWrapper = styled.div`
   width: 280px;
   text-align: center;
   margin: 0 auto 30px auto;
-  background-color: #ffffff;
+  background-color: var(--secondary-color);
   box-shadow: 5px 10px 20px 0 #aab2c566;
   border-radius: 20px;
   margin-bottom: 32px;
@@ -32,7 +32,7 @@ export const StatisticsList = styled.ul`
   font-weight: 700;
   font-size: 14px;
   line-height: 16.41px;
-  color: #52555f;
+  color: var(--quinary-color);
 `;
 
 export const StatisticsElement = styled.li`
@@ -95,7 +95,7 @@ export const BudgetName = styled.p`
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  color: #000000;
+  color: var(--primary-color);
 `;
 
 export const IconsBox = styled.div`

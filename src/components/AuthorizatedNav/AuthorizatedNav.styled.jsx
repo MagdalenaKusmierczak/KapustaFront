@@ -11,7 +11,7 @@ export const LoginLabel = styled.div`
   font-size: 12px;
   line-height: 1.17;
   font-weight: 700;
-  color: #52555f;
+  color: var(--quinary-color);
   background-color: #f5f6fa;
   border-radius: 50%;
 `;
@@ -22,7 +22,7 @@ export const LoginName = styled.p`
   padding: 0;
   font-size: 12px;
   line-height: 1.17;
-  color: #52555f;
+  color: var(--quinary-color);
 
   @media screen and (min-width: 768px) {
     display: block;
@@ -66,5 +66,5 @@ export const PageIcon = styled.svg`
   display: flex;
   width: 20px;
   height: 20px;
-  color: #52555f;
+  color: var(--quinary-color);
 `;

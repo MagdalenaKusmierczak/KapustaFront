@@ -4,7 +4,7 @@ export const FooterContainer = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f5f6fb;
+  background: var(--primary-background);
   width: 100%;
   margin-top: auto;
 `;
