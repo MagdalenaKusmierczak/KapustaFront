@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../../redux/auth/operations";
-import { selectIsLoading } from "../../../redux/auth/selectors";
 import { logIn } from "../../../redux/auth/operations";
+import { selectIsLoading } from "../../../redux/auth/selectors";
 import Loader from "../../../service/Loader/Loader";
 import { OrangeButton } from "../../ModalButtons/OrangeButton";
 import {
@@ -39,7 +39,10 @@ export const RegistrationForm = () => {
             })
           );
         } else {
-          console.error("Registration failed", registrationResult.error.message);
+          console.error(
+            "Registration failed",
+            registrationResult.error.message
+          );
         }
       })
       .catch((error) => {

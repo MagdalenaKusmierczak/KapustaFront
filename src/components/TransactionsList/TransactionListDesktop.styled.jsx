@@ -33,10 +33,10 @@ export const TransactionTable = styled.table`
     letter-spacing: 0.02em;
     border-collapse: collapse;
   }
-  tr th:first-child {
+  tr th:first-of-type {
     border-radius: 16px 0 0 0;
   }
-  tr th:last-child {
+  tr th:last-of-type {
     border-radius: 0 16px 0 0;
   }
   thead {
