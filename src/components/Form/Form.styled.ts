@@ -89,20 +89,3 @@ export const ButtonWrap = styled.div`
   }
 `;
 
-export const StyledWhiteButton = styled.button`
-  border: none;
-  background-color: var(--primary-background);
-  border-radius: 16px;
-  color: var(--quinary-color);
-  font-weight: 700;
-  font-family: inherit;
-  padding: 12px 34px;
-  box-shadow: 1px 2px 5px 0 #aab2c566;
-  border-radius: 16px;
-  @media screen and (min-width: 768px) {
-    border: 2px solid var(--primary-background);
-    background-color: var(--secondary-color);
-    color: var(--quinary-color);
-    box-shadow: none;
-  }
-`;

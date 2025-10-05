@@ -1,63 +1,31 @@
-import React, { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
-import {
-  ModalWindow,
-  ModalWindowReports,
-  Backdrop,
-  ModalText,
-  ModalTitle,
-} from "./EntryModal.styled";
-
-const modalRoot = document.querySelector("#modal-root");
-const body = document.querySelector("body");
+import { Modal } from "../Modal";
 
 export default function EntryModal() {
   const location = useLocation();
-
   const isReports = location.pathname === "/reports";
-
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   const handleModalClose = () => {
     setIsModalOpen(false);
-    body.classList.remove("no-scroll");
   };
 
-  const handleBackdropClick = (event) => {
-    if (event.currentTarget === event.target) {
-      handleModalClose();
-    }
-  };
-
-  // This seems like a hack?
-  // Usually, modal introduces its own backdrop to take care of obscuring the rest of the page
   useEffect(() => {
-    body.classList.add("no-scroll");
-    return () => body.classList.remove("no-scroll");
+    document.body.classList.add("no-scroll");
+    return () => document.body.classList.remove("no-scroll");
   }, []);
 
-  return createPortal(
-    (isModalOpen && !isReports && (
-      <Backdrop onClick={handleBackdropClick}>
-        <ModalWindow>
-          <ModalTitle>
-            Hello! To get started, enter the current balance of your account!
-          </ModalTitle>
-          <ModalText>You can't spend money until you have it</ModalText>
-        </ModalWindow>
-      </Backdrop>
-    )) ||
-      (isModalOpen && isReports && (
-        <Backdrop onClick={handleBackdropClick}>
-          <ModalWindowReports>
-            <ModalTitle>
-              Hello! To get started, enter the current balance of your account!
-            </ModalTitle>
-            <ModalText>You can't spend money until you have it</ModalText>
-          </ModalWindowReports>
-        </Backdrop>
-      )),
-    modalRoot
+  if (!isModalOpen) return null;
+
+  return (
+    <Modal
+      variant={isReports ? "information-reports" : "information"}
+      onClose={handleModalClose}
+      showCloseButton={false}
+    >
+      <h2>Hello! To get started, enter the current balance of your account!</h2>
+      <p>You can't spend money until you have it</p>
+    </Modal>
   );
 }

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 // import { ReactComponent as GoogleSvg } from "../../images/google.svg";
 import { logIn } from "../../../redux/auth/operations";
-import { OrangeButton } from "../../ModalButtons/OrangeButton";
+import { Button } from "../../ModalButtons/Button";
 import {
   FormWrapper,
   Text,
@@ -15,14 +15,14 @@ import {
 // BtnGoogle,
 
 export const LoginForm = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch() as any;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const { email, password } = event.currentTarget.elements;
+    const { email, password } = event.currentTarget.elements as any;
 
-    dispatch(logIn({ email: email.value, password: password.value }));
+    dispatch((logIn as any)({ email: email.value, password: password.value }));
   };
 
   return (
@@ -56,7 +56,7 @@ export const LoginForm = () => {
           </Label>
         </div>
         <ButtonBox>
-          <OrangeButton type="submit">LOG IN</OrangeButton>
+          <Button variant="primary" type="submit">LOG IN</Button>
           <Navlink to="/register">Registration</Navlink>
         </ButtonBox>
       </form>

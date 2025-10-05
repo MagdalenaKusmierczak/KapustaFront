@@ -3,7 +3,7 @@ import { register } from "../../../redux/auth/operations";
 import { logIn } from "../../../redux/auth/operations";
 import { selectIsLoading } from "../../../redux/auth/selectors";
 import Loader from "../../../service/Loader/Loader";
-import { OrangeButton } from "../../ModalButtons/OrangeButton";
+import { Button } from "../../ModalButtons/Button";
 import {
   FormWrapper,
   Text,
@@ -15,29 +15,25 @@ import {
 } from "../AuthForms.styled";
 
 export const RegistrationForm = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch() as any;
 
   const isLoading = useSelector(selectIsLoading);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const { email, password } = event.currentTarget.elements;
+    const { email, password } = event.currentTarget.elements as any;
 
-    dispatch(
-      register({
-        email: email.value,
-        password: password.value,
-      })
-    )
-      .then((registrationResult) => {
+    dispatch((register as any)({
+      email: email.value,
+      password: password.value,
+    }))
+      .then((registrationResult: any) => {
         if (registrationResult.payload.code === 201) {
-          return dispatch(
-            logIn({
-              email: email.value,
-              password: password.value,
-            })
-          );
+          return dispatch((logIn as any)({
+            email: email.value,
+            password: password.value,
+          }));
         } else {
           console.error(
             "Registration failed",
@@ -45,7 +41,7 @@ export const RegistrationForm = () => {
           );
         }
       })
-      .catch((error) => {
+      .catch((error: any) => {
         console.error("Error during registration or login:", error.message);
       });
   };
@@ -84,9 +80,9 @@ export const RegistrationForm = () => {
         </div>
         <ButtonBox>
           <Navlink to="/login">Log in</Navlink>
-          <OrangeButton type="submit" disabled={isLoading}>
+          <Button variant="primary" type="submit" disabled={isLoading}>
             REGISTRATION
-          </OrangeButton>
+          </Button>
         </ButtonBox>
       </form>
     </FormWrapper>

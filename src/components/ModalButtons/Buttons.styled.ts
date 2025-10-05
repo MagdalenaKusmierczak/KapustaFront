@@ -1,29 +1,27 @@
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 
-export const StyledOrangeButton = styled.button`
+export const StyledButton = styled.button<{ variant: "primary" | "secondary" }>`
   box-sizing: border-box;
-  padding: 12px 0;
+  padding: ${props => props.variant === "primary" ? "12px 0" : "12px 34px"};
   width: 120px;
-  border: none;
-  background-color: var(--brand-color);
+  border: ${props => props.variant === "primary" ? "none" : "2px solid var(--primary-background)"};
+  background-color: ${props => props.variant === "primary" ? "var(--brand-color)" : "var(--secondary-color)"};
   border-radius: 16px;
-  color: var(--secondary-color);
+  color: ${props => props.variant === "primary" ? "var(--secondary-color)" : "var(--quinary-color)"};
   font-weight: 700;
   font-family: inherit;
-  box-shadow: var(--brand-shadow);
-`;
-
-export const StyledWhiteButton = styled.button`
-  box-sizing: border-box;
-  padding: 12px 34px;
-  border: 2px solid var(--primary-background);
-  background-color: var(--secondary-color);
-  border-radius: 16px;
-  color: var(--quinary-color);
-  font-weight: 700;
-  font-family: inherit;
-  width: 120px;
+  box-shadow: ${props => props.variant === "primary" ? "var(--brand-shadow)" : "none"};
+  cursor: pointer;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
 `;
 
 export const ButtonBack = styled(Link)`

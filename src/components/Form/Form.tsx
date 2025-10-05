@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useMatchMedia } from "../../utils/hooks/useMatchMedia";
 import { useRouteDetection } from "../../utils/hooks/useRouteDetection";
-import { OrangeButton } from "../ModalButtons/OrangeButton";
+import { Button } from "../ModalButtons/Button";
 import DateSelect from "./DateSelect/DateSelect";
 import CategorySelect from "./Category/Category";
 import InputCalc from "./Input/Input";
@@ -23,7 +23,6 @@ import {
   ButtonWrap,
   InputProduct,
   StyledAllInputsDiv,
-  StyledWhiteButton,
 } from "./Form.styled";
 
 const Form = () => {
@@ -116,10 +115,10 @@ const Form = () => {
         <InputCalc />
       </StyledAllInputsDiv>
       <ButtonWrap>
-        <OrangeButton type="submit">INPUT</OrangeButton>
-        <StyledWhiteButton type="button" onClick={handleReset}>
+        <Button variant="primary" type="submit">INPUT</Button>
+        <Button variant="secondary" type="button" onClick={handleReset}>
           CLEAR
-        </StyledWhiteButton>
+        </Button>
       </ButtonWrap>
     </StyledForm>
   );
