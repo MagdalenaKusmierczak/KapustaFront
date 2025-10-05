@@ -1,4 +1,4 @@
-import React, { lazy, useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { fetchUser } from "./redux/auth/operations";
@@ -19,11 +19,12 @@ const App = () => {
   const accessToken = useSelector(selectToken);
 
   // Shouldn't access token be in the dependencies for this useEffect?
+  // Shouldn't access token be in the dependencies for this useEffect?
   useEffect(() => {
     if (!accessToken) {
       return;
     }
-    dispatch(fetchUser());
+    dispatch(fetchUser() as any);
   });
 
   return (

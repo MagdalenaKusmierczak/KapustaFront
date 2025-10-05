@@ -119,6 +119,14 @@ export const BalanceButton = styled.button`
     display: inline-block;
   }
 `;
+export const BalanceBox = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  @media (max-width: 767px) {
+    gap: 8px;
+  }
+`;
 export const SectionBar = styled.svg`
   @media (max-width: 767px) {
     margin-bottom: 8px;
