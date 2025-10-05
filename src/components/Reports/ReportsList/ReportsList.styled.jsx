@@ -15,7 +15,7 @@ export const List = styled.ul`
 export const Item = styled.li`
   flex-grow: 1;
   display: flex;
-  text-align: center;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;

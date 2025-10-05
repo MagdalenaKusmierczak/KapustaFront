@@ -11,10 +11,9 @@ export const InputMobile = styled.input`
   border: 2px solid var(--secondary-color);
   border-bottom-left-radius: 22px;
   border-top-left-radius: 22px;
-  text-align: center;
+
   font-weight: 700;
-  font-size: 12px;
-  line-height: 1.16;
+
   outline: none;
   background-color: var(--primary-background);
 `;
@@ -44,8 +43,7 @@ export const InputNumber = styled.input`
   width: 108px;
   height: 44px;
   padding-left: 15px;
-  font-weight: 400;
-  font-size: 12px;
+
   line-height: 14px;
   border: 2px solid var(--primary-background);
   border-bottom-right-radius: 22px;

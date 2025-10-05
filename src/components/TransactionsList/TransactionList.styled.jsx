@@ -19,8 +19,7 @@ export const Item = styled.li`
 
 export const ItemName = styled.p`
   font-weight: 700;
-  font-size: 12px;
-  line-height: 1.16;
+
   letter-spacing: 0.04em;
 `;
 
@@ -51,8 +50,7 @@ export const Sum = styled.p`
   display: flex;
   align-items: center;
   font-weight: 700;
-  font-size: 12px;
-  line-height: 1.16;
+
   letter-spacing: 0.04em;
   vertical-align: auto;
 `;

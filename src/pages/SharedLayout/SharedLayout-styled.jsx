@@ -6,8 +6,8 @@ export const SharedLayoutContainer = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 5px 10px 20px 0 #aab2c566;
-  background-color: rgba(255, 255, 255, 1);
+  box-shadow: var(--primary-small-shadow);
+  background-color: var(--secondary-color);
   @media screen and (min-width: 768px) {
     width: 768px;
   }

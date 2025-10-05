@@ -24,7 +24,10 @@ export default function CategorySelect({
       <Wrap onClick={onSelect}>
         <span
           style={{
-            color: elementCategory === "Category" ? "#c7ccdc" : "#000000",
+            color:
+              elementCategory === "Category"
+                ? "var(--ternary-color)"
+                : "var(--primary-color)",
           }}
         >
           {elementCategory}

@@ -8,12 +8,10 @@ export const Table = styled.ul`
     background-color: var(--primary-background);
     display: inline-flex;
     flex-direction: column;
-    font-family: Roboto;
-    font-size: 12px;
+
     font-weight: 700;
     line-height: 14.06px;
-    letter-spacing: 0.02em;
-    text-align: center;
+
     border-radius: 16px;
     border-bottom-left-radius: 0;
     margin-top: 40px;
@@ -29,9 +27,8 @@ export const Table = styled.ul`
 
 export const Header = styled.li`
   font-weight: 700;
-  letter-spacing: 0.02em;
   padding: 12px 0;
-  color: #000;
+  color: var(--primary-color);
 `;
 
 export const ListItem = styled.li`
@@ -49,17 +46,15 @@ export const ListItem = styled.li`
 export const Month = styled.p`
   width: 84px;
   text-transform: uppercase;
-  font-size: 12px;
-  line-height: 1.17;
+
   letter-spacing: 0.04em;
-  text-align: left;
+  // text-align: left;
 `;
 
 export const Value = styled.p`
   width: 84px;
   text-transform: uppercase;
-  font-size: 12px;
-  line-height: 1.17;
+
   letter-spacing: 0.04em;
   text-align: right;
 `;

@@ -19,18 +19,16 @@ export const StyledBg = styled.div`
   }
 `;
 export const StyledFrame = styled.div`
-  /* background-color: transparent; */
   z-index: 2;
   box-sizing: border-box;
-
   @media screen and (min-width: 768px) {
     width: 704px;
     height: 616px;
     margin: 0 auto;
     padding: 24px 40px 42px;
-    background-color: #fff;
+    background-color: var(--secondary-color);
     border-radius: 0 30px 30px 30px;
-    box-shadow: 0 10px 60px rgba(170, 178, 197, 0.2);
+    box-shadow: var(--secondary-shadow);
   }
 
   @media screen and (min-width: 1280px) {
@@ -62,31 +60,25 @@ export const StyledTabsDesktop = styled.div`
     margin-left: 91px;
   }
   .TabDesktop {
-    font-family: Roboto;
-    font-size: 12px;
     font-weight: 700;
     line-height: 14.06px;
-    letter-spacing: 0.02em;
-    text-align: center;
     display: block;
     width: 138px;
     height: 40px;
     padding: 12px 0;
-    text-decoration: none;
     text-transform: uppercase;
-    text-align: center;
     color: var(--primary-color);
     font-weight: 700;
-    background-color: #fafbfd;
+    background-color: var(----default-tab);
     border-radius: 18px 18px 0 0;
     :hover,
     :focus {
       color: var(--brand-color);
-      background-color: #fefefe;
+      background-color: var(--active-tab);
     }
     &.active {
       color: var(--brand-color);
-      background-color: #fefefe;
+      background-color: var(--active-tab);
     }
   }
 `;
@@ -98,15 +90,10 @@ export const StyledTabsMobile = styled.div`
   gap: 0;
   background-color: var(--secondary-color);
   .TabMobile {
-font-family: Roboto;
-font-size: 12px;
 font-weight: 700;
-line-height: 14.06px;
-letter-spacing: 0.02em;
 display: block;
 width: 160px;
 padding: 20px 0;
-text-decoration: none;
 text-transform: uppercase;
 text-align: center;
 color: var(--primary-color);

@@ -8,29 +8,21 @@ export const StyledOrangeButton = styled.button`
   border: none;
   background-color: var(--brand-color);
   border-radius: 16px;
-  color: #fff;
+  color: var(--secondary-color);
   font-weight: 700;
   font-family: inherit;
-  text-align: center;
-  letter-spacing: 0.02em;
-  font-size: 12px;
-  line-height: 1.17;
-  box-shadow: 1px 3px 5px 0 #ff6b0859;
+  box-shadow: var(--brand-shadow);
 `;
 
 export const StyledWhiteButton = styled.button`
   box-sizing: border-box;
   padding: 12px 34px;
   border: 2px solid var(--primary-background);
-  background-color: #fff;
+  background-color: var(--secondary-color);
   border-radius: 16px;
   color: var(--quinary-color);
-  font-size: 12px;
   font-weight: 700;
   font-family: inherit;
-  text-align: center;
-  letter-spacing: 0.02em;
-  line-height: 1.17;
   width: 120px;
 `;
 
@@ -58,8 +50,7 @@ export const ButtonBackText = styled.p`
   font-size: 10px;
   font-weight: 700;
   line-height: 11.72px;
-  letter-spacing: 0.02em;
-  text-align: center;
+
   color: var(--primary-color);
   a {
     color: inherit;

@@ -6,9 +6,9 @@ export const ModalWindow = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fff;
+  background-color: var(--secondary-color);
   border-radius: 30px;
-  box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
+  box-shadow: var(----ternary-shadow);
 `;
 
 export const ContentDiv = styled.div`
@@ -19,12 +19,10 @@ export const ContentDiv = styled.div`
 export const Text = styled.p`
   z-index: 3;
   margin-bottom: 20px;
-  text-align: center;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
-  letter-spacing: 0.02em;
-  color: black;
+  color: var(--primary-color);
 `;
 
 export const DivWithButtons = styled.div`
@@ -51,7 +49,7 @@ export const ModalBackdrop = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: var(--backdrop);
 `;
 
 export const CloseSVG = styled.svg`

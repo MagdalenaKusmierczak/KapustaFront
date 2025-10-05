@@ -32,51 +32,44 @@ export const BalanceForm = styled.form`
   @media (min-width: 768px) {
     gap: 20px;
     align-items: center;
-     margin-top:0px;
+    margin-top:0;
 }
   }
 `;
-export const BalanceBox = styled.div`
-  display: flex;
-  @media (max-width: 767px) {
-    gap: 0;
-  }
-
-  @media (min-width: 1280px) {
-    gap: 16px;
-  }
-`;
 export const BalanceText = styled.label`
-  font-family: Roboto;
-  font-size: 12px;
   font-weight: 500;
-  line-height: 14.06px;
-  letter-spacing: 0.02em;
   text-align: center;
   color: var(--quaternary-color);
+  @media (min-width: 768px) {
+    width: 83px;
+    text-align: right;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  @media (min-width: 1280px) {
+    width: auto;
+  }
 `;
+
 export const BalanceInput = styled.input`
+    text-align: center;
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
   box-sizing: border-box;
-  text-align: center;
   background: var(--secondary-background);
   height: 44px;
   border: 2px solid var(--secondary-color);
   outline: none;
-  font-family: Roboto;
-  font-size: 12px;
   font-weight: 700;
   line-height: 14.06px;
-  letter-spacing: 0.02em;
   color: var(--primary-color);
   ::placeholder {
-    font-family: Roboto;
-    font-size: 12px;
     font-weight: 700;
     line-height: 14.06px;
-    letter-spacing: 0.02em;
+    text-align: center;
     color: var(--primary-color);
   }
   @media (max-width: 767px) {
@@ -99,24 +92,18 @@ export const BalanceButton = styled.button`
   background: var(--secondary-background);
   height: 44px;
   border: 2px solid var(--secondary-color);
-
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: 400;
   line-height: 14.06px;
-  letter-spacing: 0.02em;
-  text-align: center;
   color: var(--quaternary-color);
   &:hover,
   &:focus {
     background: ${({ disabled }) =>
       disabled ? "var(--secondary-background)" : "var(--brand-color)"};
-    border: ${({ disabled }) => (disabled ? "#ccc" : "var(--brand-color)")};
+    border-color: ${({ disabled }) =>
+      disabled ? "var(--secondary-color)" : "var(--brand-color)"};
     color: ${({ disabled }) =>
       disabled ? "var(--quaternary-color)" : "var(--secondary-color)"};
     cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-    transition: 0 3px 1px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.08),
-      0 2px 2px rgba(0, 0, 0, 0.12);
+    transition: all 0.25s;
   }
   @media (max-width: 767px) {
     display: none;
@@ -132,12 +119,8 @@ export const BalanceButton = styled.button`
     display: inline-block;
   }
 `;
-
 export const SectionBar = styled.svg`
   @media (max-width: 767px) {
-    width: ;
-    height: ;
-    padding: ;
     margin-bottom: 8px;
   }
 `;

@@ -8,11 +8,9 @@ export const AuthNav = styled.nav`
 
 export const LoginLabel = styled.div`
   padding: 9px 12px;
-  font-size: 12px;
-  line-height: 1.17;
   font-weight: 700;
   color: var(--quinary-color);
-  background-color: #f5f6fa;
+  background-color: var(--quaternary-background);
   border-radius: 50%;
 `;
 
@@ -20,10 +18,7 @@ export const LoginName = styled.p`
   display: none;
   margin: 0;
   padding: 0;
-  font-size: 12px;
-  line-height: 1.17;
   color: var(--quinary-color);
-
   @media screen and (min-width: 768px) {
     display: block;
   }
@@ -41,12 +36,11 @@ export const LogoutImg = styled.button`
 
 export const VerticalLine = styled.span`
   display: none;
-
   @media screen and (min-width: 768px) {
     display: block;
     width: 1px;
     height: 36px;
-    background-color: #e0e5eb;
+    background-color: var(--accent-line);
   }
 `;
 
@@ -58,8 +52,6 @@ export const ExitButton = styled.button`
     border: 0;
     background-color: transparent;
     text-decoration: underline;
-    font-size: 12px;
-    line-height: 1.17;
   }
 `;
 export const PageIcon = styled.svg`

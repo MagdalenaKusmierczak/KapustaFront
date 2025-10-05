@@ -18,8 +18,8 @@ export const ModalWindow = styled.div`
   max-width: 280px;
   max-height: 163px;
   width: 100%;
-  background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
-  box-shadow: 0 10px 60px rgba(170, 178, 197, 0.2);
+  background: var(--gradient-background);
+  box-shadow: var(--secondary-shadow);
   border-radius: 30px;
   @media screen and (min-width: 768px) {
     max-width: 288px;
@@ -53,8 +53,8 @@ export const ModalWindowReports = styled.div`
   max-width: 280px;
   max-height: 163px;
   width: 100%;
-  background: linear-gradient(117.84deg, #1d346a 2.84%, #031634 67.28%);
-  box-shadow: 0 10px 60px rgba(170, 178, 197, 0.2);
+  background: var(--gradient-background);
+  box-shadow: var(--secondary-shadow);
   border-radius: 30px;
   @media screen and (min-width: 768px) {
     max-width: 288px;
@@ -84,7 +84,7 @@ export const ModalTitle = styled.h2`
   padding-top: 40px;
   padding-left: 24px;
   padding-right: 24px;
-  font-weight: 400;
+
   font-size: 14px;
   line-height: 1.43;
   margin-bottom: 20px;
@@ -100,8 +100,6 @@ export const ModalText = styled.p`
   padding-bottom: 49px;
   padding-left: 24px;
   padding-right: 24px;
-  font-weight: 400;
-  font-size: 12px;
   line-height: 1.33;
   color: var(--secondary-color);
   @media screen and (min-width: 768px) {

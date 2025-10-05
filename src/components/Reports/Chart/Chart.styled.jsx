@@ -7,7 +7,7 @@ export const SectionWrapper = styled.div`
   display: flex;
   justify-content: center;
   @media screen and (min-width: 768px) {
-    box-shadow: 0 10px 60px 0 #aab2c533;
+    box-shadow: var(--primary-shadow);
     width: 704px;
     height: 422px;
     border-radius: 30px;
@@ -33,12 +33,9 @@ export const ChartWrapper = styled.div`
 `;
 
 export const Info = styled.p`
-  font-family: Roboto; // Remember about providing reasonable default font
-  font-style: normal;
   font-weight: 700;
   font-size: 14px;
-  text-align: center;
-  letter-spacing: 0.02em;
+
   color: var(--primary-color);
 `;
 

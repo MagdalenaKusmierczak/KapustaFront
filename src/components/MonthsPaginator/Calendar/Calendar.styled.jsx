@@ -7,12 +7,12 @@ export const Backdrop = styled.div`
   height: 100%;
   top: 0;
   left: 0%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--backdrop);
 `;
 
 export const CalendarBox = styled.div`
   position: absolute;
-  background-color: #fff;
+  background-color: var(--secondary-color);
   z-index: 10;
   width: 60%;
   border-radius: 20px;
@@ -36,7 +36,7 @@ export const Year = styled.p`
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
-  letter-spacing: 0.02em;
+
   color: var(--primary-color);
   padding: 0 10px;
 `;

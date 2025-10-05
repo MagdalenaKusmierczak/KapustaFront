@@ -42,10 +42,7 @@ export const ReportBox = styled.div`
 
 export const ReportText = styled.p`
   z-index: 1;
-  z-index: 1;
-  font-family: Roboto;
-  font-size: 12px;
-  font-weight: 400;
+
   line-height: 14.06px;
   letter-spacing: 0.04em;
   color: var(--quaternary-color);
@@ -57,7 +54,6 @@ export const ReportText = styled.p`
 export const ReportIcon = styled.svg`
   z-index: 1;
   margin: 5px;
-  text-align: center;
 `;
 
 export const SectionBar = styled.svg`
@@ -69,4 +65,5 @@ export const SectionBar = styled.svg`
 
 export const Link = styled(NavLink)`
   z-index: 1;
+  align-self: flex-start;
 `;

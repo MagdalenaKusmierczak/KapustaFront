@@ -10,9 +10,10 @@ import {
 } from "./Chart.styled";
 
 const colors = [
-  { fillColor: "#FF751D" },
-  { fillColor: "#FFDAC0" },
-  { fillColor: "#FFDAC0" },
+  { fillColor: "var(--brand-color)" },
+  { fillColor: "var(--faded-brand-color)" },
+  { fillColor: "var(--faded-brand-color)" },
+  //chck if it is working
 ];
 
 const ChartComponent = () => {
@@ -80,7 +81,7 @@ const ChartComponent = () => {
       },
       style: {
         fontSize: 12,
-        fontFamily: "Roboto",
+        fontFamily: "Roboto, sans-serif",
         fontWeight: 400,
         colors: ["var(--quinary-color)"],
       },

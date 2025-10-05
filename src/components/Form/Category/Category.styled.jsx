@@ -31,10 +31,6 @@ export const Wrap = styled.div`
     width: 169px;
   }
   span {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.16;
-    letter-spacing: 0.02em;
     color: var(--ternary-color);
   }
   img {
@@ -49,12 +45,12 @@ export const SelectBody = styled.div`
   top: 100%;
   left: 0;
   z-index: 3;
-  text-align: left;
+  // text-align: left;
   width: 280px;
   border: 2px solid var(--primary-background);
   border-bottom-right-radius: 20px;
-  background-color: #fff;
-  box-shadow: 0 3px 4px rgba(170, 178, 197, 0.4);
+  background-color: var(--secondary-color);
+  box-shadow: var(--accent-shadow);
   @media screen and (min-width: 768px) {
     width: 186px;
     border-radius: 0;
@@ -69,10 +65,7 @@ export const Element = styled.div`
   align-items: center;
   padding: 8px 20px;
   height: 32px;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16;
-  letter-spacing: 0.02em;
+
   cursor: pointer;
   color: var(--ternary-color);
   &:hover {

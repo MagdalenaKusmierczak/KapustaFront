@@ -28,9 +28,9 @@ export const TransactionTable = styled.table`
     background: var(--primary-background);
     border: none;
     font-weight: 700;
-    font-size: 12px;
+     
     line-height: 14px;
-    letter-spacing: 0.02em;
+    
     border-collapse: collapse;
   }
   tr th:first-of-type {
@@ -77,7 +77,7 @@ export const TransactionTable = styled.table`
         position: relative;
         align-items: center;
         justify-content: center;
-        text-align: center;
+        
         flex: 1 0 calc(100% / 5);
         overflow-x: hidden;
         display: flex;

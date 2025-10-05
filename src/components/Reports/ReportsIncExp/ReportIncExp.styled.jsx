@@ -5,17 +5,17 @@ export const StatisticsWrapper = styled.div`
   display: block;
   height: 85px;
   width: 280px;
-  text-align: center;
+
   margin: 0 auto 30px auto;
   background-color: var(--secondary-color);
-  box-shadow: 5px 10px 20px 0 #aab2c566;
+  box-shadow: var(--primary-small-shadow);
   border-radius: 20px;
   margin-bottom: 32px;
   @media screen and (min-width: 768px) {
     height: 50px;
     width: 704px;
     border-radius: 30px;
-    box-shadow: 0 10px 60px 0 #aab2c533;
+    box-shadow: var(--primary-shadow)
   }
   @media screen and (min-width: 1280px) {
     width: 1035px;
@@ -38,7 +38,7 @@ export const StatisticsList = styled.ul`
 export const StatisticsElement = styled.li`
   width: 140px;
   height: 70px;
-  text-align: center;
+
   display: flex;
   flex-direction: column;
   font-size: 14px;
@@ -52,7 +52,7 @@ export const StatisticsElement = styled.li`
   gap: 4px;
   padding-inline: 10px;
   &.income {
-    border-left: 1px solid #e0e5eb;
+    border-left: 1px solid var(--accent-line);
   }
   @media screen and (min-width: 768px) {
     padding-block: 8px;
@@ -72,7 +72,7 @@ export const StatisticsElement = styled.li`
 `;
 
 export const StatsIncome = styled.span`
-  color: green;
+  color: var(--income-color);
   display: inline-block;
   @media screen and (min-width: 768px) {
     margin-left: 15px;
@@ -80,7 +80,7 @@ export const StatsIncome = styled.span`
 `;
 
 export const StatsExpenses = styled.span`
-  color: red;
+  color: var(--expense-color);
   display: inline-block;
   @media screen and (min-width: 768px) {
     margin-left: 15px;
@@ -89,11 +89,11 @@ export const StatsExpenses = styled.span`
 
 export const BudgetName = styled.p`
   width: 120px;
-  text-align: center;
+
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
-  letter-spacing: 0.02em;
+
   text-transform: uppercase;
   color: var(--primary-color);
 `;
@@ -105,7 +105,7 @@ export const IconsBox = styled.div`
     padding: 20px 40px;
     margin-top: 32px;
     border-radius: 30px;
-    background-color: #fff;
+    background-color: var(--secondary-color);
   }
   @media screen and (min-width: 1280px) {
     padding: 20px 205px;

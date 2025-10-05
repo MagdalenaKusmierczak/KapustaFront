@@ -32,8 +32,8 @@ export const MainPageLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
   @media screen and (max-width: 767px) {
-    width: 100%;
-    text-align: left;
+    // width: 100%;
+    // text-align: left;
   }
   @media screen and (min-width: 768px) {
     width: auto;
@@ -45,9 +45,7 @@ export const MainPageLink = styled(NavLink)`
 
 export const MainPageText = styled.p`
   display: block;
-  font-family: Roboto; // Always provide meaningful fallbacks for fonts
-  font-size: 12px;
-  font-weight: 400;
+
   line-height: 14.06px;
   letter-spacing: 0.04em;
   color: var(--quaternary-color);

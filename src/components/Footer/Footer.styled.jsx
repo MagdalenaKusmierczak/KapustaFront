@@ -28,7 +28,6 @@ export const Icon = styled.img`
   transition: all 0.3s ease-in-out 0s;
   &:hover {
     transform: rotateY(360deg);
-    box-shadow: 0px 0px 4px 4px #f0ff3836;
   }
 `;
 
@@ -39,12 +38,9 @@ export const Paragraph = styled.p`
   margin: 0;
   margin-bottom: 7px;
   font-family: "Roboto"; // Always provide meaningful fallback fonts
-  font-style: normal;
-  font-style: normal;
-  font-weight: 400;
+
   font-size: 14px;
-  line-height: 1.16;
-  text-align: center;
+
   letter-spacing: 0.04em;
   padding-top: 7px;
 `;

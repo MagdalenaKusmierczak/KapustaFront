@@ -10,11 +10,11 @@ export const FormWrapper = styled.div`
   justify-content: center;
   padding: 40px 20px;
   z-index: 1;
-  background-color: #fff;
-  box-shadow: 5px 10px 20px 0 #aab2c566;
+  background-color: var(--secondary-color);
+  box-shadow: var(--primary-small-shadow);
   border-radius: 30px;
   @media screen and (min-width: 768px) {
-    box-shadow: 0 10px 60px 0 #aab2c533;
+    box-shadow: var(--primary-shadow);
     width: 426px;
     height: 552px;
     padding: 56px 84px;
@@ -32,26 +32,18 @@ export const BtnGoogle = styled.a`
   display: inline-flex;
   align-items: center;
   cursor: pointer;
-  background-color: #f6f7fb;
+  background-color: var(--ternary-background);
   border-radius: 26px;
   border: 0;
   padding: 10px 18px 10px 20px;
-  font-family: Roboto;
-  font-style: normal;
+
   font-weight: 700;
   font-size: 14px;
-  text-align: center;
-  letter-spacing: 0.02em;
+
   color: var(--primary-color);
 `;
 
 export const Text = styled.p`
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.16;
-  text-align: center;
   letter-spacing: 0.04em;
   color: var(--quinary-color);
   margin-bottom: 16px;
@@ -73,21 +65,20 @@ export const LabelText = styled.span`
   display: flex;
   margin-bottom: 12px;
   width: 100%;
-  font-style: normal;
   font-weight: 600;
-  font-size: 12px;
   line-height: 12px;
   color: var(--primary-color);
 `;
 
 export const Input = styled.input`
-  box-shadow: inset 0 0 0 1px #f6f7fb, inset 0 0 0 100px #f6f7fb;
+  box-shadow: inset 0 0 0 1px var(--ternary-background),
+    inset 0 0 0 100px var(--ternary-background);
   display: flex;
   justify-content: center;
   outline: none;
   border: none;
   border-radius: 30px;
-  background-color: #f6f7fb;
+  background-color: var(--ternary-background);
   padding: 17px 18px;
   width: 240px;
   @media screen and (min-width: 768px) {
@@ -112,13 +103,8 @@ export const Navlink = styled(NavLink)`
   border-radius: 16px;
   border: none;
   padding: 0;
-  font-style: normal;
   font-weight: 700;
-  font-size: 12px;
-  line-height: 1.16;
   align-items: center;
-  text-align: center;
-  letter-spacing: 0.02em;
   text-transform: uppercase;
   box-shadow: var(--quinary-color);
   filter: drop-shadow(1px 3px 5px rgba(82, 85, 95, 0.15));

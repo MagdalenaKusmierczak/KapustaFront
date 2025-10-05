@@ -123,8 +123,7 @@ export const Text = styled.p`
   width: 141px;
   margin-bottom: 50px;
   text-transform: uppercase;
-  font-family: "Roboto";
-  font-style: normal;
+
   font-weight: 700;
   font-size: 13px;
   line-height: 1.15;
