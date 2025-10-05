@@ -1,4 +1,4 @@
-import { useLocation } from "react-router";
+import { useRouteDetection } from "../../utils/hooks/useRouteDetection";
 import icons from "../../assets/icons.svg";
 import {
   ButtonBack,
@@ -7,23 +7,15 @@ import {
 } from "./Buttons.styled";
 
 export const BackButton = () => {
-  const location = useLocation();
+  const { isExpenses, isIncome, isIncomeTransactions, isExpensesTransactions, isTransactions } = useRouteDetection();
 
-  let backLink;
+  let backLink: string | undefined;
 
-  if (location.pathname === "/income/transactions") {
+  if (isIncomeTransactions) {
     backLink = "/income"; 
-  } else if (location.pathname === "/expenses/transactions") {
+  } else if (isExpensesTransactions) {
     backLink = "/expenses"; 
-  } 
-
-  const isExpenses = location.pathname === "/expenses";
-
-  const isIncome = location.pathname === "/income";
-
-  const isTransactions =
-    location.pathname === "/income/transactions" ||
-    location.pathname === "/expenses/transactions";
+  }
 
   return (
     <>
@@ -43,7 +35,7 @@ export const BackButton = () => {
           <ButtonBackText>TO TRANSACTIONS</ButtonBackText>
         </ButtonBackWithText>
       )}
-      {isTransactions && (
+      {isTransactions && backLink && (
         <ButtonBack to={backLink}>
           <svg width="18" height="12">
             <use href={`${icons}#back-arrow`}></use>

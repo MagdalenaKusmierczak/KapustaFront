@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { NavLink } from "react-router-dom";
-import { useLocation } from "react-router";
 import { useMatchMedia } from "../../../utils/hooks/useMatchMedia";
+import { useRouteDetection } from "../../../utils/hooks/useRouteDetection";
 import { TransactionList } from "../../../components/TransactionsList/TransactionList";
 import { TransactionListDesktop } from "../../../components/TransactionsList/TransactionListDesktop";
 import { selectIsLoggedIn } from "../../../redux/auth/selectors";
@@ -24,10 +24,7 @@ import {
 } from "../Transactions.styled";
 
 export default function Incomes() {
-  const location = useLocation();
-  const isTransactions =
-    location.pathname === "/income/transactions" ||
-    location.pathname === "/expenses/transactions";
+  const { isTransactions } = useRouteDetection();
 
   const dispatch = useAppDispatch();
 

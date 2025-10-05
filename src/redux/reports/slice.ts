@@ -1,5 +1,6 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import type { ReportsState } from "../types";
+import { createAsyncSlice } from "../../utils/redux/createAsyncSlice";
 import { getReports } from "./operations";
 
 const initialState: ReportsState = {
@@ -15,14 +16,7 @@ const initialState: ReportsState = {
   error: null,
 };
 
-export const handlePending = (state: ReportsState) => {
-  state.isLoading = true;
-};
-
-const handleRejected = (state: ReportsState, action: PayloadAction<unknown>) => {
-  state.isLoading = false;
-  state.error = (action.payload as string) ?? null;
-};
+const { handlePending, handleRejected } = createAsyncSlice<ReportsState>();
 
 export const reportsSlice = createSlice({
   name: "reports",

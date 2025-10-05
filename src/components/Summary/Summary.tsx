@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useLocation } from "react-router";
+import { useRouteDetection } from "../../utils/hooks/useRouteDetection";
 import {
   selectIsLoading,
   selectExpensesSummary,
@@ -9,36 +9,24 @@ import Loader from "../../service/Loader/Loader";
 import { Value, Table, Header, ListItem, Month } from "./Summary-styled";
 
 const Summary = () => {
-  const location = useLocation();
-
+  const { isIncome, isExpenses, isTransactions } = useRouteDetection();
   const incomeData = useSelector(selectIncomeSummary);
   const expensesData = useSelector(selectExpensesSummary);
   const isLoading = useSelector(selectIsLoading);
 
   let data;
 
-  // Try to use "KISS" principle as much as possible
-  // Components should only know about their own data and their own function
-  // Knowing how navigation works is not a simple component's job
-  // You can either wrap this in a hook or move it to a parrent component
-  if (
-    location.pathname === "/income" ||
-    location.pathname === "/income/transactions"
-  ) {
+  if (isIncome || isTransactions) {
     data = incomeData ? Object.entries(incomeData) : [];
-  } else if (
-    location.pathname === "/expenses" ||
-    location.pathname === "/" ||
-    location.pathname === "/expenses/transactions"
-  ) {
+  } else if (isExpenses || isTransactions) {
     data = expensesData ? Object.entries(expensesData) : [];
   }
 
-  function sortDescending(arr) {
+  function sortDescending(arr: [string, string | number | undefined][]) {
     return arr.slice().sort((a, b) => arr.indexOf(b) - arr.indexOf(a));
   }
 
-  const sortedData = sortDescending(data);
+  const sortedData = data ? sortDescending(data) : [];
 
   return (
     <>
@@ -47,7 +35,7 @@ const Summary = () => {
       ) : (
         <Table>
           <Header>SUMMARY</Header>
-          {sortedData.map((el) => {
+          {sortedData.map((el: [string, string | number | undefined]) => {
             if (el[1] === "N/A") {
               return null;
             } else {

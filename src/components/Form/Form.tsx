@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from "react";
-import { useLocation } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { useMatchMedia } from "../../utils/hooks/useMatchMedia";
+import { useRouteDetection } from "../../utils/hooks/useRouteDetection";
 import { OrangeButton } from "../ModalButtons/OrangeButton";
 import DateSelect from "./DateSelect/DateSelect";
 import CategorySelect from "./Category/Category";
@@ -15,6 +15,8 @@ import {
   selectExpensesCategories,
   selectIncomeCategories,
 } from "../../redux/categories/selectors";
+import { validateTransactionForm, showValidationErrors } from "../../utils/validation/formValidation";
+import type { TransactionFormData, CategoryData } from "../../types/form";
 import {
   FormWrap,
   StyledForm,
@@ -29,138 +31,108 @@ const Form = () => {
   const [startDate, setStartDate] = useState(new Date());
 
   const { isMobile } = useMatchMedia();
+  const { isIncExp, isTransactions, isIncome, isExpenses } = useRouteDetection();
 
-  const location = useLocation();
-
-  const isIncExp =
-    location.pathname === "/income" || location.pathname === "/expenses";
-
-  // This is repeated a lot in the code, consider lifting it out to a parent component (or a custom hook)
-  const isTransactions =
-    location.pathname === "/income/transactions" ||
-    location.pathname === "/expenses/transactions";
-
-  const form = useRef(null);
+  const form = useRef<HTMLFormElement>(null);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getIncomeCategoriesArr());
-    dispatch(getExpenseCategoriesArr());
+    dispatch(getIncomeCategoriesArr() as any);
+    dispatch(getExpenseCategoriesArr() as any);
   }, [dispatch]);
 
   const expensesArr = useSelector(selectExpensesCategories);
   const incomesArr = useSelector(selectIncomeCategories);
-  let categoryArray;
-  let functionToDispatch;
-
-  if (
-    location.pathname === "/income" ||
-    location.pathname === "/income/transactions"
-  ) {
-    categoryArray = incomesArr;
-    functionToDispatch = addIncome;
+  
+  let categoryData: CategoryData;
+  
+  if (isIncome || isTransactions) {
+    categoryData = {
+      categoryArray: incomesArr,
+      functionToDispatch: addIncome as any,
+    };
+  } else if (isExpenses || isTransactions) {
+    categoryData = {
+      categoryArray: expensesArr,
+      functionToDispatch: addExpense as any,
+    };
+  } else {
+    categoryData = {
+      categoryArray: [],
+      functionToDispatch: addIncome as any,
+    };
   }
 
-  if (
-    location.pathname === "/expenses" ||
-    location.pathname === "/expenses/transactions"
-  ) {
-    categoryArray = expensesArr;
-    functionToDispatch = addExpense;
-  }
-
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const { descr, sum } = event.target.elements;
-    let transValue = sum.value;
+    const descr = event.currentTarget.elements.namedItem('descr') as HTMLInputElement;
+    const sum = event.currentTarget.elements.namedItem('sum') as HTMLInputElement;
+    let transValue = Number(sum.value);
 
-    if (descr.value.trim() === "") {
-      alert("Please enter a description");
-      return;
-    }
+    const validationData = {
+      description: descr.value,
+      amount: transValue,
+      category: elementCategory,
+    };
 
-    if (elementCategory === "Category") {
-      alert("Please enter a category");
-      return;
-    }
-
-    if (transValue.trim() === "") {
-      alert("Please enter an amount");
+    const validation = validateTransactionForm(validationData);
+    if (!validation.isValid) {
+      showValidationErrors(validation.errors);
       return;
     }
 
     if (transValue < 0) transValue = transValue * -1;
 
-    const dataToDispatch = {
+    const dataToDispatch: TransactionFormData = {
       description: descr.value,
-      amount: Number(transValue),
+      amount: transValue,
       date: startDate.toISOString().split("T")[0],
       category: elementCategory,
     };
 
-    dispatch(functionToDispatch(dataToDispatch));
-    event.target.reset();
-    setElementCategory("Product category");
+    dispatch(categoryData.functionToDispatch(dataToDispatch));
+    event.currentTarget.reset();
+    setElementCategory("Category");
   };
 
   const handleReset = () => {
-    form.current.reset();
+    form.current?.reset();
   };
+
+  const renderForm = () => (
+    <StyledForm onSubmit={handleSubmit} ref={form}>
+      <StyledAllInputsDiv>
+        <InputProduct
+          autoComplete="off"
+          placeholder="Product description"
+          name="descr"
+        />
+        <CategorySelect
+          categoryArray={categoryData.categoryArray}
+          elementCategory={elementCategory}
+          setElementCategory={setElementCategory}
+        />
+        <InputCalc />
+      </StyledAllInputsDiv>
+      <ButtonWrap>
+        <OrangeButton type="submit">INPUT</OrangeButton>
+        <StyledWhiteButton type="button" onClick={handleReset}>
+          CLEAR
+        </StyledWhiteButton>
+      </ButtonWrap>
+    </StyledForm>
+  );
 
   return (
     <FormWrap>
       {!isTransactions && (
         <div className="tabletDatepicker">
-          <DateSelect startDate={startDate} setStartDate={setStartDate} />
+          <DateSelect startDate={startDate} setStartDate={(date: Date | null) => setStartDate(date || new Date())} />
         </div>
       )}
-      {!isIncExp && (
-        <StyledForm onSubmit={handleSubmit} ref={form}>
-          <StyledAllInputsDiv>
-            <InputProduct
-              autoComplete="off"
-              placeholder="Product description"
-              name="descr"
-            />
-            <CategorySelect
-              categoryArray={categoryArray}
-              elementCategory={elementCategory}
-              setElementCategory={setElementCategory}
-            />
-            <InputCalc name="sum" />
-          </StyledAllInputsDiv>
-          <ButtonWrap>
-            <OrangeButton type="submit">INPUT</OrangeButton>
-            <StyledWhiteButton type="button" onClick={handleReset}>
-              CLEAR
-            </StyledWhiteButton>
-          </ButtonWrap>
-        </StyledForm>
-      )}
-      {!isMobile && (
-        <StyledForm onSubmit={handleSubmit} ref={form}>
-          <StyledAllInputsDiv>
-            <InputProduct
-              autoComplete="off"
-              placeholder="Product description"
-              name="descr"
-            />
-            <CategorySelect
-              categoryArray={categoryArray}
-              elementCategory={elementCategory}
-              setElementCategory={setElementCategory}
-            />
-            <InputCalc name="sum" />
-          </StyledAllInputsDiv>
-          <ButtonWrap>
-            <OrangeButton type="submit">INPUT</OrangeButton>
-            <StyledWhiteButton type="button" onClick={handleReset}>
-              CLEAR
-            </StyledWhiteButton>
-          </ButtonWrap>
-        </StyledForm>
-      )}
+      {!isIncExp && renderForm()}
+      {!isMobile && renderForm()}
     </FormWrap>
   );
 };

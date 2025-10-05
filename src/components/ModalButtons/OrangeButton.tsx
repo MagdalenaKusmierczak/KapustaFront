@@ -8,6 +8,7 @@ type OrangeButtonProps = {
   dispatch?: () => void;
   closeModal?: () => void;
   changeBalance?: string;
+  type?: "button" | "submit" | "reset";
 };
 
 export const OrangeButton = ({
@@ -15,6 +16,7 @@ export const OrangeButton = ({
   dispatch,
   closeModal,
   changeBalance,
+  type = "button",
 }: OrangeButtonProps) => {
   const handleClick = () => {
     if (children === "YES") {
@@ -29,6 +31,6 @@ export const OrangeButton = ({
   };
 
   return (
-    <StyledOrangeButton onClick={handleClick}>{children}</StyledOrangeButton>
+    <StyledOrangeButton type={type} onClick={handleClick}>{children}</StyledOrangeButton>
   );
 };

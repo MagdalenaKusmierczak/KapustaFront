@@ -1,6 +1,7 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import type { TransactionsState } from "../types";
 import { refreshUser, logIn } from "../auth/operations";
+import { createAsyncSlice } from "../../utils/redux/createAsyncSlice";
 import {
   addIncome,
   getIncome,
@@ -27,14 +28,7 @@ const initialState: TransactionsState = {
   allTransactions: [],
 };
 
-const handlePending = (state: TransactionsState) => {
-  state.isLoading = true;
-};
-
-const handleRejected = (state: TransactionsState, action: PayloadAction<unknown>) => {
-  state.isLoading = false;
-  state.error = (action.payload as string) ?? null;
-};
+const { handlePending, handleRejected } = createAsyncSlice<TransactionsState>();
 
 export const transactionsSlice = createSlice({
   name: "transactions",

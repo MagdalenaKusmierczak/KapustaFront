@@ -1,5 +1,6 @@
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import type { CategoriesState } from "../types";
+import { createAsyncSlice } from "../../utils/redux/createAsyncSlice";
 import { getIncomeCategoriesArr, getExpenseCategoriesArr } from "./operations";
 
 const initialState: CategoriesState = {
@@ -9,14 +10,7 @@ const initialState: CategoriesState = {
   error: null,
 };
 
-export const handlePending = (state: CategoriesState) => {
-  state.isLoading = true;
-};
-
-  const handleRejected = (state: CategoriesState, action: PayloadAction<unknown>) => {
-  state.isLoading = false;
-  state.error = (action.payload as string) ?? null;
-};
+const { handlePending, handleRejected } = createAsyncSlice<CategoriesState>();
 
 export const categoriesSlice = createSlice({
   name: "categories",
