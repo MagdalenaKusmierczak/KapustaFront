@@ -12,32 +12,32 @@ export const RegistrationForm = () => {
   const dispatch = useDispatch<AppDispatch>();
   const isLoading = useSelector(selectIsLoading);
 
-  const handleSubmit = (event: React.FormEvent<AuthFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<AuthFormElement>) => {
     event.preventDefault();
 
     const { email, password } = event.currentTarget.elements;
 
-    dispatch(register({
-      email: email.value,
-      password: password.value,
-    }))
-      .then((registrationResult) => {
-        if (registrationResult.payload?.code === 201) {
-          return dispatch(logIn({
-            email: email.value,
-            password: password.value,
-          }));
-        } else if (registrationResult.type === 'auth/register/rejected') {
-          console.error(
-            "Registration failed",
-            registrationResult.payload
-          );
-        }
-      })
-      .catch((error: unknown) => {
-        const message = error instanceof Error ? error.message : "Unknown error";
-        console.error("Error during registration or login:", message);
-      });
+    try {
+      const registrationResult = await dispatch(register({
+        email: email.value,
+        password: password.value,
+      }));
+
+      if (register.fulfilled.match(registrationResult)) {
+        await dispatch(logIn({
+          email: email.value,
+          password: password.value,
+        }));
+      } else if (register.rejected.match(registrationResult)) {
+        console.error(
+          "Registration failed:",
+          registrationResult.error.message
+        );
+      }
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : "Unknown error";
+      console.error("Error during registration or login:", message);
+    }
   };
 
   if (isLoading) {

@@ -31,16 +31,16 @@ const BalanceBar = ({ styledComponents }: BalanceBarProps) => {
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
+
+    if (balance) {
+      setModalOpen(true);
+    }
   };
 
-  const onClick = () => {
+  const handleConfirm = () => {
     dispatch(updateBalance({ newBalance: balance }));
     form.current?.reset();
     setBalance("");
-  };
-
-  const handleModalOpen = () => {
-    setModalOpen(true);
   };
 
   const handleModalClose = () => {
@@ -64,7 +64,6 @@ const BalanceBar = ({ styledComponents }: BalanceBarProps) => {
           />
           <BalanceButton
             type="submit"
-            onClick={handleModalOpen}
             disabled={!balance}
           >
             CONFIRM
@@ -76,7 +75,7 @@ const BalanceBar = ({ styledComponents }: BalanceBarProps) => {
         <BalanceModal
           changeBalance="true"
           closeModal={handleModalClose}
-          dispatch={onClick}
+          dispatch={handleConfirm}
         />
       )}
     </>
