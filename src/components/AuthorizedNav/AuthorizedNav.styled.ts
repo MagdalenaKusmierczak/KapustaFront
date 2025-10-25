@@ -4,7 +4,6 @@ export const AuthNav = styled.nav`
   display: flex;
   align-items: center;
   gap: 16px;
-  w
 `;
 
 export const LoginLabel = styled.div`
