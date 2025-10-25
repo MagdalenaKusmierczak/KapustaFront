@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import AuthorizatedNav from "../AuthorizatedNav/AuthorizatedNav";
+import AuthorizatedNav from "../AuthorizedNav/AuthorizedNav";
 import icons from "../../assets/icons.svg";
 import { HeaderWrapper, HeaderIcon } from "./Header-styled";
 

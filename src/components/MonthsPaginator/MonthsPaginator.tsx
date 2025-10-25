@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import type { AppDispatch } from "../../redux/store";
 import { getReports } from "../../redux/reports/operations";
 import {
   reportsQueryAction,
   filteredDataAction,
 } from "../../redux/reportsQuery/reportsQuery.slice";
-import { monthNames, getMonth, getYear } from "../../utils/constants/date";
+import { monthNames } from "../../utils/constants/date";
 import { Calendar } from "./Calendar/Calendar";
 import Arrows from "./Arrows/Arrows";
 import {
@@ -15,55 +16,39 @@ import {
 } from "./MonthsPaginator.styled";
 
 const MonthsPaginator = () => {
-  const [monthNumber, setMonthNumber] = useState(0);
-  const [month, setMonth] = useState("");
-  const [year, setYear] = useState<number>(0);
+  const [currentDate, setCurrentDate] = useState(new Date());
   const [modalCalendar, setModalCalendar] = useState(false);
 
-  const dispatch = useDispatch() as any;
+  const dispatch = useDispatch<AppDispatch>();
+
+
+  const monthNumber = currentDate.getMonth();
+  const year = currentDate.getFullYear();
+  const month = monthNames[monthNumber];
 
   useEffect(() => {
-    setMonthNumber(getMonth());
-    setMonth(monthNames[getMonth()]);
-    setYear(getYear());
-  }, []);
 
-  useEffect(() => {
-    setMonth(monthNames[monthNumber]);
-    let monthString = "";
-
-    // You can use the padStart method to add leading zeros
-    if (monthNumber + 1 < 10) {
-      monthString = "0" + (monthNumber + 1);
-    } else {
-      monthString = (monthNumber + 1).toString();
-    }
-
+    const monthString = (monthNumber + 1).toString().padStart(2, '0');
     const query = `${year}-${monthString}`;
 
-    if (query !== "-01") dispatch((getReports as any)(query));
-    dispatch(reportsQueryAction(`${year}-${monthString}`) as any);
-  }, [monthNumber, year, dispatch]);
+    dispatch(getReports(query));
+    dispatch(reportsQueryAction(query));
+  }, [currentDate, dispatch, monthNumber, year]);
 
-  // Consider using just a date object for that and extracting the month and year from it
-  // This way, adding months and years will be easier - you can just use built-in methods
   const handlerClick = (name: string) => {
+    dispatch(filteredDataAction([]));
+    
+    const newDate = new Date(currentDate);
+    
     switch (name) {
       case "decrement":
-        dispatch(filteredDataAction([]));
-        setMonthNumber(monthNumber - 1);
-        if (monthNumber === 0) {
-          setMonthNumber(11);
-          setYear(year - 1);
-        }
+    
+        newDate.setMonth(newDate.getMonth() - 1);
+        setCurrentDate(newDate);
         break;
       case "increment":
-        dispatch(filteredDataAction([]));
-        setMonthNumber(monthNumber + 1);
-        if (monthNumber === 11) {
-          setMonthNumber(0);
-          setYear(year + 1);
-        }
+        newDate.setMonth(newDate.getMonth() + 1);
+        setCurrentDate(newDate);
         break;
       default:
         return;
@@ -71,20 +56,25 @@ const MonthsPaginator = () => {
   };
 
   const handleModalCalendar = () => {
-    setModalCalendar((modalCalendar) => !modalCalendar);
+    setModalCalendar((prev) => !prev);
   };
 
   const handleCalendar = (name: string | number) => {
+    const newDate = new Date(currentDate);
+    
     switch (name) {
       case "decrement":
-        setYear(year - 1);
+        newDate.setFullYear(newDate.getFullYear() - 1);
+        setCurrentDate(newDate);
         break;
       case "increment":
-        setYear(year + 1);
+        newDate.setFullYear(newDate.getFullYear() + 1);
+        setCurrentDate(newDate);
         break;
       default:
         if (typeof name === 'number') {
-          setMonthNumber(name);
+          newDate.setMonth(name);
+          setCurrentDate(newDate);
         }
         return;
     }

@@ -1,10 +1,9 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useMatchMedia } from "../../../utils/hooks/useMatchMedia";
-import { useRouteDetection } from "../../../utils/hooks/useRouteDetection";
-import { TransactionList } from "../../../components/TransactionsList/TransactionList";
-import { TransactionListDesktop } from "../../../components/TransactionsList/TransactionListDesktop";
+import { useMobileView } from "../../../utils/hooks/useMobileView";
+import { TransactionsList } from "../../../components/TransactionsList";
 import { selectIsLoggedIn } from "../../../redux/auth/selectors";
 import {
   selectIncomeTransactions,
@@ -15,6 +14,7 @@ import Summary from "../../../components/Summary/Summary";
 import Balance from "../../../components/Balance/MainBalance/Balance";
 import { BackButton } from "../../../components/ModalButtons/BackButton";
 import Form from "../../../components/Form/Form";
+import type { AppDispatch } from "../../../redux/store";
 import {
   StyledBg,
   StyledFrame,
@@ -24,16 +24,15 @@ import {
 } from "../Transactions.styled";
 
 export default function Incomes() {
-  const { isTransactions } = useRouteDetection();
+  const { isFormView, isListView, showForm, showList } = useMobileView();
 
-  const dispatch = useAppDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
 
-  const allIncomes = useAppSelector(selectIncomeTransactions);
-  const user = useAppSelector(selectIsLoggedIn);
-  const balance = useAppSelector(selectBalance);
-  const color = "green";
+  const allIncomes = useSelector(selectIncomeTransactions);
+  const user = useSelector(selectIsLoggedIn);
+  const balance = useSelector(selectBalance);
 
   useEffect(() => {
     if (user) dispatch(getIncome());
@@ -43,12 +42,15 @@ export default function Incomes() {
     <>
       {isMobile && (
         <>
-          <BackButton />
+          <BackButton 
+            onNavigate={isFormView ? showList : showForm}
+            showText={isListView}
+          />
         </>
       )}
-      {!isTransactions && <Balance />}
+      <Balance showReports={!isMobile || isListView} />
       <StyledBg />
-      {isMobile && !isTransactions && (
+      {isMobile && isListView && (
         <StyledTabsMobile>
           <NavLink to="/expenses" className="TabMobile">
             expenses
@@ -79,21 +81,10 @@ export default function Incomes() {
         </StyledTabsDesktop>
       )}
       <StyledFrame>
-        <Form />
+        {(!isMobile || isFormView) && <Form />}
         <StyledTableAndSummaryDiv>
-          {(isTablet || isDesktop) && (
-            <TransactionListDesktop>
-              {allIncomes}
-              {color}
-            </TransactionListDesktop>
-          )}
+          <TransactionsList transactions={allIncomes} type="income" />
           {isDesktop && <Summary />}
-          {isMobile && !isTransactions && (
-            <TransactionList>
-              {allIncomes}
-              {color}
-            </TransactionList>
-          )}
         </StyledTableAndSummaryDiv>
       </StyledFrame>
       {isTablet && <Summary />}

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../redux/auth/operations";
 import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
+import type { AppDispatch } from "../../redux/store";
 import { HeaderModalWindow } from "../Modals/HeaderModalWindow/HeaderModalWindow";
 import icons from "../../assets/icons.svg";
 import {
@@ -12,15 +13,13 @@ import {
   VerticalLine,
   ExitButton,
   PageIcon,
-} from "./AuthorizatedNav.styled";
+} from "./AuthorizedNav.styled";
 
-
-// I'd suggest "AuthorizedNav" as the name here
-const AuthorizatedNav = () => {
+const AuthorizedNav = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const userEmail = useSelector(selectUser);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const handleClick = () => {
     dispatch(logOut());
@@ -34,12 +33,15 @@ const AuthorizatedNav = () => {
     setModalOpen(false);
   };
 
+  if (!isLoggedIn || !userEmail) {
+    return null;
+  }
+
   return (
-    isLoggedIn && (
-      <>
-        <AuthNav>
-          <LoginLabel>{userEmail[0].toUpperCase()}</LoginLabel>
-          <LoginName>{userEmail}</LoginName>
+    <>
+      <AuthNav>
+        <LoginLabel>{userEmail[0].toUpperCase()}</LoginLabel>
+        <LoginName>{userEmail}</LoginName>
           <LogoutImg type="button" onClick={handleModalOpen}>
             <PageIcon>
               <use href={`${icons}#logout`}></use>
@@ -49,18 +51,17 @@ const AuthorizatedNav = () => {
           <ExitButton type="button" onClick={handleModalOpen}>
             Exit
           </ExitButton>
-        </AuthNav>
-        {modalOpen && (
-          <HeaderModalWindow
-            closeModal={handleModalClose}
-            dispatch={handleClick}
-          >
-            Do you really want to leave?
-          </HeaderModalWindow>
-        )}
-      </>
-    )
+      </AuthNav>
+      {modalOpen && (
+        <HeaderModalWindow
+          closeModal={handleModalClose}
+          dispatch={handleClick}
+        >
+          Do you really want to leave?
+        </HeaderModalWindow>
+      )}
+    </>
   );
 };
 
-export default AuthorizatedNav;
+export default AuthorizedNav;

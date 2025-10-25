@@ -9,16 +9,16 @@ import Loader from "../../service/Loader/Loader";
 import { Value, Table, Header, ListItem, Month } from "./Summary-styled";
 
 const Summary = () => {
-  const { isIncome, isExpenses, isTransactions } = useRouteDetection();
+  const { isIncome, isExpenses } = useRouteDetection();
   const incomeData = useSelector(selectIncomeSummary);
   const expensesData = useSelector(selectExpensesSummary);
   const isLoading = useSelector(selectIsLoading);
 
   let data;
 
-  if (isIncome || isTransactions) {
+  if (isIncome) {
     data = incomeData ? Object.entries(incomeData) : [];
-  } else if (isExpenses || isTransactions) {
+  } else if (isExpenses) {
     data = expensesData ? Object.entries(expensesData) : [];
   }
 

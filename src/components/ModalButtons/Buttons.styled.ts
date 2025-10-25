@@ -54,3 +54,25 @@ export const ButtonBackText = styled.p`
     color: inherit;
   }
 `;
+
+export const ButtonBackAction = styled.button`
+  z-index: 2;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  margin: 16px 0 16px 20px;
+  cursor: pointer;
+  padding: 0;
+`;
+
+export const ButtonBackWithTextAction = styled.button`
+  z-index: 2;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  margin: 16px 0 14px 20px;
+  cursor: pointer;
+  padding: 0;
+`;

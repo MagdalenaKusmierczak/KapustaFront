@@ -22,19 +22,19 @@ export const ModalWindow = styled.div<{ variant?: "confirmation" | "information"
   background: ${props => (props.variant === "information" || props.variant === "information-reports") ? "var(--gradient-background)" : "var(--secondary-color)"};
   box-shadow: ${props => (props.variant === "information" || props.variant === "information-reports") ? "var(--secondary-shadow)" : "var(--ternary-shadow)"};
   border-radius: 30px;
-  max-width: ${props => (props.variant === "information" || props.variant === "information-reports") ? "280px" : "90vw"};
-  max-height: ${props => (props.variant === "information" || props.variant === "information-reports") ? "163px" : "90vh"};
+  max-width: ${props => (props.variant === "information" || props.variant === "information-reports") ? "280px" : "500px"};
+  max-height: ${props => (props.variant === "information" || props.variant === "information-reports") ? "163px" : "50vh"};
   width: 100%;
   overflow: hidden;
   
   @media screen and (min-width: 768px) {
-    max-width: ${props => (props.variant === "information" || props.variant === "information-reports") ? "288px" : "90vw"};
+    max-width: ${props => (props.variant === "information" || props.variant === "information-reports") ? "288px" : "500px"};
     top: ${props => props.variant === "information" ? "154px" : props.variant === "information-reports" ? "154px" : "auto"};
     left: ${props => props.variant === "information" ? "38%" : props.variant === "information-reports" ? "60%" : "auto"};
   }
   
   @media screen and (min-width: 1280px) {
-    max-width: ${props => (props.variant === "information" || props.variant === "information-reports") ? "288px" : "90vw"};
+    max-width: ${props => (props.variant === "information" || props.variant === "information-reports") ? "288px" : "500px"};
     top: ${props => props.variant === "information" ? "160px" : props.variant === "information-reports" ? "160px" : "auto"};
     left: ${props => props.variant === "information" ? "52%" : props.variant === "information-reports" ? "45%" : "auto"};
   }
@@ -93,14 +93,14 @@ export const ModalButtons = styled.div`
 `;
 
 export const CloseButton = styled.button`
-  z-index: 3;
+  z-index: 5;
   border: none;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   cursor: pointer;
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   background: transparent;
   display: flex;
   align-items: center;

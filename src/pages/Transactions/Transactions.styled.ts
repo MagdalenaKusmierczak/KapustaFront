@@ -69,7 +69,7 @@ export const StyledTabsDesktop = styled.div`
     text-transform: uppercase;
     color: var(--primary-color);
     font-weight: 700;
-    background-color: var(----default-tab);
+    background-color: var(--default-tab);
     border-radius: 18px 18px 0 0;
     :hover,
     :focus {
@@ -90,23 +90,23 @@ export const StyledTabsMobile = styled.div`
   gap: 0;
   background-color: var(--secondary-color);
   .TabMobile {
-font-weight: 700;
-display: block;
-width: 160px;
-padding: 20px 0;
-text-transform: uppercase;
-text-align: center;
-color: var(--primary-color);
-font-weight: 700;
-background-color: var(--primary-background);
+    font-weight: 700;
+    display: block;
+    width: 160px;
+    padding: 20px 0;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--primary-color);
+    font-weight: 700;
+    background-color: var(--primary-background);
     :hover,
     :focus {
       color: var(--secondary-color);
       background-color: var(--brand-color);
     }
-     &.active {
-      color:  var(--secondary-color);
+    &.active {
+      color: var(--secondary-color);
       background-color: var(--brand-color);
-
+    }
   }
 `;

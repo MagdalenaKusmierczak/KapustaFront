@@ -1,8 +1,13 @@
-import axios from "axios";
-axios.defaults.baseURL = "https://kapusta-backend-fq38.onrender.com/";
+import axios from "./axios.config";
 
-// This file is not specific to Redux - maybe it should be moved to a different folder, e.g. `service`?
-export const addIncomeAPI = async (info) => {
+interface TransactionInfo {
+  description: string;
+  amount: number;
+  date: string;
+  category: string;
+}
+
+export const addIncomeAPI = async (info: TransactionInfo) => {
   const { data } = await axios.post("/transaction/income", info);
   return data;
 };
@@ -12,7 +17,7 @@ export const getIncomeAPI = async () => {
   return data;
 };
 
-export const addExpenseAPI = async (info) => {
+export const addExpenseAPI = async (info: TransactionInfo) => {
   const { data } = await axios.post("/transaction/expense", info);
   return data;
 };
@@ -22,7 +27,7 @@ export const getExpenseAPI = async () => {
   return data;
 };
 
-export const deleteTransactionAPI = async (id) => {
+export const deleteTransactionAPI = async (id: string) => {
   const { data } = await axios.delete(`/transaction/${id}`);
   return data;
 };
@@ -37,12 +42,8 @@ export const getExpenseCategoriesAPI = async () => {
   return data;
 };
 
-export const getPeriodDataAPI = async (date) => {
+export const getPeriodDataAPI = async (date: string) => {
   const { data } = await axios.get(`/transaction/period-data?date=${date}`);
   return data;
 };
 
-export const updateBalanceAPI = async (value) => {
-  const { data } = await axios.patch("/user/balance", value);
-  return data;
-};

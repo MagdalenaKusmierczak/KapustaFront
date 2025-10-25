@@ -31,10 +31,6 @@ export const BalanceSection = styled.section`
 export const MainPageLink = styled(NavLink)`
   text-decoration: none;
   cursor: pointer;
-  @media screen and (max-width: 767px) {
-    // width: 100%;
-    // text-align: left;
-  }
   @media screen and (min-width: 768px) {
     width: auto;
     display: flex;

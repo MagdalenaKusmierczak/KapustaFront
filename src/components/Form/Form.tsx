@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useMatchMedia } from "../../utils/hooks/useMatchMedia";
+import type { AppDispatch } from "../../redux/store";
 import { useRouteDetection } from "../../utils/hooks/useRouteDetection";
 import { Button } from "../ModalButtons/Button";
 import DateSelect from "./DateSelect/DateSelect";
@@ -28,17 +28,15 @@ import {
 const Form = () => {
   const [elementCategory, setElementCategory] = useState("Category");
   const [startDate, setStartDate] = useState(new Date());
-
-  const { isMobile } = useMatchMedia();
-  const { isIncExp, isTransactions, isIncome, isExpenses } = useRouteDetection();
+  const { isIncome, isExpenses } = useRouteDetection();
 
   const form = useRef<HTMLFormElement>(null);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
-    dispatch(getIncomeCategoriesArr() as any);
-    dispatch(getExpenseCategoriesArr() as any);
+    dispatch(getIncomeCategoriesArr());
+    dispatch(getExpenseCategoriesArr());
   }, [dispatch]);
 
   const expensesArr = useSelector(selectExpensesCategories);
@@ -46,20 +44,20 @@ const Form = () => {
   
   let categoryData: CategoryData;
   
-  if (isIncome || isTransactions) {
+  if (isIncome) {
     categoryData = {
       categoryArray: incomesArr,
-      functionToDispatch: addIncome as any,
+      functionToDispatch: addIncome,
     };
-  } else if (isExpenses || isTransactions) {
+  } else if (isExpenses) {
     categoryData = {
       categoryArray: expensesArr,
-      functionToDispatch: addExpense as any,
+      functionToDispatch: addExpense,
     };
   } else {
     categoryData = {
       categoryArray: [],
-      functionToDispatch: addIncome as any,
+      functionToDispatch: addIncome,
     };
   }
 
@@ -125,13 +123,10 @@ const Form = () => {
 
   return (
     <FormWrap>
-      {!isTransactions && (
-        <div className="tabletDatepicker">
-          <DateSelect startDate={startDate} setStartDate={(date: Date | null) => setStartDate(date || new Date())} />
-        </div>
-      )}
-      {!isIncExp && renderForm()}
-      {!isMobile && renderForm()}
+      <div className="tabletDatepicker">
+        <DateSelect startDate={startDate} setStartDate={(date: Date | null) => setStartDate(date || new Date())} />
+      </div>
+      {renderForm()}
     </FormWrap>
   );
 };

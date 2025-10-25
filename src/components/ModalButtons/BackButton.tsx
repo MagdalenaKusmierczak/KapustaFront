@@ -1,46 +1,27 @@
-import { useRouteDetection } from "../../utils/hooks/useRouteDetection";
 import icons from "../../assets/icons.svg";
-import {
-  ButtonBack,
-  ButtonBackWithText,
-  ButtonBackText,
-} from "./Buttons.styled";
+import { ButtonBackAction, ButtonBackWithTextAction, ButtonBackText } from "./Buttons.styled";
 
-export const BackButton = () => {
-  const { isExpenses, isIncome, isIncomeTransactions, isExpensesTransactions, isTransactions } = useRouteDetection();
+interface BackButtonProps {
+  onNavigate: () => void;
+  showText?: boolean;
+}
 
-  let backLink: string | undefined;
-
-  if (isIncomeTransactions) {
-    backLink = "/income"; 
-  } else if (isExpensesTransactions) {
-    backLink = "/expenses"; 
-  }
-
+export const BackButton = ({ onNavigate, showText = true }: BackButtonProps) => {
   return (
     <>
-      {isExpenses && (
-        <ButtonBackWithText to="/expenses/transactions">
+      {showText ? (
+        <ButtonBackWithTextAction onClick={onNavigate}>
           <svg width="18" height="12">
             <use href={`${icons}#back-arrow`}></use>
           </svg>
           <ButtonBackText>TO TRANSACTIONS</ButtonBackText>
-        </ButtonBackWithText>
-      )}
-      {isIncome && (
-        <ButtonBackWithText to="/income/transactions">
+        </ButtonBackWithTextAction>
+      ) : (
+        <ButtonBackAction onClick={onNavigate}>
           <svg width="18" height="12">
             <use href={`${icons}#back-arrow`}></use>
           </svg>
-          <ButtonBackText>TO TRANSACTIONS</ButtonBackText>
-        </ButtonBackWithText>
-      )}
-      {isTransactions && backLink && (
-        <ButtonBack to={backLink}>
-          <svg width="18" height="12">
-            <use href={`${icons}#back-arrow`}></use>
-          </svg>
-        </ButtonBack>
+        </ButtonBackAction>
       )}
     </>
   );

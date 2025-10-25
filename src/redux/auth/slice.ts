@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { AuthState } from "../types";
-import { logIn, logOut, refreshUser, register } from "./operations";
+import { logIn, logOut, refreshUser, register, fetchUser } from "./operations";
 
 const initialState: AuthState = {
   user: { email: null, id: null },
@@ -88,6 +88,18 @@ export const authSlice = createSlice({
         state.accessToken = null;
         state.refreshToken = null;
         state.isLoggedIn = false;
+      })
+      // fetch user
+      .addCase(fetchUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(fetchUser.rejected, (state) => {
+        state.isLoading = false;
+        // Don't clear auth state here - let the interceptor handle logout
       });
   },
 });

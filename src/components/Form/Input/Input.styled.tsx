@@ -43,7 +43,6 @@ export const InputNumber = styled.input`
   width: 108px;
   height: 44px;
   padding-left: 15px;
-
   line-height: 14px;
   border: 2px solid var(--primary-background);
   border-bottom-right-radius: 22px;

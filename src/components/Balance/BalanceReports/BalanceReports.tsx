@@ -1,5 +1,12 @@
 import MonthsPaginator from "../../MonthsPaginator/MonthsPaginator";
-import BalanceBarReport from "./BalanceBarReport/BalanceBarReport";
+import BalanceBar from "../BalanceBar/BalanceBar";
+import {
+  BalanceForm,
+  BalanceBox,
+  BalanceText,
+  BalanceInput,
+  BalanceButton,
+} from "../BalanceBar/BalanceBar.styled";
 import icons from "../../../assets/icons.svg";
 import {
   BalanceSection,
@@ -19,7 +26,15 @@ const BalanceReports = () => {
         <MainPageText>Main page</MainPageText>
       </MainPageLink>
       <MobileWrapper>
-        <BalanceBarReport />
+        <BalanceBar 
+          styledComponents={{
+            BalanceForm,
+            BalanceBox,
+            BalanceText,
+            BalanceInput,
+            BalanceButton,
+          }}
+        />
         <MonthsPaginator />
       </MobileWrapper>
     </BalanceSection>

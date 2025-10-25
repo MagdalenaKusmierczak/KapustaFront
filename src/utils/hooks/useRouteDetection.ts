@@ -5,9 +5,6 @@ export const useRouteDetection = () => {
   
   const isIncome = location.pathname === "/income";
   const isExpenses = location.pathname === "/expenses";
-  const isTransactions = location.pathname.includes("/transactions");
-  const isIncomeTransactions = location.pathname === "/income/transactions";
-  const isExpensesTransactions = location.pathname === "/expenses/transactions";
   const isReports = location.pathname === "/reports";
   const isLogin = location.pathname === "/login";
   const isRegister = location.pathname === "/register";
@@ -19,9 +16,6 @@ export const useRouteDetection = () => {
   return {
     isIncome,
     isExpenses,
-    isTransactions,
-    isIncomeTransactions,
-    isExpensesTransactions,
     isReports,
     isLogin,
     isRegister,

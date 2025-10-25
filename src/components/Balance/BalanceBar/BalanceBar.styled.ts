@@ -1,40 +1,19 @@
 import styled from "@emotion/styled";
 
-export const BalanceSection = styled.section`
-  box-sizing: border-box;
-  background: var(--secondary-background);
-  display: flex;
-  align-items: center;
-  height: 128px;
-  @media screen and (max-width: 767px) {
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: 32px;
-    margin-top: 14px;
-  }
-  @media screen and (min-width: 768px) {
-    justify-content: space-between;
-    flex-direction: row;
-  }
-  @media screen and (min-width: 1280px) {
-    justify-content: flex-end;
-    gap: 298px;
-  }
-`;
 export const BalanceForm = styled.form`
   display: flex;
   @media (max-width: 767px) {
     flex-direction: column;
     gap: 8px;
-    margin-top:16px;
+    margin-top: 16px;
   }
   @media (min-width: 768px) {
     gap: 20px;
     align-items: center;
-    margin-top:0;
-}
+    margin-top: 0;
   }
 `;
+
 export const BalanceBox = styled.div`
   display: flex;
   @media (max-width: 767px) {
@@ -86,7 +65,6 @@ export const BalanceInput = styled.input`
     width: 183px;
     border-radius: 16px;
   }
-
   @media (min-width: 768px) {
     border-radius: 16px;
     width: 125px;
@@ -104,6 +82,7 @@ export const BalanceButton = styled.button`
   border: 2px solid var(--secondary-color);
   line-height: 14.06px;
   color: var(--quaternary-color);
+  font-weight: 700;
   &:hover,
   &:focus {
     background: ${({ disabled }) =>
@@ -116,7 +95,7 @@ export const BalanceButton = styled.button`
     transition: all 0.25s;
   }
   @media (max-width: 767px) {
-    display: none;
+    width: 97px;
     border-radius: 0 16px 16px 0;
     border-left: 0;
   }
@@ -130,38 +109,3 @@ export const BalanceButton = styled.button`
   }
 `;
 
-export const ReportBox = styled.div`
-  display: flex;
-  gap: 15px;
-  @media (max-width: 767px) {
-    width: 84px;
-    height: 24px;
-  }
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
-  @media (min-width: 1280px) {
-  }
-`;
-
-export const ReportText = styled.p`
-  line-height: 14.06px;
-  letter-spacing: 0.04em;
-  color: var(--quaternary-color);
-  padding: 0;
-  margin: 0;
-  padding-top: 7px;
-`;
-
-export const ReportIcon = styled.svg`
-  width: 14px;
-  height: 14px;
-  padding: 5px;
-  justify-self:flex-start;
-`;
-
-export const SectionBar = styled.svg`
-  @media (max-width: 767px) {
-    margin-bottom: 8px;
-  }
-`;

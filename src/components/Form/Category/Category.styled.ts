@@ -14,9 +14,8 @@ export const Wrap = styled.div`
   display: flex;
   align-items: center;
   width: 280px;
-  height: 44px; // I'm not sure if providing a fixed height is a good idea.
-  // I might be better to play with paddings and margins, assuming a given text height.
-  padding: 2px 20px;
+  max-height:44px;
+  padding:15px 20px;
   border: 2px solid var(--secondary-color);
   border-bottom-right-radius: 20px;
   background-color: var(--primary-background);

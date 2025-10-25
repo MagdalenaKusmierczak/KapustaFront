@@ -19,8 +19,7 @@ export const AddressList = styled.ul`
   display: flex;
   gap: 20px;
   padding: 0;
-  margin: 0;
-  margin-bottom: 10px; // Try to group margins in such cases, e.g. margin: 0 0 10px 0;
+  margin: 0 0 10px 0;
 `;
 
 export const Icon = styled.img`
@@ -35,12 +34,9 @@ export const Paragraph = styled.p`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
-  margin-bottom: 7px;
-  font-family: "Roboto"; // Always provide meaningful fallback fonts
-
+  margin: 0 0 7px 0;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
-
   letter-spacing: 0.04em;
   padding-top: 7px;
 `;

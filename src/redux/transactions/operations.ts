@@ -5,22 +5,30 @@ import {
   getIncomeAPI,
   addExpenseAPI,
   getExpenseAPI,
-  updateBalanceAPI,
   deleteTransactionAPI,
-} from "../api";
+} from "../../service/api";
+import { updateBalanceAPI } from "../../service/api";
+
+interface TransactionData {
+  description: string;
+  amount: number;
+  date: string;
+  category: string;
+}
 
 // AddIncome transaction Thunk
 export const addIncome = createAsyncThunk(
   "transactions/addIncome",
-  async (value, thunkAPI) => {
+  async (value: TransactionData, thunkAPI) => {
     try {
       const data = await addIncomeAPI(value);
       return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error?.message || "Failed to add income");
     }
   }
 );
+
 // Get income transactions Thunk
 export const getIncome = createAsyncThunk(
   "transactions/getIncome",
@@ -28,20 +36,21 @@ export const getIncome = createAsyncThunk(
     try {
       const data = await getIncomeAPI();
       return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error?.message || "Failed to get income");
     }
   }
 );
+
 // Add expense transaction Thunk
 export const addExpense = createAsyncThunk(
   "transactions/addExpense",
-  async (value, thunkAPI) => {
+  async (value: TransactionData, thunkAPI) => {
     try {
       const data = await addExpenseAPI(value);
       return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error?.message || "Failed to add expense");
     }
   }
 );
@@ -52,20 +61,20 @@ export const getExpenses = createAsyncThunk(
     try {
       const data = await getExpenseAPI();
       return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error?.message || "Failed to get expenses");
     }
   }
 );
 // Update balance Thunk
 export const updateBalance = createAsyncThunk(
   "transactions/updateBalance",
-  async (value, thunkAPI) => {
+  async (value: { newBalance: string }, thunkAPI) => {
     try {
       const data = await updateBalanceAPI(value);
       return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error?.message || "Failed to update balance");
     }
   }
 );
@@ -76,20 +85,21 @@ export const getAllTransactions = createAsyncThunk(
     try {
       const data = await fullUserInfoAPI();
       return data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error?.message || "Failed to get transactions");
     }
   }
 );
+
 // Delete transaction Thunk
 export const deleteTransaction = createAsyncThunk(
   "transactions/deleteTransaction",
-  async (id, thunkAPI) => {
+  async (id: string, thunkAPI) => {
     try {
       const { newBalance } = await deleteTransactionAPI(id);
       return { newBalance, id };
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error?.message || "Failed to delete transaction");
     }
   }
 );

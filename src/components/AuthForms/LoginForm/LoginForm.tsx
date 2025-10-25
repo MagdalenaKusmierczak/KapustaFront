@@ -1,64 +1,35 @@
 import { useDispatch } from "react-redux";
-// import { ReactComponent as GoogleSvg } from "../../images/google.svg";
 import { logIn } from "../../../redux/auth/operations";
-import { Button } from "../../ModalButtons/Button";
-import {
-  FormWrapper,
-  Text,
-  Label,
-  Input,
-  ButtonBox,
-  LabelText,
-  Navlink,
-} from "../AuthForms.styled";
-// PromtText,
-// BtnGoogle,
+import type { AppDispatch } from "../../../redux/store";
+import { FormWrapper, Text } from "../AuthForms.styled";
+import { EmailField, PasswordField, AuthFormActions } from "../atoms";
+import type { AuthFormElement } from "../AuthForms.types";
 
 export const LoginForm = () => {
-  const dispatch = useDispatch() as any;
+  const dispatch = useDispatch<AppDispatch>();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<AuthFormElement>) => {
     event.preventDefault();
 
-    const { email, password } = event.currentTarget.elements as any;
+    const { email, password } = event.currentTarget.elements;
 
-    dispatch((logIn as any)({ email: email.value, password: password.value }));
+    dispatch(logIn({ email: email.value, password: password.value }));
   };
 
   return (
     <FormWrapper>
-      {/* <Text>You can log in with your Google Account:</Text>
-      <BtnGoogle href="https://demokraci-kapusta.onrender.com/auth/google">
-        <GoogleSvg />
-      </BtnGoogle> */}
       <Text>Log in using an email and password</Text>
       <form autoComplete="on" onSubmit={handleSubmit}>
-        <Label>
-          <LabelText>Email:</LabelText>
-          <Input
-            type="email"
-            name="email"
-            autoComplete="email"
-            placeholder="your@email.com"
-            required
-          />
-        </Label>
+        <EmailField />
         <div>
-          <Label>
-            <LabelText>Password:</LabelText>
-            <Input
-              type="password"
-              name="password"
-              autoComplete="current-password"
-              placeholder="Enter your password..."
-              required
-            />
-          </Label>
+          <PasswordField placeholder="Enter your password..." />
         </div>
-        <ButtonBox>
-          <Button variant="primary" type="submit">LOG IN</Button>
-          <Navlink to="/register">Registration</Navlink>
-        </ButtonBox>
+        <AuthFormActions 
+          buttonText="LOG IN"
+          linkTo="/register"
+          linkText="Registration"
+          buttonFirst
+        />
       </form>
     </FormWrapper>
   );

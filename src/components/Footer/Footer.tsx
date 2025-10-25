@@ -1,5 +1,3 @@
-import { useMatchMedia } from "../../utils/hooks/useMatchMedia";
-import { useRouteDetection } from "../../utils/hooks/useRouteDetection";
 import githubIcon from "../../assets/github_icon.svg";
 import linkedInIcon from "../../assets/linkedin_icon.svg";
 import emailIcon from "../../assets/email_icon.svg";
@@ -12,17 +10,6 @@ import {
 } from "./Footer.styled";
 
 const Footer = () => {
-  const { isMobile } = useMatchMedia();
-  const { isExpenses, isIncome } = useRouteDetection();
-
-  // Should the component decide on its display on its own?
-  // Wouldn't it be better to conditionally render it in the parent?
-  const validator = (isExpenses && isMobile) || (isIncome && isMobile);
-
-  if (validator) {
-    return null;
-  }
-
   return (
     <FooterContainer>
       <Paragraph>

@@ -1,3 +1,5 @@
+import type { AsyncThunk } from "@reduxjs/toolkit";
+
 export interface FormElements {
   descr: HTMLInputElement;
   sum: HTMLInputElement;
@@ -12,7 +14,7 @@ export interface TransactionFormData {
 
 export interface CategoryData {
   categoryArray: string[];
-  functionToDispatch: (data: TransactionFormData) => any;
+  functionToDispatch: AsyncThunk<any, TransactionFormData, any>;
 }
 
 export interface FormRef {

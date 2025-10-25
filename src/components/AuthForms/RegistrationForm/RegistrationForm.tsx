@@ -2,47 +2,41 @@ import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../../redux/auth/operations";
 import { logIn } from "../../../redux/auth/operations";
 import { selectIsLoading } from "../../../redux/auth/selectors";
+import type { AppDispatch } from "../../../redux/store";
 import Loader from "../../../service/Loader/Loader";
-import { Button } from "../../ModalButtons/Button";
-import {
-  FormWrapper,
-  Text,
-  Label,
-  Input,
-  ButtonBox,
-  LabelText,
-  Navlink,
-} from "../AuthForms.styled";
+import { FormWrapper, Text } from "../AuthForms.styled";
+import { EmailField, PasswordField, AuthFormActions } from "../atoms";
+import type { AuthFormElement } from "../AuthForms.types";
 
 export const RegistrationForm = () => {
-  const dispatch = useDispatch() as any;
-
+  const dispatch = useDispatch<AppDispatch>();
   const isLoading = useSelector(selectIsLoading);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<AuthFormElement>) => {
     event.preventDefault();
 
-    const { email, password } = event.currentTarget.elements as any;
+    const { email, password } = event.currentTarget.elements;
 
-    dispatch((register as any)({
+    dispatch(register({
       email: email.value,
       password: password.value,
     }))
-      .then((registrationResult: any) => {
-        if (registrationResult.payload.code === 201) {
-          return dispatch((logIn as any)({
+      .then((registrationResult) => {
+        if (registrationResult.payload?.code === 201) {
+          return dispatch(logIn({
             email: email.value,
             password: password.value,
           }));
-        } else {
+        } else if (registrationResult.type === 'auth/register/rejected') {
           console.error(
             "Registration failed",
-            registrationResult.error.message
+            registrationResult.payload
           );
         }
       })
-      .catch((error: any) => {
-        console.error("Error during registration or login:", error.message);
+      .catch((error: unknown) => {
+        const message = error instanceof Error ? error.message : "Unknown error";
+        console.error("Error during registration or login:", message);
       });
   };
 
@@ -54,36 +48,20 @@ export const RegistrationForm = () => {
     <FormWrapper>
       <Text>Fill in the fields to register</Text>
       <form onSubmit={handleSubmit} autoComplete="on">
-        <Label>
-          <LabelText>Email:</LabelText>
-          <Input
-            type="email"
-            name="email"
-            autoComplete="email"
-            placeholder="your@email.com"
-            title="Email may consist of letters, numbers and a mandatory character '@'"
-            required
-          />
-        </Label>
+        <EmailField />
         <div>
-          <Label>
-            <LabelText>Password:</LabelText>
-            <Input
-              type="password"
-              name="password"
-              autoComplete="current-password"
-              placeholder="Select your password..."
-              title="The password can consist of at least 8 letters, numbers and symbols '!@#$%^&*'"
-              required
-            />
-          </Label>
+          <PasswordField 
+            placeholder="Select your password..."
+            title="The password can consist of at least 8 letters, numbers and symbols '!@#$%^&*'"
+          />
         </div>
-        <ButtonBox>
-          <Navlink to="/login">Log in</Navlink>
-          <Button variant="primary" type="submit" disabled={isLoading}>
-            REGISTRATION
-          </Button>
-        </ButtonBox>
+        <AuthFormActions 
+          buttonText="REGISTRATION"
+          linkTo="/login"
+          linkText="Log in"
+          buttonFirst={false}
+          isLoading={isLoading}
+        />
       </form>
     </FormWrapper>
   );
