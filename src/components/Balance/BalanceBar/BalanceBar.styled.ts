@@ -1,0 +1,111 @@
+import styled from "@emotion/styled";
+
+export const BalanceForm = styled.form`
+  display: flex;
+  @media (max-width: 767px) {
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+  }
+  @media (min-width: 768px) {
+    gap: 20px;
+    align-items: center;
+    margin-top: 0;
+  }
+`;
+
+export const BalanceBox = styled.div`
+  display: flex;
+  @media (max-width: 767px) {
+    width: 280px;
+    gap: 0;
+  }
+  @media (min-width: 768px) {
+    gap: 15px;
+  }
+`;
+
+export const BalanceText = styled.label`
+  font-weight: 500;
+  text-align: center;
+  color: var(--quaternary-color);
+  @media (min-width: 768px) {
+    width: 83px;
+    text-align: right;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  @media (min-width: 1280px) {
+    width: auto;
+  }
+`;
+
+export const BalanceInput = styled.input`
+  text-align: center;
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+  box-sizing: border-box;
+  background: var(--secondary-background);
+  height: 44px;
+  border: 2px solid var(--secondary-color);
+  outline: none;
+  font-weight: 700;
+  line-height: 14.06px;
+  color: var(--primary-color);
+  ::placeholder {
+    font-weight: 700;
+    line-height: 14.06px;
+    text-align: center;
+    color: var(--primary-color);
+  }
+  @media (max-width: 767px) {
+    width: 183px;
+    border-radius: 16px;
+  }
+  @media (min-width: 768px) {
+    border-radius: 16px;
+    width: 125px;
+  }
+  @media (min-width: 1280px) {
+    width: 125px;
+  }
+`;
+
+export const BalanceButton = styled.button`
+  box-sizing: border-box;
+  text-align: center;
+  background: var(--secondary-background);
+  height: 44px;
+  border: 2px solid var(--secondary-color);
+  line-height: 14.06px;
+  color: var(--quaternary-color);
+  font-weight: 700;
+  &:hover,
+  &:focus {
+    background: ${({ disabled }) =>
+      disabled ? "var(--secondary-background)" : "var(--brand-color)"};
+    border-color: ${({ disabled }) =>
+      disabled ? "var(--secondary-color)" : "var(--brand-color)"};
+    color: ${({ disabled }) =>
+      disabled ? "var(--quaternary-color)" : "var(--secondary-color)"};
+    cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+    transition: all 0.25s;
+  }
+  @media (max-width: 767px) {
+    width: 97px;
+    border-radius: 0 16px 16px 0;
+    border-left: 0;
+  }
+  @media (min-width: 768px) {
+    display: none;
+    border-radius: 16px;
+  }
+  @media (min-width: 1280px) {
+    width: 125px;
+    display: inline-block;
+  }
+`;
+

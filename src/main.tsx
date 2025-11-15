@@ -4,11 +4,15 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { PersistGate } from "redux-persist/integration/react";
 import { store, persistor } from "./redux/store";
+import { setupInterceptor } from "./redux/auth/api";
 import Loader from "./service/Loader/Loader";
-import App from "./App.js";
+import App from "./App";
 import "./index.css";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+setupInterceptor(store);
+
+const container = document.getElementById("root") as HTMLElement;
+const root = ReactDOM.createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>

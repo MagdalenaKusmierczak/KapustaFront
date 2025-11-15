@@ -1,8 +1,10 @@
-import React, { lazy, useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
+import type { AppDispatch } from "./redux/store";
 import { fetchUser } from "./redux/auth/operations";
 import { selectToken } from "./redux/auth/selectors";
+import { setAuthHeader } from "./redux/auth/api";
 import { PrivateRoute } from "./pages/PrivateRoute";
 import { RestrictedRoute } from "./pages/RestrictedRoute";
 import SharedLayout from "./pages/SharedLayout/SharedLayout";
@@ -14,17 +16,18 @@ const Login = lazy(() => import("./pages/AuthPages/Login/Login"));
 const RegisterPage = lazy(() => import("./pages//AuthPages/Register/Register"));
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const accessToken = useSelector(selectToken);
 
-  // Shouldn't access token be in the dependencies for this useEffect?
   useEffect(() => {
     if (!accessToken) {
       return;
     }
+    // Restore token to axios headers after rehydration
+    setAuthHeader(accessToken);
     dispatch(fetchUser());
-  });
+  }, [accessToken, dispatch]);
 
   return (
     <Routes>
@@ -41,18 +44,11 @@ const App = () => {
         <Route
           path="/expenses"
           element={<PrivateRoute component={<Expenses />} />}
-        >
-          <Route
-            path="/expenses/transactions"
-            element={<PrivateRoute component={<Expenses />} />}
-          />
-        </Route>
-        <Route path="/income" element={<PrivateRoute component={<Income />} />}>
-          <Route
-            path="/income/transactions"
-            element={<PrivateRoute component={<Income />} />}
-          />
-        </Route>
+        />
+        <Route 
+          path="/income" 
+          element={<PrivateRoute component={<Income />} />}
+        />
         <Route
           path="/reports"
           element={<PrivateRoute component={<Reports />} />}
