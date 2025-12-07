@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectIsLoading } from "../../redux/auth/selectors";
-import Loader from "../../service/Loader/Loader";
+import Loader from "../../components/Loader/Loader";
 import { LoginForm } from "../../components/AuthForms/LoginForm/LoginForm";
 import { RegistrationForm } from "../../components/AuthForms/RegistrationForm/RegistrationForm";
 import { useMatchMedia } from "../../utils/hooks/useMatchMedia";

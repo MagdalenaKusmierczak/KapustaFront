@@ -3,7 +3,7 @@ import { register } from "../../../redux/auth/operations";
 import { logIn } from "../../../redux/auth/operations";
 import { selectIsLoading } from "../../../redux/auth/selectors";
 import type { AppDispatch } from "../../../redux/store";
-import Loader from "../../../service/Loader/Loader";
+import Loader from "../../Loader/Loader";
 import { FormWrapper, Text } from "../AuthForms.styled";
 import { EmailField, PasswordField, AuthFormActions } from "../atoms";
 import type { AuthFormElement } from "../AuthForms.types";

@@ -23,7 +23,6 @@ const App = () => {
     if (!accessToken) {
       return;
     }
-    // Restore token to axios headers after rehydration
     setAuthHeader(accessToken);
     dispatch(fetchUser());
   }, [accessToken, dispatch]);

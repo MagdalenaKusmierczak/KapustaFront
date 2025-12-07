@@ -9,7 +9,6 @@ export const useRouteDetection = () => {
   const isLogin = location.pathname === "/login";
   const isRegister = location.pathname === "/register";
   
-  // Combined checks for common patterns
   const isIncExp = isIncome || isExpenses;
   const isAuthPage = isLogin || isRegister;
   
