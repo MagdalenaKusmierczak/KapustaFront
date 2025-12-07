@@ -28,7 +28,11 @@ export const logIn = createAsyncThunk(
       return data;
     } catch (error: any) {
       if (error.response?.status === 403) {
-        Report.failure("Email or Password is wrong.");
+        Report.failure(
+          "Login Failed",
+          "Email or Password is wrong.",
+          "OK"
+        );
       }
 
       return thunkAPI.rejectWithValue(error?.message || "Login failed");
@@ -96,9 +100,7 @@ export const fetchUser = createAsyncThunk<any, void, { state: RootState }>(
       const data = await fullUserInfoAPI();
       return data;
     } catch (error: any) {
-      // If token is invalid/expired, the interceptor will handle logout
-      // Just reject the action
-      clearAuthHeader();
+
       return thunkAPI.rejectWithValue(error?.message || "Failed to fetch user");
     }
   }

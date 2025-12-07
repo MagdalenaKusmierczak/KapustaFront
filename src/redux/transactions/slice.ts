@@ -100,7 +100,7 @@ export const transactionsSlice = createSlice({
       })
 
       .addCase(deleteTransaction.rejected, handleRejected)
-      // Get all transactions / for mobile devices ?
+      // Get all transactions
       .addCase(getAllTransactions.pending, handlePending)
       .addCase(getAllTransactions.fulfilled, (state, action) => {
         state.newBalance = action.payload.balance;

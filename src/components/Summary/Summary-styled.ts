@@ -46,9 +46,8 @@ export const ListItem = styled.li`
 export const Month = styled.p`
   width: 84px;
   text-transform: uppercase;
-
   letter-spacing: 0.04em;
-  // text-align: left;
+  text-align: left;
 `;
 
 export const Value = styled.p`

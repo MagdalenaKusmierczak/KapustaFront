@@ -15,8 +15,6 @@ export const selectExpensesTransactions = (state: RootState) =>
 export const selectIncomeTransactions = (state: RootState) =>
   state.transactions.incomes.incomeTransactions;
 
-// Not present in state definition; keeping for backward compat if used elsewhere
-export const selectTransactions = (state: RootState) => (state.transactions as any).transactions;
 
 export const selectIncomeSummary = (store: RootState) =>
   store.transactions.incomes.monthsStats;

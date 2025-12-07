@@ -51,7 +51,6 @@ export const store = configureStore({
           "your/action/type",
         ],
         ignoredActionPaths: ["meta.arg", "payload.timestamp"],
-        // Ignore these paths in the state
         ignoredPaths: ["items.dates"],
       },
     }),
@@ -59,6 +58,6 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-// Infer RootState from store
+
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

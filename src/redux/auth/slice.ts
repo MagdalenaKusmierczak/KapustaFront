@@ -11,11 +11,10 @@ const initialState: AuthState = {
   isRegistered: false,
   isLoggedIn: false,
   isRefreshing: false,
-  // If you want to play a bit with rewriting the store, check out RTKQ - it gives an abstraction over the store
-  // and allows you to use a cache for the data, also adding standardized "loading/error" state handling
   isLoading: false,
   error: null,
 };
+//TODO: considering of RTKQ usage- cache for the data, adding standardized "loading/error" state handling
 
 const handlePending = (state: AuthState) => {
   state.isLoading = true;
@@ -97,9 +96,9 @@ export const authSlice = createSlice({
         state.user = action.payload;
         state.isLoading = false;
       })
-      .addCase(fetchUser.rejected, (state) => {
+      .addCase(fetchUser.rejected, (state, action) => {
         state.isLoading = false;
-        // Don't clear auth state here - let the interceptor handle logout
+        state.error = (action.payload as string) ?? null;
       });
   },
 });
