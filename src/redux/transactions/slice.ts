@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { TransactionsState } from "../types";
-import { refreshUser, logIn } from "../auth/operations";
+import { refreshUser, logIn, fetchUser } from "../auth/operations";
 import { createAsyncSlice } from "../../utils/redux/createAsyncSlice";
 import {
   addIncome,
@@ -100,7 +100,7 @@ export const transactionsSlice = createSlice({
       })
 
       .addCase(deleteTransaction.rejected, handleRejected)
-      // Get all transactions / for mobile devices ?
+      // Get all transactions
       .addCase(getAllTransactions.pending, handlePending)
       .addCase(getAllTransactions.fulfilled, (state, action) => {
         state.newBalance = action.payload.balance;
@@ -121,7 +121,13 @@ export const transactionsSlice = createSlice({
       .addCase(logIn.fulfilled, (state, action) => {
         state.newBalance = action.payload.userData.balance;
       })
-      .addCase(logIn.rejected, handleRejected);
+      .addCase(logIn.rejected, handleRejected)
+      // fetch user
+      .addCase(fetchUser.fulfilled, (state, action) => {
+        state.newBalance = action.payload.balance;
+        state.allTransactions = action.payload.transactions;
+        state.isLoading = false;
+      });
   },
 });
 

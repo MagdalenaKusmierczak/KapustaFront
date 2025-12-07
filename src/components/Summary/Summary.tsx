@@ -5,7 +5,7 @@ import {
   selectExpensesSummary,
   selectIncomeSummary,
 } from "../../redux/transactions/selectors";
-import Loader from "../../service/Loader/Loader";
+import Loader from "../Loader/Loader";
 import { Value, Table, Header, ListItem, Month } from "./Summary-styled";
 
 const Summary = () => {

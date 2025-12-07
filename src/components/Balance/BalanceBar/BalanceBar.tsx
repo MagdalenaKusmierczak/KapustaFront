@@ -1,9 +1,9 @@
-import { useState, useRef, type ComponentType, type FormHTMLAttributes, type InputHTMLAttributes, type ButtonHTMLAttributes } from "react";
+import { useState, useRef, useEffect, type ComponentType, type FormHTMLAttributes, type InputHTMLAttributes, type ButtonHTMLAttributes } from "react";
+import { useLocation } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import type { AppDispatch, RootState } from "../../../redux/store";
 import { updateBalance } from "../../../redux/transactions/operations";
-import EntryModal from "../../Modals/EntryModal/EntryModal";
-import BalanceModal from "../../Modals/BalanceModal/BalanceModal";
+import { Modal } from "../../Modals/Modal";
 
 export interface BalanceBarStyledComponents {
   BalanceForm: ComponentType<FormHTMLAttributes<HTMLFormElement> & { ref?: React.Ref<HTMLFormElement> }>;
@@ -21,13 +21,23 @@ const BalanceBar = ({ styledComponents }: BalanceBarProps) => {
   const { BalanceForm, BalanceBox, BalanceText, BalanceInput, BalanceButton } = styledComponents;
   
   const [modalOpen, setModalOpen] = useState(false);
+  const [entryModalOpen, setEntryModalOpen] = useState(true);
   const [balance, setBalance] = useState("");
 
   const form = useRef<HTMLFormElement>(null);
+  const location = useLocation();
+  const isReports = location.pathname === "/reports";
 
   const stateBalance = useSelector((state: RootState) => state.transactions.newBalance);
 
   const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    if (entryModalOpen) {
+      document.body.classList.add("no-scroll");
+    }
+    return () => document.body.classList.remove("no-scroll");
+  }, [entryModalOpen]);
 
   const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
@@ -41,10 +51,15 @@ const BalanceBar = ({ styledComponents }: BalanceBarProps) => {
     dispatch(updateBalance({ newBalance: balance }));
     form.current?.reset();
     setBalance("");
+    setModalOpen(false);
   };
 
   const handleModalClose = () => {
     setModalOpen(false);
+  };
+
+  const handleEntryModalClose = () => {
+    setEntryModalOpen(false);
   };
 
   return (
@@ -56,8 +71,8 @@ const BalanceBar = ({ styledComponents }: BalanceBarProps) => {
             id="balance"
             name="balance"
             type="number"
-            pattern="[0-9, .UAH]*"
-            placeholder={`${stateBalance ?? 0}.00 UAH`}
+            pattern="[0-9, .$]*"
+            placeholder={`${stateBalance ?? 0}.00 $`}
             value={balance}
             required
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setBalance(e.target.value)}
@@ -69,14 +84,26 @@ const BalanceBar = ({ styledComponents }: BalanceBarProps) => {
             CONFIRM
           </BalanceButton>
         </BalanceBox>
-        {!stateBalance && <EntryModal />}
+        {!stateBalance && entryModalOpen && (
+          <Modal
+            variant={isReports ? "information-reports" : "information"}
+            onClose={handleEntryModalClose}
+            showCloseButton={false}
+          >
+            <h2>Hello! To get started, enter the current balance of your account!</h2>
+            <p>You can't spend money until you have it</p>
+          </Modal>
+        )}
       </BalanceForm>
       {modalOpen && (
-        <BalanceModal
+        <Modal
+          variant="confirmation"
+          onClose={handleModalClose}
+          onConfirm={handleConfirm}
           changeBalance="true"
-          closeModal={handleModalClose}
-          dispatch={handleConfirm}
-        />
+        >
+          Are you sure?
+        </Modal>
       )}
     </>
   );

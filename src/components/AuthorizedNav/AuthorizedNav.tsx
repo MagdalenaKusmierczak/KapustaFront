@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../redux/auth/operations";
 import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
 import type { AppDispatch } from "../../redux/store";
-import { HeaderModalWindow } from "../Modals/HeaderModalWindow/HeaderModalWindow";
+import { Modal } from "../Modals/Modal";
 import icons from "../../assets/icons.svg";
 import {
   AuthNav,
@@ -53,12 +53,13 @@ const AuthorizedNav = () => {
           </ExitButton>
       </AuthNav>
       {modalOpen && (
-        <HeaderModalWindow
-          closeModal={handleModalClose}
-          dispatch={handleClick}
+        <Modal
+          variant="confirmation"
+          onClose={handleModalClose}
+          onConfirm={handleClick}
         >
           Do you really want to leave?
-        </HeaderModalWindow>
+        </Modal>
       )}
     </>
   );

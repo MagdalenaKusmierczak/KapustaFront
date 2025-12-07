@@ -44,7 +44,7 @@ export const SelectBody = styled.div`
   top: 100%;
   left: 0;
   z-index: 3;
-  // text-align: left;
+  text-align: left;
   width: 280px;
   border: 2px solid var(--primary-background);
   border-bottom-right-radius: 20px;
@@ -64,7 +64,7 @@ export const Element = styled.div`
   align-items: center;
   padding: 8px 20px;
   height: 32px;
-
+text-align: left;
   cursor: pointer;
   color: var(--ternary-color);
   &:hover {

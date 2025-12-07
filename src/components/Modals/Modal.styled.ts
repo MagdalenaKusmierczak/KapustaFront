@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const ModalBackdrop = styled.div`
-  z-index: 3;
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;

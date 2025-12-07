@@ -12,8 +12,7 @@ import SharedLayout from "./pages/SharedLayout/SharedLayout";
 const Reports = lazy(() => import("./pages/Reports/Reports"));
 const Expenses = lazy(() => import("./pages/Transactions/Expenses/Expenses"));
 const Income = lazy(() => import("./pages/Transactions/Incomes/Incomes"));
-const Login = lazy(() => import("./pages/AuthPages/Login/Login"));
-const RegisterPage = lazy(() => import("./pages//AuthPages/Register/Register"));
+const Auth = lazy(() => import("./pages/AuthPage/AuthPage"));
 
 const App = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -24,7 +23,6 @@ const App = () => {
     if (!accessToken) {
       return;
     }
-    // Restore token to axios headers after rehydration
     setAuthHeader(accessToken);
     dispatch(fetchUser());
   }, [accessToken, dispatch]);
@@ -35,11 +33,11 @@ const App = () => {
         <Route index element={<Navigate to="/expenses" />} />
         <Route
           path="/login"
-          element={<RestrictedRoute component={<Login />} />}
+          element={<RestrictedRoute component={<Auth />} />}
         />
         <Route
           path="/register"
-          element={<RestrictedRoute component={<RegisterPage />} />}
+          element={<RestrictedRoute component={<Auth />} />}
         />
         <Route
           path="/expenses"

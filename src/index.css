@@ -45,6 +45,7 @@ body {
   --disabled-line: #ccc;
   --default-tab: #fafbfd;
   --active-tab:  #fefefe;
+  --shadow: 0 10px 60px #aab2c5;
   --primary-small-shadow: 5px 10px 20px 0 #aab2c566;
   --primary-shadow: 0 10px 60px 0 #aab2c533;
   --secondary-shadow: 0 10px 60px #aab2c5;

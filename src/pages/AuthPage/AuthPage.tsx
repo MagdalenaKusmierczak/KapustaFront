@@ -1,15 +1,17 @@
 import { Suspense } from "react";
+import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectIsLoading } from "../../../redux/auth/selectors";
-import Loader from "../../../service/Loader/Loader";
-import { LoginForm } from "../../../components/AuthForms/LoginForm/LoginForm";
-import { useMatchMedia } from "../../../utils/hooks/useMatchMedia";
-import Name from "../../../images/union.svg";
-import kapusta from "../../../images/kapusta.svg";
-import tabShadow from "../../../images/tabEllipse.svg";
-import groupTablet from "../../../images/groupTablet.png";
-import groupDesktop from "../../../images/groupDesktop.png";
-import halfKapusta from "../../../images/half.png";
+import { selectIsLoading } from "../../redux/auth/selectors";
+import Loader from "../../components/Loader/Loader";
+import { LoginForm } from "../../components/AuthForms/LoginForm/LoginForm";
+import { RegistrationForm } from "../../components/AuthForms/RegistrationForm/RegistrationForm";
+import { useMatchMedia } from "../../utils/hooks/useMatchMedia";
+import Name from "../../images/union.svg";
+import kapusta from "../../images/kapusta.svg";
+import tabShadow from "../../images/tabEllipse.svg";
+import groupTablet from "../../images/groupTablet.png";
+import groupDesktop from "../../images/groupDesktop.png";
+import halfKapusta from "../../images/half.png";
 import {
   StyledAuthPage,
   Image,
@@ -24,11 +26,14 @@ import {
   KapustaMobTop,
   GroupTablet,
   GroupDesktop,
-} from "../AuthPages.styled";
+} from "./AuthPage.styled";
 
-export default function LoginPage() {
+export default function Auth() {
+  const location = useLocation();
   const { isMobile, isTablet, isDesktop } = useMatchMedia();
   const isLoading = useSelector(selectIsLoading);
+
+  const isRegisterPage = location.pathname === "/register";
 
   if (isLoading) {
     return <Loader />;
@@ -66,11 +71,10 @@ export default function LoginPage() {
             <Image src={Name} alt="Kapusta" />
             <Text>Smart Finance</Text>
           </TextWrap>
-          <LoginForm />
+          {isRegisterPage ? <RegistrationForm /> : <LoginForm />}
         </Background>
       </StyledAuthPage>
     </Suspense>
   );
 }
-
 
