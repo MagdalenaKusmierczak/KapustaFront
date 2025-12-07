@@ -25,7 +25,7 @@ export const formatDate = (date: string): string => {
  */
 export const formatAmount = (amount: number, type: TransactionType): string => {
   const sign = type === "expense" ? "-" : "+";
-  return `${sign} ${amount}.00 UAH`;
+  return `${sign} ${amount}.00 $`;
 };
 
 /**

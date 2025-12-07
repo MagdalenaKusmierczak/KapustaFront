@@ -1,10 +1,9 @@
-// import { ThreeCircles } from "react-loader-spinner";
-import { LoaderWrapper } from "./Loader.styled";
+import { LoaderWrapper, Spinner } from "./Loader.styled";
 
 const Loader = () => {
   return (
     <LoaderWrapper>
-     <div>Loading</div>
+      <Spinner />
     </LoaderWrapper>
   );
 };

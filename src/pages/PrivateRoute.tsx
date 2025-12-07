@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { selectIsLoggedIn, selectIsRefreshing } from "../redux/auth/selectors";
 
 type PrivateRouteProps = {
-  component: JSX.Element;
+  component: React.ReactElement;
   redirectTo?: string;
 };
 

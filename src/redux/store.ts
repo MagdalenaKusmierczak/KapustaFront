@@ -4,7 +4,6 @@ import { transactionsReducer } from "./transactions/slice";
 import { reportsReducer } from "./reports/slice";
 import { reportsQueryReducer } from "./reportsQuery/reportsQuery.slice";
 import { categoriesReducer} from "./categories/slice";
-import modalReducer from "./modal/modalSlice";
 import type { AuthState } from "./types";
 import type { Reducer } from "redux";
 import type { PersistPartial } from "redux-persist/es/persistReducer";
@@ -36,7 +35,6 @@ export const store = configureStore({
     reports: reportsReducer,
     reportsQuery: reportsQueryReducer,
     categories: categoriesReducer,
-    modal: modalReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
