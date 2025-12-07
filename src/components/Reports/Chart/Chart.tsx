@@ -40,7 +40,7 @@ const createChartOptions = (categories: string[]) => ({
   dataLabels: {
     enabled: true,
     formatter: function (val: number) {
-      return `${val} UAH`;
+      return `${val} $`;
     },
     style: {
       fontSize: "12",

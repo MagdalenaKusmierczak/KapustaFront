@@ -71,8 +71,8 @@ const BalanceBar = ({ styledComponents }: BalanceBarProps) => {
             id="balance"
             name="balance"
             type="number"
-            pattern="[0-9, .UAH]*"
-            placeholder={`${stateBalance ?? 0}.00 UAH`}
+            pattern="[0-9, .$]*"
+            placeholder={`${stateBalance ?? 0}.00 $`}
             value={balance}
             required
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => setBalance(e.target.value)}
