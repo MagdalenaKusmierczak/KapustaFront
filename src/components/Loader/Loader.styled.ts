@@ -11,7 +11,7 @@ const spin = keyframes`
 `;
 
 export const LoaderWrapper = styled.div`
-  z-index: 5;
+  z-index: 10;
   position: fixed;
   top: 0;
   left: 0;
