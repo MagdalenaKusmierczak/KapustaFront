@@ -43,6 +43,7 @@ export const StyledTableAndSummaryDiv = styled.div`
   z-index: 2;
   display: flex;
   justify-content: space-between;
+  border:none;
   @media screen and (min-width: 768px) {
     margin-top: 48px;
   }
@@ -52,7 +53,8 @@ export const StyledTableAndSummaryDiv = styled.div`
 `;
 export const StyledTabsDesktop = styled.div`
   display: flex;
-  z-index: 2;
+  z-index: 3;
+  
   @media screen and (min-width: 768px) {
     margin-left: 32px;
   }
@@ -74,11 +76,15 @@ export const StyledTabsDesktop = styled.div`
     :hover,
     :focus {
       color: var(--brand-color);
-      background-color: var(--active-tab);
+      background-color: var(--secondary-color);
+      border: 1px solid var(--brand-color);
+      border-bottom:none;
     }
     &.active {
       color: var(--brand-color);
-      background-color: var(--active-tab);
+      background-color: var(--secondary-color);
+      border: 1px solid var(--active-tab);
+      border-bottom:none;
     }
   }
 `;

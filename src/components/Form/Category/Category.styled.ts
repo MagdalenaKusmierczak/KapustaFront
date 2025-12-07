@@ -64,7 +64,7 @@ export const Element = styled.div`
   align-items: center;
   padding: 8px 20px;
   height: 32px;
-
+text-align: left;
   cursor: pointer;
   color: var(--ternary-color);
   &:hover {

@@ -18,3 +18,4 @@ export const PrivateRoute = ({ component: Component, redirectTo = "/login" }: Pr
 
 
 
+
